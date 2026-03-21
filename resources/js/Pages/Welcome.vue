@@ -1,8 +1,13 @@
 <script setup>
-import { computed, ref } from 'vue';
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
+import arabicaImage from '../../images/coffee1.jpg';
+import communityImage from '../../images/community.jpg';
+import robustaImage from '../../images/coffee2.jpg';
+import headerLogo from '../../images/logo.png';
+import regionalMap from '../../images/map.png';
+import qrImage from '../../images/qr.jpg';
 
-const props = defineProps({
+defineProps({
     canLogin: {
         type: Boolean,
         default: false,
@@ -12,879 +17,637 @@ const props = defineProps({
         default: false,
     },
 });
-
-const page = usePage();
-const mobileMenuOpen = ref(false);
-
-const isAuthenticated = computed(() => Boolean(page.props.auth?.user));
-const guestEntryRoute = computed(() => (props.canRegister ? 'register' : 'login'));
-
-const navLinks = [
-    { label: 'Marketplace', href: '#marketplace' },
-    { label: 'Traceability', href: '#traceability' },
-    { label: 'Logistics', href: '#logistics' },
-    { label: 'Impact', href: '#impact' },
-];
-
-const heroMetrics = [
-    { value: '6.2M', label: 'bags of annual export capacity' },
-    { value: '94%', label: 'farmer value distribution tracked' },
-    { value: '48h', label: 'average lot verification turnaround' },
-];
-
-const signalCards = [
-    {
-        title: 'Harvest Window',
-        value: 'Live',
-        detail: 'Dual-season sourcing from Mount Elgon, Rwenzori, and Lake Victoria belts.',
-        icon: 'event_available',
-    },
-    {
-        title: 'Trace Layer',
-        value: 'On-chain',
-        detail: 'Every lot linked to farm origin, processing data, and shipment events.',
-        icon: 'encrypted',
-    },
-];
-
-const tradeAdvantages = [
-    {
-        eyebrow: 'Visibility',
-        title: 'See lots before the market moves',
-        description: 'Monitor inventories, quality scores, and harvest timing before contracts become competitive.',
-        icon: 'monitoring',
-    },
-    {
-        eyebrow: 'Precision',
-        title: 'Buy on cup profile, not guesswork',
-        description: 'Compare varietal, altitude, process, moisture, and logistics readiness in one place.',
-        icon: 'tune',
-    },
-    {
-        eyebrow: 'Trust',
-        title: 'Verify every step of the chain',
-        description: 'Batch records, payout transparency, and shipping checkpoints stay visible from farm to port.',
-        icon: 'verified',
-    },
-];
-
-const regionalHighlights = [
-    {
-        icon: 'volcano',
-        title: 'Volcanic highland terroir',
-        description: "Uganda's elevation and mineral-rich soils drive floral aromatics, layered sweetness, and sturdy structure.",
-    },
-    {
-        icon: 'public',
-        title: 'Two harvest cycles each year',
-        description: 'Equatorial growing zones reduce sourcing dead zones and keep availability steadier across the calendar.',
-    },
-    {
-        icon: 'groups_3',
-        title: '1.7M producer households',
-        description: 'A deeply distributed smallholder network gives buyers range, resilience, and long-term partnership potential.',
-    },
-];
-
-const qualityProfiles = [
-    {
-        name: 'Arabica',
-        badge: 'Highland micro-lots',
-        title: 'Structured sweetness with floral lift',
-        regions: 'Mount Elgon, Rwenzori Mountains',
-        altitude: '1,300 to 2,300m',
-        process: 'Washed, honey, natural',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ',
-        alt: 'Ugandan Arabica coffee cherries and beans',
-        notes: ['Jasmine', 'Stone fruit', 'Brown sugar'],
-    },
-    {
-        name: 'Robusta',
-        badge: 'Native powerhouse',
-        title: 'Deep body with bold cocoa energy',
-        regions: 'Central Basin, Western Lowlands',
-        altitude: '900 to 1,500m',
-        process: 'Natural, sun-dried, screen 18+',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBC655FgLNC1Qo9KbsjljFL32jP9jDS_Rnn3AFs3rIlQX0GwAbhPuqYjriacFwEBc1xCFHMWBzvZe3fAPULN3n4uN0KkNoh_vsY6-kPw8Q2SQLTEYS1kEQtK8a-_nIp8L9HdynGm8Uw5S0BwkWq5OQ68ebnsxBj_etN4xaFindHNXp048WGTe1JuKIQrkH3MCBMv_QtEZwIHjsLCQLH7IGobkTyhTeZxXByfZDv-IxlmQ7CC2PhC-hQIHkqvz0AW40FmSiVGMlAq0k',
-        alt: 'Ugandan Robusta coffee harvest',
-        notes: ['Dark cacao', 'Toffee', 'Dense crema'],
-    },
-];
-
-const traceabilitySteps = [
-    {
-        step: '01',
-        title: 'Farm identity',
-        description: 'Producer, co-op, GPS plot, and agronomy history are attached at source.',
-        icon: 'pin_drop',
-    },
-    {
-        step: '02',
-        title: 'Harvest log',
-        description: 'Cherry timing, moisture, density, and lot separation are recorded at collection.',
-        icon: 'agriculture',
-    },
-    {
-        step: '03',
-        title: 'Processing proof',
-        description: 'Milling, grading, cupping scores, and export prep become part of the immutable lot record.',
-        icon: 'factory',
-    },
-    {
-        step: '04',
-        title: 'Freight visibility',
-        description: 'Container events, seal references, and delivery milestones remain visible after contract execution.',
-        icon: 'local_shipping',
-    },
-];
-
-const logisticsCards = [
-    {
-        icon: 'hub',
-        title: 'Export hub coverage',
-        description: 'Coordinate from Kampala through regional collection centers with live contract visibility.',
-    },
-    {
-        icon: 'shield_lock',
-        title: 'Origin assurance',
-        description: 'Signed origin records, team approvals, and shipment handoff logs stay linked to each lot.',
-    },
-    {
-        icon: 'payments',
-        title: 'Secure trade flow',
-        description: 'Align payment releases with verified milestones instead of relying on email threads and PDFs.',
-    },
-    {
-        icon: 'route',
-        title: 'Shipment tracking',
-        description: 'Follow production readiness, export prep, and downstream fulfillment from one operational view.',
-    },
-];
-
-const impactFigures = [
-    { value: '94%', label: 'producer value returned to origin communities' },
-    { value: '450+', label: 'active co-operatives and collection partners' },
-    { value: '12', label: 'major export touchpoints integrated into the flow' },
-    { value: '24/7', label: 'lot visibility for international buying teams' },
-];
-
-const featuredLots = [
-    {
-        title: 'Mount Elgon High Peaks',
-        badge: 'Honey process',
-        volume: '12.5 Tons',
-        harvest: 'August release',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIkU25APwKtHRPH16ebxCtKBV00FUlXXopwK1QrDK3YTsqgfbpIvcqHeyATN-yp1_oDKYgd0RQtb6psW8w3Z3jD6Awv4uMRimif0YjuzNOqulXh3OofuKGMy3Qokdkg7XZ0VgCs8FrDJQ-ZoCuCS1kjsZ-svjk4DdqUyaVXtfktaC0voSwothnHGF73sUudPJj5Bu-saCv3YHAR7ClVC7PYc4yCL3Gs8jGnzVp5GuSLVtCFGpqrzHOfGxUQQUXS3qxAlClJNcpwOM',
-        alt: 'Mount Elgon high altitude coffee lot',
-        notes: ['Nectarine', 'Cane sugar', 'Silky finish'],
-    },
-    {
-        title: 'Lake Victoria Reserve',
-        badge: 'Screen 18 Robusta',
-        volume: '45.0 Tons',
-        harvest: 'Ready to contract',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDawoRPyhpWtIJI-WRZ0jMds2oFpLFKB1izAX0KvJC2uZ4K0QptLxoZxl7mMA8zOn7HRBZvOGquQslGPpMO57ku9I4jax2RephP1SxpJDja2-xgf_jZxtXDk5zdKU-i6-f2Q09tbdg1Hhc1euz1j3ec5HAxgh_tQIb4WrNhGTDA9_ABGItrKbBzrAU4hZblJRZL1Kje47rsjnQ-7UmsRuqT9PHrq4ykyh1_dQJnXdvNTCDtJpjmFGJkYJnr7t6SibVc9lxhCFSSnhU',
-        alt: 'Lake Victoria reserve coffee lot',
-        notes: ['Cocoa nib', 'Molasses', 'Dense body'],
-    },
-    {
-        title: 'Mountains of the Moon',
-        badge: 'Natural Arabica',
-        volume: '5.8 Tons',
-        harvest: 'Micro-lot release',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ',
-        alt: 'Mountains of the Moon natural process lot',
-        notes: ['Berry jam', 'Jasmine', 'Tea-like finish'],
-    },
-];
-
-const inquiryFields = [
-    { id: 'full-name', label: 'Full Name', placeholder: 'John Doe', type: 'text' },
-    { id: 'company-name', label: 'Company Name', placeholder: 'Acme Roasters', type: 'text' },
-    { id: 'email-address', label: 'Email Address', placeholder: 'greenbuyer@company.com', type: 'email' },
-    { id: 'annual-volume', label: 'Annual Volume Need', placeholder: '20 tons+', type: 'text' },
-];
 </script>
 
 <template>
-    <Head title="Bean Origin">
+    <Head title="Bean Origin | Premium Ugandan Coffee Trade">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Serif:wght@400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
             rel="stylesheet"
         />
     </Head>
 
-    <div class="landing-page bg-[#f7f3ea] text-[#201311]">
-        <nav class="glass-nav fixed inset-x-0 top-0 z-[100] border-b border-[#2e1b16]/10 backdrop-blur-xl">
-            <div class="mx-auto flex max-w-[1480px] items-center justify-between px-5 py-4 md:px-8 lg:px-12">
-                <a href="#" class="flex items-center gap-3">
-                    <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#201311] text-sm font-bold text-[#f7f3ea]">BO</span>
-                    <div>
-                        <p class="serif text-xl font-bold leading-none text-[#201311]">Bean Origin</p>
-                        <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#201311]/45">Ugandan Coffee Trade</p>
-                    </div>
-                </a>
+    <div class="landing-page bg-cream text-espresso selection:bg-sage/20">
+        <nav class="glass-nav fixed top-0 z-[100] w-full border-b border-espresso/10">
+            <div class="container mx-auto flex items-center justify-between px-6 py-5 md:px-12">
+                <Link :href="route('home')" class="flex items-center gap-3 text-2xl font-bold tracking-tight text-espresso">
+                    <img :src="headerLogo" alt="Coffee Pulse Uganda logo" class="h-10 w-10 rounded-full object-contain" />
+                    <span class="serif">Coffee Pulse Uganda</span>
+                </Link>
 
-                <div class="hidden items-center gap-8 lg:flex">
-                    <a
-                        v-for="item in navLinks"
-                        :key="item.label"
-                        :href="item.href"
-                        class="text-sm font-semibold tracking-wide text-[#201311]/65 transition-colors hover:text-[#201311]"
-                    >
-                        {{ item.label }}
-                    </a>
+                <div class="hidden items-center gap-12 lg:flex">
+                    <a class="border-b-2 border-espresso pb-1 text-sm font-bold tracking-wide text-espresso" href="#marketplace">Marketplace</a>
+                    <a class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso" href="#traceability">Direct Trade</a>
+                    <a class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso" href="#global-scale">Logistics</a>
+                    <a class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso" href="#impact">Impact</a>
+                    <Link :href="route('protocol')" class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso">Protocol</Link>
                 </div>
 
-                <div class="hidden items-center gap-3 lg:flex">
+                <template v-if="$page.props.auth.user">
                     <Link
-                        v-if="isAuthenticated"
                         :href="route('dashboard')"
-                        class="rounded-full border border-[#201311]/10 px-5 py-2.5 text-sm font-semibold text-[#201311] transition hover:bg-[#201311]/5"
+                        class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
                     >
-                        Dashboard
+                        Source Ugandan Coffee
                     </Link>
-
+                </template>
+                <template v-else-if="canRegister">
                     <Link
-                        v-else-if="canLogin"
+                        :href="route('register')"
+                        class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
+                    >
+                        Source Ugandan Coffee
+                    </Link>
+                </template>
+                <template v-else-if="canLogin">
+                    <Link
                         :href="route('login')"
-                        class="rounded-full border border-[#201311]/10 px-5 py-2.5 text-sm font-semibold text-[#201311] transition hover:bg-[#201311]/5"
+                        class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
                     >
-                        Log in
+                        Source Ugandan Coffee
                     </Link>
-
-                    <Link
-                        v-if="isAuthenticated"
-                        :href="route('dashboard')"
-                        class="rounded-full bg-[#201311] px-6 py-2.5 text-sm font-bold text-[#f7f3ea] transition hover:bg-[#201311]/90"
-                    >
-                        Start Sourcing
-                    </Link>
-
-                    <Link
-                        v-else-if="canLogin || canRegister"
-                        :href="route(guestEntryRoute)"
-                        class="rounded-full bg-[#201311] px-6 py-2.5 text-sm font-bold text-[#f7f3ea] transition hover:bg-[#201311]/90"
-                    >
-                        Start Sourcing
-                    </Link>
-
-                    <a
-                        v-else
-                        href="#inquiry"
-                        class="rounded-full bg-[#201311] px-6 py-2.5 text-sm font-bold text-[#f7f3ea] transition hover:bg-[#201311]/90"
-                    >
-                        Start Sourcing
-                    </a>
-                </div>
-
-                <button
-                    type="button"
-                    class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#201311]/10 text-[#201311] lg:hidden"
-                    @click="mobileMenuOpen = !mobileMenuOpen"
+                </template>
+                <a
+                    v-else
+                    href="#inquiry"
+                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
                 >
-                    <span class="material-symbols-outlined">{{ mobileMenuOpen ? 'close' : 'menu' }}</span>
-                </button>
-            </div>
-
-            <div
-                v-if="mobileMenuOpen"
-                class="border-t border-[#2e1b16]/10 bg-[#f7f3ea]/95 px-5 py-5 lg:hidden"
-            >
-                <div class="flex flex-col gap-4">
-                    <a
-                        v-for="item in navLinks"
-                        :key="`${item.label}-mobile`"
-                        :href="item.href"
-                        class="text-sm font-semibold tracking-wide text-[#201311]/75"
-                        @click="mobileMenuOpen = false"
-                    >
-                        {{ item.label }}
-                    </a>
-
-                    <Link
-                        v-if="isAuthenticated"
-                        :href="route('dashboard')"
-                        class="inline-flex w-full items-center justify-center rounded-full border border-[#201311]/10 px-5 py-3 text-sm font-semibold text-[#201311]"
-                        @click="mobileMenuOpen = false"
-                    >
-                        Dashboard
-                    </Link>
-
-                    <Link
-                        v-else-if="canLogin || canRegister"
-                        :href="route(isAuthenticated ? 'dashboard' : guestEntryRoute)"
-                        class="inline-flex w-full items-center justify-center rounded-full bg-[#201311] px-5 py-3 text-sm font-bold text-[#f7f3ea]"
-                        @click="mobileMenuOpen = false"
-                    >
-                        Start Sourcing
-                    </Link>
-                </div>
+                    Source Ugandan Coffee
+                </a>
             </div>
         </nav>
 
-        <section class="relative overflow-hidden px-5 pb-16 pt-28 md:px-8 md:pt-32 lg:px-12 lg:pb-20">
-            <div class="hero-orb hero-orb-left"></div>
-            <div class="hero-orb hero-orb-right"></div>
-            <div class="grain-mask absolute inset-0 opacity-60"></div>
+        <section class="relative flex min-h-[70vh] items-center overflow-hidden bg-cream pb-20 pt-24">
+            <div class="absolute inset-0 z-0">
+                <img
+                    alt="Ugandan Highlands"
+                    class="h-full w-full object-cover opacity-20 mix-blend-multiply"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Fkj_AVCPHmKmSMc6FMbWh8xZipsrSIgEr5H6ZGwH82fIUosB8aPXHvUJ1J5mgddnO5C5Ko02SBtt2xCaEFH_PYheBEHAfhp0aXBysv2dmd5jbk6eV3nqpwpCSSAMkQfoZHvDolbs7nsplZpCU8EVv3RmBR7lOiOcJo00jCz8yTbnAx7YI4JZrjyprKHMiVOaLD79vB83R-Pp4MZu69R7uJyIoUD9RKWCqiQSH6GIR1zQS6KZBYq6WrE18Y_RQma0L7FbaC9JorI"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-cream via-cream/80 to-transparent"></div>
+            </div>
 
-            <div class="relative mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-                <div class="max-w-3xl">
-                    <div class="mb-6 inline-flex items-center gap-3 rounded-full border border-[#201311]/10 bg-white/70 px-4 py-2 backdrop-blur">
-                        <span class="h-2.5 w-2.5 rounded-full bg-[#7bcf80]"></span>
-                        <span class="text-[11px] font-black uppercase tracking-[0.28em] text-[#201311]/70">Verified Ugandan Origin</span>
+            <div class="container relative z-10 mx-auto px-6 md:px-12">
+                <div class="max-w-4xl">
+                    <div class="mb-8 inline-flex items-center gap-2 rounded-sm border border-sage/20 bg-sage/10 px-4 py-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-sage"></span>
+                        <span class="text-xs font-black uppercase tracking-[0.2em] text-espresso/70">Verified Ugandan Origin</span>
                     </div>
 
-                    <h1 class="serif text-balance max-w-4xl text-5xl font-bold leading-[0.92] tracking-[-0.04em] text-[#201311] sm:text-6xl lg:text-[6.25rem]">
-                        Premium Ugandan coffee, traded with
-                        <span class="italic text-[#5c8f46]">clarity and control</span>
+                    <h1 class="serif text-balance mb-8 text-4xl font-medium leading-[1.08] tracking-tight text-espresso md:text-6xl lg:text-7xl" id="heading">
+                        From Farm to Cup, <br />
+                        <span class="text-sage">Transparently.</span>
                     </h1>
 
-                    <p class="mt-7 max-w-2xl text-lg leading-8 text-[#5b4b45] md:text-xl">
-                        Bean Origin connects global buyers directly to Uganda's standout lots with live contract visibility, full traceability, and a sourcing story you can actually prove.
+                    <p class="mb-10 max-w-2xl text-base font-light leading-relaxed text-on-surface-variant md:text-lg">
+                        The premier digital gateway to Uganda's finest coffee. Direct trade, blockchain-verified, and ethically sourced for global roasters.
                     </p>
 
-                    <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-                        <Link
-                            v-if="isAuthenticated"
-                            :href="route('dashboard')"
-                            class="inline-flex items-center justify-center rounded-full bg-[#201311] px-9 py-4 text-base font-bold text-[#f7f3ea] transition hover:-translate-y-0.5 hover:bg-[#201311]/92"
-                        >
-                            Explore Live Lots
-                        </Link>
-                        <Link
-                            v-else-if="canLogin || canRegister"
-                            :href="route(guestEntryRoute)"
-                            class="inline-flex items-center justify-center rounded-full bg-[#201311] px-9 py-4 text-base font-bold text-[#f7f3ea] transition hover:-translate-y-0.5 hover:bg-[#201311]/92"
-                        >
-                            Explore Live Lots
-                        </Link>
+                    <div class="flex flex-wrap gap-5">
+                        <template v-if="$page.props.auth.user">
+                            <Link
+                                :href="route('dashboard')"
+                                class="rounded-sm border border-espresso bg-espresso px-10 py-4 text-base font-bold text-cream transition-all duration-300 hover:bg-transparent hover:text-espresso"
+                            >
+                                Buy Coffee
+                            </Link>
+                        </template>
+                        <template v-else-if="canRegister">
+                            <Link
+                                :href="route('register')"
+                                class="rounded-sm border border-espresso bg-espresso px-10 py-4 text-base font-bold text-cream transition-all duration-300 hover:bg-transparent hover:text-espresso"
+                            >
+                                Buy Coffee
+                            </Link>
+                        </template>
+                        <template v-else-if="canLogin">
+                            <Link
+                                :href="route('login')"
+                                class="rounded-sm border border-espresso bg-espresso px-10 py-4 text-base font-bold text-cream transition-all duration-300 hover:bg-transparent hover:text-espresso"
+                            >
+                                Buy Coffee
+                            </Link>
+                        </template>
                         <a
                             v-else
-                            href="#marketplace"
-                            class="inline-flex items-center justify-center rounded-full bg-[#201311] px-9 py-4 text-base font-bold text-[#f7f3ea] transition hover:-translate-y-0.5 hover:bg-[#201311]/92"
-                        >
-                            Explore Live Lots
-                        </a>
-
-                        <a
                             href="#inquiry"
-                            class="inline-flex items-center justify-center rounded-full border border-[#201311]/15 bg-white/70 px-9 py-4 text-base font-bold text-[#201311] transition hover:-translate-y-0.5 hover:bg-white"
+                            class="rounded-sm border border-espresso bg-espresso px-10 py-4 text-base font-bold text-cream transition-all duration-300 hover:bg-transparent hover:text-espresso"
                         >
-                            Request a Sourcing Call
+                            Buy Coffee
                         </a>
-                    </div>
 
-                    <div class="mt-12 grid gap-4 sm:grid-cols-3">
-                        <div
-                            v-for="metric in heroMetrics"
-                            :key="metric.label"
-                            class="soft-panel rounded-[1.75rem] px-5 py-5"
+                        <Link
+                            :href="route('origins')"
+                            class="rounded-sm border border-espresso bg-transparent px-10 py-4 text-base font-bold text-espresso transition-all duration-300 hover:bg-espresso hover:text-cream"
                         >
-                            <div class="text-3xl font-extrabold tracking-[-0.04em] text-[#201311]">{{ metric.value }}</div>
-                            <div class="mt-2 text-sm leading-6 text-[#5b4b45]">{{ metric.label }}</div>
-                        </div>
+                            Explore Origins
+                        </Link>
                     </div>
                 </div>
+            </div>
 
-                <div class="relative lg:pl-8">
-                    <div class="hero-visual overflow-hidden rounded-[2rem] border border-white/40 bg-[#e9e0d2] p-3 shadow-[0_40px_90px_rgba(32,19,17,0.12)]">
-                        <div class="relative overflow-hidden rounded-[1.5rem]">
-                            <img
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Fkj_AVCPHmKmSMc6FMbWh8xZipsrSIgEr5H6ZGwH82fIUosB8aPXHvUJ1J5mgddnO5C5Ko02SBtt2xCaEFH_PYheBEHAfhp0aXBysv2dmd5jbk6eV3nqpwpCSSAMkQfoZHvDolbs7nsplZpCU8EVv3RmBR7lOiOcJo00jCz8yTbnAx7YI4JZrjyprKHMiVOaLD79vB83R-Pp4MZu69R7uJyIoUD9RKWCqiQSH6GIR1zQS6KZBYq6WrE18Y_RQma0L7FbaC9JorI"
-                                alt="Ugandan coffee highlands"
-                                class="h-[520px] w-full object-cover object-center"
-                            />
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#201311]/45 via-transparent to-transparent"></div>
+            <div class="absolute bottom-12 right-12 hidden xl:block">
+                <div class="max-w-sm rounded-sm border border-espresso/10 bg-white p-8">
+                    <div class="mb-4 flex items-center gap-4">
+                        <span class="material-symbols-outlined text-4xl text-sage">qr_code_scanner</span>
+                        <span class="text-xs font-black uppercase tracking-widest text-espresso">Batch Verification</span>
+                    </div>
+                    <p class="text-[15px] leading-relaxed text-on-surface-variant">
+                        Scan any sack to view full harvest data, farmer demographics, and real-time shipping logs.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                            <div class="absolute bottom-5 left-5 right-5">
-                                <div class="rounded-[1.5rem] border border-white/15 bg-[#201311]/72 p-5 backdrop-blur-xl">
-                                    <div class="flex items-center justify-between gap-3">
-                                        <div>
-                                            <p class="text-[11px] font-black uppercase tracking-[0.28em] text-[#f7f3ea]/45">Origin Ledger</p>
-                                            <h3 class="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#f7f3ea]">Batch verification in one scan</h3>
-                                        </div>
-                                        <div class="hidden rounded-2xl bg-white p-2 sm:block">
-                                            <img
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ1cw6GFzJWeZDC7rp5Q67bhIpexr_wROyzEW15dHnRs6mJmUJ2lwmbP9ssEzzGahhvIJHZLJV__T1GVxcivw3vikpsxGPUxzYAqQrCm3k6T1ZWQzuskbemjfpSoB6IBpiqjHaZz-WhaKTnHRPmjqC0HzYcFUO-BpSw20hBwoISebRPpsNv2Gpa7Cf5JSJnKA3w7gGWBH-IKcHgjH-u7ekWRGt1UZzYZZBgudgWt7Wi0g8tOGj86OYz1tMfhCvB7zNkmepwakp8s"
-                                                alt="Traceability QR code"
-                                                class="h-16 w-16"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="mt-4 grid gap-3 text-sm text-[#f7f3ea]/70 sm:grid-cols-2">
-                                        <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
-                                            <div class="text-[10px] font-black uppercase tracking-[0.2em] text-[#f7f3ea]/45">Status</div>
-                                            <div class="mt-2 font-semibold text-[#87d881]">Verified Origin</div>
-                                        </div>
-                                        <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
-                                            <div class="text-[10px] font-black uppercase tracking-[0.2em] text-[#f7f3ea]/45">Payout Layer</div>
-                                            <div class="mt-2 font-semibold text-[#87d881]">94% to producers</div>
-                                        </div>
-                                    </div>
-                                </div>
+        <section id="global-scale" class="border-y border-espresso/10 bg-white py-24">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="mb-16 max-w-3xl">
+                    <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Infrastructure</span>
+                    <h2 class="serif text-5xl font-bold leading-tight text-espresso md:text-6xl">Global Scale. Digital precision for modern roasters.</h2>
+                </div>
+
+                <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+                    <div class="space-y-6">
+                        <div class="flex h-14 w-14 items-center justify-center bg-surface-container-low border border-espresso/5">
+                            <span class="material-symbols-outlined text-3xl text-espresso">hub</span>
+                        </div>
+                        <h4 class="serif text-2xl font-bold">Export Visibility</h4>
+                        <p class="text-base leading-relaxed text-on-surface-variant">
+                            Making it easier for international buyers to discover, evaluate, and source directly from origin</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex h-14 w-14 items-center justify-center bg-surface-container-low border border-espresso/5">
+                            <span class="material-symbols-outlined text-3xl text-espresso">verified_user</span>
+                        </div>
+                        <h4 class="serif text-2xl font-bold">Origin Assurance</h4>
+                        <p class="text-base leading-relaxed text-on-surface-variant">Every transaction is digitally signed for tamper-proof tracking and source integrity.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex h-14 w-14 items-center justify-center bg-surface-container-low border border-espresso/5">
+                            <span class="material-symbols-outlined text-3xl text-espresso">currency_exchange</span>
+                        </div>
+                        <h4 class="serif text-2xl font-bold">Secure Trade</h4>
+                        <p class="text-base leading-relaxed text-on-surface-variant">From farmer to export, each coffee batch is documented and traceable, reducing risks such as fraud, misrepresentation, or quality uncertainty.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex h-14 w-14 items-center justify-center bg-surface-container-low border border-espresso/5">
+                            <span class="material-symbols-outlined text-3xl text-espresso">local_shipping</span>
+                        </div>
+                        <h4 class="serif text-2xl font-bold">Real-time Logistics</h4>
+                        <p class="text-base leading-relaxed text-on-surface-variant">Track shipments from the mill to your warehouse with precision telemetry.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="regional-powerhouse" class="bg-cream py-24">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-12">
+                    <div class="lg:col-span-6">
+                        <div class="relative rounded-sm border border-espresso/10 bg-white p-6 md:p-8">
+                            <img :src="regionalMap" alt="Map of Uganda coffee-growing regions" class="mx-auto h-auto w-full max-w-none scale-[1.08]" />
+                            <div class="absolute left-12 top-12 rounded-sm border border-espresso bg-espresso px-6 py-4 text-cream">
+                                <span class="mb-1 block text-xs font-black uppercase tracking-tighter text-white/50">Annual Export</span>
+                                <span class="text-3xl font-bold">6.2M Bags</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-6 grid gap-4 sm:grid-cols-2">
-                        <div
-                            v-for="card in signalCards"
-                            :key="card.title"
-                            class="soft-panel float-card rounded-[1.75rem] p-5"
-                        >
-                            <div class="flex items-start justify-between gap-4">
+                    <div class="lg:col-span-6 lg:pl-12">
+                        <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Regional Powerhouse</span>
+                        <h2 class="serif mb-10 text-5xl font-bold leading-tight text-espresso md:text-6xl">The Heart of African Coffee</h2>
+
+                        <div class="space-y-10">
+                            <div class="flex gap-8">
+                                <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-sm bg-espresso text-cream">
+                                    <span class="material-symbols-outlined text-3xl">volcano</span>
+                                </div>
                                 <div>
-                                    <p class="text-[11px] font-black uppercase tracking-[0.22em] text-[#201311]/45">{{ card.title }}</p>
-                                    <p class="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#201311]">{{ card.value }}</p>
+                                    <h4 class="mb-3 text-2xl font-bold text-espresso">Rich Volcanic Terroir</h4>
+                                    <p class="text-lg leading-relaxed text-on-surface-variant">Uganda's unique altitude and nutrient-dense soil produce beans with unmatched complexity.</p>
                                 </div>
-                                <span class="material-symbols-outlined rounded-full bg-[#201311]/6 p-2 text-[#201311]">{{ card.icon }}</span>
-                            </div>
-                            <p class="mt-3 text-sm leading-6 text-[#5b4b45]">{{ card.detail }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="px-5 pb-8 md:px-8 lg:px-12">
-            <div class="mx-auto grid max-w-[1480px] gap-4 md:grid-cols-3">
-                <div
-                    v-for="item in tradeAdvantages"
-                    :key="item.title"
-                    class="soft-panel rounded-[1.8rem] p-7"
-                >
-                    <div class="flex items-center justify-between gap-4">
-                        <span class="text-[11px] font-black uppercase tracking-[0.22em] text-[#5c8f46]">{{ item.eyebrow }}</span>
-                        <span class="material-symbols-outlined text-[#201311]/45">{{ item.icon }}</span>
-                    </div>
-                    <h3 class="mt-4 text-2xl font-bold tracking-[-0.03em] text-[#201311]">{{ item.title }}</h3>
-                    <p class="mt-3 text-sm leading-7 text-[#5b4b45]">{{ item.description }}</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="px-5 py-24 md:px-8 lg:px-12">
-            <div class="mx-auto grid max-w-[1480px] gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-                <div class="relative">
-                    <div class="overflow-hidden rounded-[2rem] border border-[#201311]/10 bg-white p-4 shadow-[0_30px_80px_rgba(32,19,17,0.08)]">
-                        <div class="relative overflow-hidden rounded-[1.5rem] bg-[#f2ece3] p-8">
-                            <img
-                                alt="Detailed map of Uganda coffee growing regions"
-                                class="mx-auto w-full max-w-xl object-contain"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9VBp1lYAC_auhTL9zlojnra-vG7DvBjGBQIp-hWCmJWx_xueaP35XVeQSPuyJQMca0tb-_RgX9LSDzqg4ItEmOPE3Nu5tRVgVdDIrggrw81aSc1GBV8hMjMjehC2HXsFyrKbw_KGTvw0pzgqAns4ME23YMD5nb3fxW0wbdXoeaVV-KihCt5A_ONypD-jrk-_LEqnuDdNgrCk8CONR_xqv9-Xk3q8Oil4N07bukPGZk4wkrSOhj27YWkE0ajnq1xSomFZbtuvEOnw"
-                            />
-
-                            <div class="absolute left-6 top-6 rounded-2xl bg-[#201311] px-4 py-3 text-[#f7f3ea]">
-                                <div class="text-[10px] font-black uppercase tracking-[0.24em] text-white/45">Production</div>
-                                <div class="mt-2 text-2xl font-bold">6.2M Bags</div>
                             </div>
 
-                            <div class="absolute bottom-6 right-6 rounded-2xl border border-[#201311]/10 bg-white/90 p-4 backdrop-blur">
-                                <div class="text-[10px] font-black uppercase tracking-[0.24em] text-[#201311]/45">Region mix</div>
-                                <div class="mt-3 space-y-2 text-sm font-semibold text-[#201311]">
-                                    <div class="flex items-center gap-2">
-                                        <span class="h-2.5 w-2.5 rounded-full bg-[#7bcf80]"></span>
-                                        Robusta lowlands
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="h-2.5 w-2.5 rotate-45 bg-[#201311]/55"></span>
-                                        Highland arabica
-                                    </div>
+                            <div class="flex gap-8">
+                                <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-sm bg-espresso text-cream">
+                                    <span class="material-symbols-outlined text-3xl">public</span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-3 text-2xl font-bold text-espresso">Dual Season Harvest</h4>
+                                    <p class="text-lg leading-relaxed text-on-surface-variant">Located on the equator, Uganda benefits from two annual harvest cycles, ensuring consistent supply.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-8">
+                                <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-sm bg-espresso text-cream">
+                                    <span class="material-symbols-outlined text-3xl">groups_3</span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-3 text-2xl font-bold text-espresso">1.7M Smallholders</h4>
+                                    <p class="text-lg leading-relaxed text-on-surface-variant">Coffee is the lifeblood of Uganda, managed by dedicated families committed to excellence.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <span class="section-kicker">Regional Powerhouse</span>
-                    <h2 class="serif mt-5 text-4xl font-bold leading-tight tracking-[-0.04em] text-[#201311] md:text-6xl">
-                        The heart of East African coffee supply
-                    </h2>
-                    <p class="mt-6 max-w-2xl text-lg leading-8 text-[#5b4b45]">
-                        Uganda combines native Robusta strength with increasingly sophisticated Arabica programs, making it one of the most versatile sourcing origins on the continent.
-                    </p>
-
-                    <div class="mt-10 space-y-7">
-                        <div
-                            v-for="item in regionalHighlights"
-                            :key="item.title"
-                            class="flex gap-5 rounded-[1.6rem] border border-[#201311]/8 bg-white/65 p-5"
-                        >
-                            <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-[#201311] text-[#f7f3ea]">
-                                <span class="material-symbols-outlined text-2xl">{{ item.icon }}</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold tracking-[-0.02em] text-[#201311]">{{ item.title }}</h3>
-                                <p class="mt-2 text-sm leading-7 text-[#5b4b45]">{{ item.description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <section id="marketplace" class="bg-white px-5 py-24 md:px-8 lg:px-12">
-            <div class="mx-auto max-w-[1480px]">
-                <div class="mx-auto max-w-3xl text-center">
-                    <span class="section-kicker justify-center">World-Class Varieties</span>
-                    <h2 class="serif mt-5 text-4xl font-bold tracking-[-0.04em] text-[#201311] md:text-6xl">
-                        A tighter cup profile, not a generic origin pitch
-                    </h2>
-                    <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#5b4b45]">
-                        Each profile is merchandised around altitude, process, and buyer use case so roasters can move faster from shortlist to sample request.
-                    </p>
+        <section id="marketplace" class="border-y border-espresso/10 bg-white py-24">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="mx-auto mb-20 max-w-2xl text-center">
+                    <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Varietal Excellence</span>
+                    <h2 class="serif mb-6 text-5xl font-bold text-espresso md:text-6xl">Exceptional Quality</h2>
+                    <p class="text-xl text-on-surface-variant">Defined by altitude and meticulously graded to meet international specialty standards.</p>
                 </div>
 
-                <div class="mt-16 grid gap-8 lg:grid-cols-2">
-                    <article
-                        v-for="profile in qualityProfiles"
-                        :key="profile.name"
-                        class="overflow-hidden rounded-[2rem] border border-[#201311]/10 bg-[#f9f6f0]"
-                    >
-                        <div class="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
-                            <div class="h-[320px] overflow-hidden md:h-full">
-                                <img :src="profile.image" :alt="profile.alt" class="h-full w-full object-cover" />
+                <div class="overflow-hidden rounded-sm border border-espresso/10">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="flex flex-col border-b border-espresso/10 md:border-b-0 md:border-r lg:flex-row">
+                            <div class="h-80 lg:h-auto lg:w-1/2">
+                                <img
+                                    alt="Ugandan Arabica"
+                                    class="h-full w-full object-cover"
+                                    :src="arabicaImage"
+                                />
                             </div>
-                            <div class="p-8 md:p-10">
-                                <div class="inline-flex rounded-full bg-[#5c8f46]/12 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-[#5c8f46]">
-                                    {{ profile.badge }}
-                                </div>
-                                <h3 class="serif mt-5 text-4xl font-bold tracking-[-0.04em] text-[#201311]">{{ profile.name }}</h3>
-                                <p class="mt-3 text-lg leading-8 text-[#5b4b45]">{{ profile.title }}</p>
-
-                                <div class="mt-8 grid gap-4 sm:grid-cols-3">
-                                    <div class="rounded-2xl border border-[#201311]/8 bg-white/80 p-4">
-                                        <div class="text-[10px] font-black uppercase tracking-[0.22em] text-[#201311]/40">Regions</div>
-                                        <div class="mt-2 text-sm font-semibold text-[#201311]">{{ profile.regions }}</div>
+                            <div class="flex flex-col justify-center bg-white p-12 lg:w-1/2 lg:p-14">
+                                <span class="mb-4 text-xs font-black uppercase tracking-widest text-sage">Highland Specialty</span>
+                                <h3 class="serif mb-8 text-4xl font-bold text-espresso">Arabica</h3>
+                                <div class="space-y-5">
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined text-2xl text-espresso/40">location_on</span>
+                                        <span class="text-[13px] font-bold uppercase tracking-wider text-espresso">Mt. Elgon, Rwenzori</span>
                                     </div>
-                                    <div class="rounded-2xl border border-[#201311]/8 bg-white/80 p-4">
-                                        <div class="text-[10px] font-black uppercase tracking-[0.22em] text-[#201311]/40">Altitude</div>
-                                        <div class="mt-2 text-sm font-semibold text-[#201311]">{{ profile.altitude }}</div>
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined text-2xl text-espresso/40">landscape</span>
+                                        <span class="text-[13px] font-bold uppercase tracking-wider text-espresso">1,300 - 2,300m</span>
                                     </div>
-                                    <div class="rounded-2xl border border-[#201311]/8 bg-white/80 p-4">
-                                        <div class="text-[10px] font-black uppercase tracking-[0.22em] text-[#201311]/40">Process</div>
-                                        <div class="mt-2 text-sm font-semibold text-[#201311]">{{ profile.process }}</div>
-                                    </div>
-                                </div>
-
-                                <div class="mt-8">
-                                    <div class="text-[10px] font-black uppercase tracking-[0.22em] text-[#201311]/40">Cup notes</div>
-                                    <div class="mt-3 flex flex-wrap gap-2">
-                                        <span
-                                            v-for="note in profile.notes"
-                                            :key="note"
-                                            class="rounded-full border border-[#201311]/8 bg-white/85 px-3 py-2 text-xs font-semibold text-[#201311]"
-                                        >
-                                            {{ note }}
-                                        </span>
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined text-2xl text-espresso/40">palette</span>
+                                        <span class="text-[13px] font-bold uppercase tracking-wider text-espresso">Fruity &amp; Floral</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </article>
-                </div>
-            </div>
-        </section>
 
-        <section id="traceability" class="px-5 py-24 md:px-8 lg:px-12">
-            <div class="mx-auto grid max-w-[1480px] gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-                <div class="rounded-[2rem] bg-[#201311] p-8 text-[#f7f3ea] md:p-10">
-                    <span class="section-kicker text-[#87d881] before:bg-[#87d881]">Traceability</span>
-                    <h2 class="serif mt-5 text-4xl font-bold tracking-[-0.04em] md:text-5xl">A sourcing record your team can defend</h2>
-                    <p class="mt-6 text-base leading-8 text-white/65">
-                        Instead of scattered spreadsheets and post-hoc paperwork, every lot carries an auditable record from farm identity through export preparation.
-                    </p>
-
-                    <div class="ledger-panel mt-8 rounded-[1.7rem] p-5">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <div class="text-[10px] font-black uppercase tracking-[0.25em] text-white/35">Origin Ledger</div>
-                                <div class="mt-2 text-lg font-bold">Lot UG-RWZ-24-018</div>
+                        <div class="flex flex-col lg:flex-row">
+                            <div class="order-1 h-80 lg:order-2 lg:h-auto lg:w-1/2">
+                                <img
+                                    alt="Ugandan Robusta"
+                                    class="h-full w-full object-cover"
+                                    :src="robustaImage"
+                                />
                             </div>
-                            <span class="rounded-full bg-[#87d881]/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-[#87d881]">
-                                Ready to verify
-                            </span>
-                        </div>
-
-                        <div class="mt-5 space-y-3">
-                            <div class="flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-sm">
-                                <span class="text-white/60">Farmer payout layer</span>
-                                <span class="font-semibold text-[#87d881]">Distributed</span>
-                            </div>
-                            <div class="flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-sm">
-                                <span class="text-white/60">Moisture compliance</span>
-                                <span class="font-semibold text-[#87d881]">11.2%</span>
-                            </div>
-                            <div class="flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-sm">
-                                <span class="text-white/60">Shipment seal</span>
-                                <span class="font-semibold text-[#87d881]">Locked</span>
+                            <div class="order-2 flex flex-col justify-center bg-surface-container-low/40 p-12 lg:order-1 lg:w-1/2 lg:p-14">
+                                <span class="mb-4 text-xs font-black uppercase tracking-widest text-espresso/50">Native Powerhouse</span>
+                                <h3 class="serif mb-8 text-4xl font-bold text-espresso">Robusta</h3>
+                                <div class="space-y-5">
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined text-2xl text-espresso/40">location_on</span>
+                                        <span class="text-[13px] font-bold uppercase tracking-wider text-espresso">Central Basin</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined text-2xl text-espresso/40">landscape</span>
+                                        <span class="text-[13px] font-bold uppercase tracking-wider text-espresso">900 - 1,500m</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined text-2xl text-espresso/40">bolt</span>
+                                        <span class="text-[13px] font-bold uppercase tracking-wider text-espresso">Bold &amp; Chocolatey</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="grid gap-4">
-                    <article
-                        v-for="item in traceabilitySteps"
-                        :key="item.step"
-                        class="soft-panel flex gap-5 rounded-[1.7rem] p-6"
-                    >
-                        <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-[#201311] text-[#f7f3ea]">
-                            <span class="material-symbols-outlined text-2xl">{{ item.icon }}</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="text-[10px] font-black uppercase tracking-[0.25em] text-[#5c8f46]">{{ item.step }}</div>
-                            <h3 class="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#201311]">{{ item.title }}</h3>
-                            <p class="mt-2 text-sm leading-7 text-[#5b4b45]">{{ item.description }}</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="logistics" class="overflow-hidden bg-[#201311] px-5 py-24 text-[#f7f3ea] md:px-8 lg:px-12">
-            <div class="mx-auto max-w-[1480px]">
-                <div class="max-w-3xl">
-                    <span class="section-kicker text-[#87d881] before:bg-[#87d881]">Global Scale</span>
-                    <h2 class="serif mt-5 text-4xl font-bold tracking-[-0.04em] md:text-6xl">Built for modern buying desks, not static brochures</h2>
-                    <p class="mt-6 text-lg leading-8 text-white/55">
-                        Logistics, quality control, and trade operations are surfaced in one language so sourcing, roasting, and finance teams can work off the same view.
-                    </p>
-                </div>
-
-                <div class="mt-14 grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
-                    <div
-                        v-for="item in logisticsCards"
-                        :key="item.title"
-                        class="bg-[#201311] p-8 transition-colors hover:bg-white/5"
-                    >
-                        <span class="material-symbols-outlined mb-8 text-4xl text-[#87d881]">{{ item.icon }}</span>
-                        <h3 class="text-2xl font-bold tracking-[-0.03em]">{{ item.title }}</h3>
-                        <p class="mt-3 text-sm leading-7 text-white/55">{{ item.description }}</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="impact" class="bg-white px-5 py-24 md:px-8 lg:px-12">
-            <div class="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-                <div>
-                    <span class="section-kicker">Our Commitment</span>
-                    <h2 class="serif mt-5 text-4xl font-bold tracking-[-0.04em] text-[#201311] md:text-6xl">
-                        Humanity behind every shipment
-                    </h2>
-                    <p class="mt-6 max-w-2xl text-lg leading-8 text-[#5b4b45]">
-                        We designed the platform so transparency is not a marketing afterthought. It is the operating model, from producer payouts to export readiness.
-                    </p>
+        <section id="traceability" class="overflow-hidden bg-cream py-24">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="mx-auto mb-20 max-w-3xl text-center">
+                    <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Immutable Trust</span>
+                    <h2 class="serif mb-8 text-5xl font-bold text-espresso md:text-6xl">Full Traceability</h2>
+                    <p class="text-xl text-on-surface-variant">Real-time blockchain verification at every stage of the journey.</p>
+                </div>
 
-                    <div class="mt-10 grid gap-4 sm:grid-cols-2">
-                        <div
-                            v-for="item in impactFigures"
-                            :key="item.label"
-                            class="rounded-[1.6rem] border border-[#201311]/8 bg-[#faf6ee] p-6"
-                        >
-                            <div class="text-4xl font-extrabold tracking-[-0.05em] text-[#201311]">{{ item.value }}</div>
-                            <p class="mt-3 text-sm leading-7 text-[#5b4b45]">{{ item.label }}</p>
+                <div class="relative mb-24">
+                    <div class="absolute left-0 top-1/2 hidden h-px w-full -translate-y-1/2 bg-espresso/10 lg:block"></div>
+
+                    <div class="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+                        <div class="flex flex-col items-center bg-cream px-4 text-center">
+                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/10 bg-white transition-all hover:border-sage">
+                                <span class="material-symbols-outlined text-3xl text-sage">agriculture</span>
+                            </div>
+                            <span class="mb-2 text-[11px] font-black uppercase tracking-widest text-espresso/40">01. Farming</span>
+                            <h4 class="serif mb-3 text-2xl font-bold">GPS Tagged</h4>
+                            <p class="text-[15px] leading-relaxed text-on-surface-variant">Individual farm mapping for 100% origin verification.</p>
+                        </div>
+
+                        <div class="flex flex-col items-center bg-cream px-4 text-center">
+                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/10 bg-white">
+                                <span class="material-symbols-outlined text-3xl text-sage">precision_manufacturing</span>
+                            </div>
+                            <span class="mb-2 text-[11px] font-black uppercase tracking-widest text-espresso/40">02. Harvesting</span>
+                            <h4 class="serif mb-3 text-2xl font-bold">Digital Entry</h4>
+                            <p class="text-[15px] leading-relaxed text-on-surface-variant">Live batch weight logging at collection gates.</p>
+                        </div>
+
+                        <div class="flex flex-col items-center bg-cream px-4 text-center">
+                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/10 bg-white">
+                                <span class="material-symbols-outlined text-3xl text-sage">lab_research</span>
+                            </div>
+                            <span class="mb-2 text-[11px] font-black uppercase tracking-widest text-espresso/40">03. Processing</span>
+                            <h4 class="serif mb-3 text-2xl font-bold">Quality Audit</h4>
+                            <p class="text-[15px] leading-relaxed text-on-surface-variant">Q-Graded cupping scores secured via smart contracts.</p>
+                        </div>
+
+                        <div class="flex flex-col items-center bg-cream px-4 text-center">
+                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso bg-espresso">
+                                <span class="material-symbols-outlined text-3xl text-sage">rocket_launch</span>
+                            </div>
+                            <span class="mb-2 text-[11px] font-black uppercase tracking-widest text-espresso/40">04. Export</span>
+                            <h4 class="serif mb-3 text-2xl font-bold">Global Delivery</h4>
+                            <p class="text-[15px] leading-relaxed text-on-surface-variant">Final seal verification and shipping telemetry.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <div class="overflow-hidden rounded-[2.2rem] border border-[#201311]/10 bg-[#ede4d7] p-3 shadow-[0_30px_80px_rgba(32,19,17,0.08)]">
-                        <img
-                            class="aspect-[4/3] w-full rounded-[1.7rem] object-cover"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXvSttPduffZIREinpq-_orDOj8bpUOfVGxyUWCsA0DbWDyR2MhWJTneD1tv6c6xF9--uieNa29gdVXUmJrQ1MDLUrfeu_TOcnJUbPrzXgMb-bejXM99uXl5T4Bg01huLIp6byp2PpvNWUxlNcIgrHdUpFJWjXqdLQn7KMYnSq_D3rm5LTotxyaWZ4z8mwqLhcYN-BtXRVlQgDhaC9y2CfPfDQa88wRB2MoAkmVa36c1ZWrXaWgeo-pYhVf6MVfSKPUOjE3l2P8fU"
-                            alt="Ugandan coffee farmer portrait"
-                        />
+                <div class="rounded-sm border border-espresso/10 bg-white p-10 md:p-16">
+                    <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+                        <div>
+                            <div class="mb-6 inline-flex items-center gap-2 border border-sage/20 bg-sage/10 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-sage">
+                                <span class="material-symbols-outlined text-sm">verified</span>
+                                Blockchain Secured
+                            </div>
+                            <h3 class="serif mb-8 text-5xl font-bold leading-tight text-espresso">Scan. Verify. Trust.</h3>
+                            <p class="mb-10 text-xl leading-relaxed text-on-surface-variant">
+                                "Our decentralized ledger ensures that smallholders receive fair compensation while global roasters get guaranteed quality without intermediaries."
+                            </p>
+                            <Link :href="route('protocol')" class="rounded-sm border border-espresso bg-espresso px-10 py-4 text-sm font-bold uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso">
+                                Learn About Our Protocol
+                            </Link>
+                        </div>
+
+                        <div class="flex justify-center lg:justify-end">
+                            <div class="relative w-full max-w-sm overflow-hidden rounded-sm border border-white/5 bg-espresso p-10 text-cream">
+                                <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-sage opacity-10 blur-3xl"></div>
+                                <div class="mb-10 flex items-start justify-between">
+                                    <div>
+                                        <p class="mb-2 text-[10px] font-black uppercase text-white/70">Blockchain Hash</p>
+                                        <p class="font-mono text-xs tracking-tight text-sage">0x88...D982_UG_24</p>
+                                    </div>
+                                    <div class="rounded-sm bg-white p-3">
+                                        <img
+                                            alt="Verification QR Code"
+                                            class="h-16 w-16"
+                                            :src="qrImage"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="space-y-6">
+                                    <div class="flex items-center justify-between border-b border-white/10 pb-4 text-xs uppercase tracking-wider text-white/75">
+                                        <span>Identity Status</span>
+                                        <span class="font-black text-sage">100% Verified</span>
+                                    </div>
+                                    <div class="flex items-center justify-between border-b border-white/10 pb-4 text-xs uppercase tracking-wider text-white/75">
+                                        <span>Farmer Equity</span>
+                                        <span class="font-black text-sage">94.2% Distributed</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-xs uppercase tracking-wider text-white/75">
+                                        <span>Harvest Year</span>
+                                        <span class="font-black text-white">2024 Reserve</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="absolute bottom-5 left-5 max-w-xs rounded-[1.5rem] border border-white/30 bg-white/82 p-5 backdrop-blur">
-                        <div class="text-[10px] font-black uppercase tracking-[0.22em] text-[#201311]/45">Impact Certified</div>
-                        <p class="mt-3 text-sm leading-7 text-[#5b4b45]">
-                            Community metrics, team governance, and farm-gate returns remain visible beyond the first sale.
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="bg-white py-24">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
+                    <div class="order-2 lg:order-1">
+                        <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Our Commitment</span>
+                        <h2 class="serif mb-8 text-5xl font-bold leading-tight text-espresso md:text-6xl">Humanity Behind Every Bean</h2>
+                        <p class="mb-12 text-2xl leading-relaxed text-on-surface-variant">
+                            We're redefining the value chain by returning the majority of export value back to the farm gate. Sustainable coffee starts with sustainable lives.
                         </p>
+
+                        <div class="grid grid-cols-2 gap-12">
+                            <div class="border-l-2 border-sage pl-8">
+                                <span class="mb-3 block text-5xl font-bold text-espresso">94%</span>
+                                <p class="text-xs font-black uppercase tracking-widest text-espresso/40">Farmer Revenue Share</p>
+                            </div>
+                            <div class="border-l-2 border-sage pl-8">
+                                <span class="mb-3 block text-5xl font-bold text-espresso">250+</span>
+                                <p class="text-xs font-black uppercase tracking-widest text-espresso/40">Active Cooperatives</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2">
+                        <div class="relative">
+                            <img
+                                alt="Ugandan Coffee Farmer"
+                                class="aspect-[4/3] w-full rounded-sm object-cover"
+                                :src="communityImage"
+                            />
+                            <div class="absolute -bottom-8 -left-8 hidden max-w-[320px] rounded-sm border border-espresso/10 bg-cream p-10 md:block">
+                                <h5 class="mb-3 text-lg font-bold text-espresso">Impact Certified</h5>
+                                <p class="text-[13px] uppercase tracking-wider text-on-surface-variant">
+                                    Social impact metrics tracked across all cooperatives with annual transparency reports.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-[#f7f3ea] px-5 py-24 md:px-8 lg:px-12">
-            <div class="mx-auto max-w-[1480px]">
-                <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <section class="bg-surface-container-low/30 py-24">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="mb-16 flex flex-col items-end justify-between gap-8 md:flex-row">
                     <div>
-                        <span class="section-kicker">Featured Lots</span>
-                        <h2 class="serif mt-5 text-4xl font-bold tracking-[-0.04em] text-[#201311] md:text-5xl">A sharper shortlist for buyers</h2>
+                        <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Direct Stock</span>
+                        <h2 class="serif text-5xl font-bold text-espresso">Featured Lots</h2>
                     </div>
-                    <a href="#inquiry" class="inline-flex items-center gap-2 text-sm font-bold text-[#201311]">
-                        Talk to origin team
+                    <a class="inline-flex items-center gap-3 border-b border-espresso/20 pb-2 text-xs font-black uppercase tracking-widest text-espresso transition-colors hover:text-sage" href="#inquiry">
+                        View All Inventory
                         <span class="material-symbols-outlined text-base">arrow_forward</span>
                     </a>
                 </div>
 
-                <div class="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-                    <article
-                        v-for="lot in featuredLots"
-                        :key="lot.title"
-                        class="overflow-hidden rounded-[2rem] border border-[#201311]/10 bg-white shadow-[0_18px_60px_rgba(32,19,17,0.05)]"
-                    >
-                        <div class="relative h-72 overflow-hidden">
-                            <img :src="lot.image" :alt="lot.alt" class="h-full w-full object-cover transition duration-700 hover:scale-105" />
-                            <div class="absolute inset-x-0 top-0 flex items-center justify-between p-5">
-                                <span class="rounded-full bg-white/85 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-[#201311]">
-                                    {{ lot.badge }}
-                                </span>
-                                <span class="rounded-full bg-[#201311]/70 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-[#f7f3ea]">
-                                    {{ lot.harvest }}
-                                </span>
-                            </div>
+                <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso">
+                        <div class="h-72 overflow-hidden border-b border-espresso/5">
+                            <img
+                                alt="Mount Elgon Lots"
+                                class="h-full w-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIkU25APwKtHRPH16ebxCtKBV00FUlXXopwK1QrDK3YTsqgfbpIvcqHeyATN-yp1_oDKYgd0RQtb6psW8w3Z3jD6Awv4uMRimif0YjuzNOqulXh3OofuKGMy3Qokdkg7XZ0VgCs8FrDJQ-ZoCuCS1kjsZ-svjk4DdqUyaVXtfktaC0voSwothnHGF73sUudPJj5Bu-saCv3YHAR7ClVC7PYc4yCL3Gs8jGnzVp5GuSLVtCFGpqrzHOfGxUQQUXS3qxAlClJNcpwOM"
+                            />
                         </div>
-
-                        <div class="p-7">
-                            <div class="flex items-end justify-between gap-4">
-                                <h3 class="serif text-3xl font-bold tracking-[-0.04em] text-[#201311]">{{ lot.title }}</h3>
-                                <span class="text-sm font-bold text-[#5c8f46]">{{ lot.volume }}</span>
-                            </div>
-
-                            <div class="mt-5 flex flex-wrap gap-2">
-                                <span
-                                    v-for="note in lot.notes"
-                                    :key="note"
-                                    class="rounded-full border border-[#201311]/8 bg-[#faf6ee] px-3 py-2 text-xs font-semibold text-[#201311]"
+                        <div class="flex-grow p-10">
+                            <h3 class="serif mb-5 text-3xl font-bold text-espresso">Mt. Elgon High Peaks</h3>
+                            <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">Highland Arabica, honey processed with distinct notes of wild honey and white nectarine.</p>
+                            <div class="flex items-center justify-between border-t border-espresso/5 pt-8">
+                                <div>
+                                    <span class="mb-1 block text-[10px] font-black uppercase tracking-widest text-espresso/40">Available</span>
+                                    <span class="text-lg font-bold text-espresso">12.5 Metric Tons</span>
+                                </div>
+                                <a
+                                    href="#inquiry"
+                                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso"
                                 >
-                                    {{ note }}
-                                </span>
+                                    Sample
+                                </a>
                             </div>
-
-                            <a
-                                href="#inquiry"
-                                class="mt-8 inline-flex items-center justify-center rounded-full bg-[#201311] px-5 py-3 text-sm font-bold text-[#f7f3ea] transition hover:bg-[#201311]/92"
-                            >
-                                Request sample
-                            </a>
                         </div>
-                    </article>
+                    </div>
+
+                    <div class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso">
+                        <div class="h-72 overflow-hidden border-b border-espresso/5">
+                            <img
+                                alt="Lake Victoria Robusta"
+                                class="h-full w-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDawoRPyhpWtIJI-WRZ0jMds2oFpLFKB1izAX0KvJC2uZ4K0QptLxoZxl7mMA8zOn7HRBZvOGquQslGPpMO57ku9I4jax2RephP1SxpJDja2-xgf_jZxtXDk5zdKU-i6-f2Q09tbdg1Hhc1euz1j3ec5HAxgh_tQIb4WrNhGTDA9_ABGItrKbBzrAU4hZblJRZL1Kje47rsjnQ-7UmsRuqT9PHrq4ykyh1_dQJnXdvNTCDtJpjmFGJkYJnr7t6SibVc9lxhCFSSnhU"
+                            />
+                        </div>
+                        <div class="flex-grow p-10">
+                            <h3 class="serif mb-5 text-3xl font-bold text-espresso">Lake Victoria Reserve</h3>
+                            <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">
+                                Fine Robusta, Screen 18. Massive syrupy body with a heavy dark cocoa and walnut finish.
+                            </p>
+                            <div class="flex items-center justify-between border-t border-espresso/5 pt-8">
+                                <div>
+                                    <span class="mb-1 block text-[10px] font-black uppercase tracking-widest text-espresso/40">Available</span>
+                                    <span class="text-lg font-bold text-espresso">45.0 Metric Tons</span>
+                                </div>
+                                <a
+                                    href="#inquiry"
+                                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso"
+                                >
+                                    Sample
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso">
+                        <div class="h-72 overflow-hidden border-b border-espresso/5">
+                            <img
+                                alt="Rwenzori Natural"
+                                class="h-full w-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ"
+                            />
+                        </div>
+                        <div class="flex-grow p-10">
+                            <h3 class="serif mb-5 text-3xl font-bold text-espresso">Mountains of the Moon</h3>
+                            <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">Wild natural process Arabica. Notes of explosive forest berries and jasmine tea.</p>
+                            <div class="flex items-center justify-between border-t border-espresso/5 pt-8">
+                                <div>
+                                    <span class="mb-1 block text-[10px] font-black uppercase tracking-widest text-espresso/40">Available</span>
+                                    <span class="text-lg font-bold text-espresso">5.8 Metric Tons</span>
+                                </div>
+                                <a
+                                    href="#inquiry"
+                                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso"
+                                >
+                                    Sample
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="relative overflow-hidden bg-[#201311] px-5 py-24 text-[#f7f3ea] md:px-8 lg:px-12">
-            <div class="grain-mask absolute inset-0 opacity-35"></div>
-            <div class="hero-orb cta-orb"></div>
-
-            <div class="relative mx-auto grid max-w-[1480px] gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
-                <div class="max-w-xl">
-                    <span class="section-kicker text-[#87d881] before:bg-[#87d881]">Direct Sourcing Inquiry</span>
-                    <h2 class="serif mt-5 text-4xl font-bold tracking-[-0.04em] md:text-6xl">
-                        Tell us what you need and we will match the right origin program
-                    </h2>
-                    <p class="mt-6 text-lg leading-8 text-white/60">
-                        Whether you need a spot micro-lot, a season-long Robusta contract, or a traceable private-label program, the first conversation should be fast and specific.
-                    </p>
-
-                    <div class="mt-8 space-y-4">
-                        <div class="flex items-center gap-3 text-sm text-white/70">
-                            <span class="material-symbols-outlined text-[#87d881]">check_circle</span>
-                            Verified lot recommendations matched to your buying profile
-                        </div>
-                        <div class="flex items-center gap-3 text-sm text-white/70">
-                            <span class="material-symbols-outlined text-[#87d881]">check_circle</span>
-                            Export-readiness guidance before samples move
-                        </div>
-                        <div class="flex items-center gap-3 text-sm text-white/70">
-                            <span class="material-symbols-outlined text-[#87d881]">check_circle</span>
-                            A cleaner handoff between sourcing, logistics, and finance
-                        </div>
-                    </div>
+        <section id="inquiry" class="border-t border-espresso/10 bg-cream py-24">
+            <div class="container mx-auto max-w-4xl px-6 md:px-12">
+                <div class="mb-20 text-center">
+                    <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Get Started</span>
+                    <h2 class="serif mb-8 text-5xl font-bold text-espresso md:text-6xl">Direct Sourcing Inquiry</h2>
+                    <p class="text-xl text-on-surface-variant">Tell us your requirements and we'll connect you with the right origins.</p>
                 </div>
 
-                <div id="inquiry" class="rounded-[2rem] border border-white/12 bg-white/8 p-6 backdrop-blur-xl md:p-8">
-                    <form class="grid gap-5 md:grid-cols-2" @submit.prevent>
-                        <div
-                            v-for="field in inquiryFields"
-                            :key="field.id"
-                            class="space-y-2"
-                        >
-                            <label :for="field.id" class="text-[10px] font-black uppercase tracking-[0.22em] text-white/45">
-                                {{ field.label }}
-                            </label>
-                            <input
-                                :id="field.id"
-                                :type="field.type"
-                                :placeholder="field.placeholder"
-                                class="w-full rounded-[1rem] border border-white/10 bg-white/6 px-5 py-4 text-sm text-[#f7f3ea] placeholder:text-white/30 focus:border-[#87d881]/70 focus:outline-none"
-                            />
+                <div class="rounded-sm border border-espresso/10 bg-white p-10 md:p-16">
+                    <form class="space-y-10" @submit.prevent>
+                        <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+                            <div class="space-y-3">
+                                <label class="ml-1 text-[11px] font-black uppercase tracking-widest text-espresso/40" for="full-name">Full Name</label>
+                                <input
+                                    id="full-name"
+                                    type="text"
+                                    placeholder="E.g. Alexander Walker"
+                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                />
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="ml-1 text-[11px] font-black uppercase tracking-widest text-espresso/40" for="company-name">Company Name</label>
+                                <input
+                                    id="company-name"
+                                    type="text"
+                                    placeholder="E.g. Nordic Roasters"
+                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                />
+                            </div>
                         </div>
 
-                        <div class="space-y-2">
-                            <label for="coffee-interest" class="text-[10px] font-black uppercase tracking-[0.22em] text-white/45">
-                                Coffee Interest
-                            </label>
-                            <select
-                                id="coffee-interest"
-                                class="w-full rounded-[1rem] border border-white/10 bg-white/6 px-5 py-4 text-sm text-[#f7f3ea] focus:border-[#87d881]/70 focus:outline-none"
-                            >
-                                <option value="" selected disabled>Choose a focus</option>
-                                <option>Arabica micro-lots</option>
-                                <option>Robusta contracts</option>
-                                <option>Mixed sourcing program</option>
-                            </select>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="target-market" class="text-[10px] font-black uppercase tracking-[0.22em] text-white/45">
-                                Target Market
-                            </label>
-                            <input
-                                id="target-market"
-                                type="text"
-                                placeholder="Specialty retail, espresso blend, private label"
-                                class="w-full rounded-[1rem] border border-white/10 bg-white/6 px-5 py-4 text-sm text-[#f7f3ea] placeholder:text-white/30 focus:border-[#87d881]/70 focus:outline-none"
-                            />
-                        </div>
-
-                        <div class="space-y-2 md:col-span-2">
-                            <label for="project-brief" class="text-[10px] font-black uppercase tracking-[0.22em] text-white/45">
-                                Project Brief
-                            </label>
+                        <div class="space-y-3">
+                            <label class="ml-1 text-[11px] font-black uppercase tracking-widest text-espresso/40" for="message">Sourcing Requirements</label>
                             <textarea
-                                id="project-brief"
-                                rows="5"
-                                placeholder="Share roast style, timing, volume expectations, target cup profile, or anything your sourcing team needs us to know."
-                                class="w-full rounded-[1.2rem] border border-white/10 bg-white/6 px-5 py-4 text-sm text-[#f7f3ea] placeholder:text-white/30 focus:border-[#87d881]/70 focus:outline-none"
+                                id="message"
+                                placeholder="Describe variety, volume, and destination port..."
+                                class="h-40 w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                             ></textarea>
                         </div>
 
-                        <div class="md:col-span-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                            <p class="max-w-md text-sm leading-7 text-white/50">
-                                This form is currently a landing page mock flow. The next step can be wiring it to a Laravel endpoint.
-                            </p>
-                            <button
-                                type="submit"
-                                class="inline-flex items-center justify-center rounded-full bg-[#87d881] px-8 py-4 text-sm font-black uppercase tracking-[0.16em] text-[#201311] transition hover:bg-[#87d881]/90"
-                            >
-                                Send inquiry
-                            </button>
-                        </div>
+                        <button
+                            class="w-full rounded-sm border border-espresso bg-espresso py-6 text-lg font-bold uppercase tracking-widest text-cream transition-all duration-300 hover:bg-transparent hover:text-espresso"
+                        >
+                            Send Inquiry
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
+
+        <footer class="border-t border-white/5 bg-espresso py-16 text-center text-cream/40">
+            <div class="container mx-auto px-6">
+                <div class="mb-6 flex items-center justify-center gap-3 text-2xl font-bold text-cream">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-sm bg-white text-xl text-espresso">B</span>
+                    <span class="serif">Bean Origin</span>
+                </div>
+                <p class="mb-6 text-xs font-black uppercase tracking-[0.2em] text-cream/60">Empowering Ugandan Smallholders Through Digital Trust</p>
+                <p class="text-[13px] tracking-wider">© 2026 Bean Origin Uganda Limited. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
 </template>
 
 <style scoped>
 .landing-page {
-    --cream: #f7f3ea;
-    --ink: #201311;
-    --moss: #5c8f46;
-    --sage: #87d881;
-    --muted: #5b4b45;
+    --outline-variant: #d3c3c0;
+    --surface-container-low: #f4f4f0;
+    --surface-container-high: #e8e8e4;
+    --on-surface-variant: #504442;
+    --sage: #496640;
+    --espresso: #3e2723;
+    --cream: #fdfbf7;
     font-family: 'Manrope', sans-serif;
-    letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .serif {
@@ -895,109 +658,64 @@ const inquiryFields = [
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
 
-.glass-nav {
-    background: rgba(247, 243, 234, 0.78);
-}
-
-.soft-panel {
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68)),
-        radial-gradient(circle at top left, rgba(135, 216, 129, 0.12), transparent 42%);
-    border: 1px solid rgba(32, 19, 17, 0.08);
-    box-shadow: 0 20px 60px rgba(32, 19, 17, 0.05);
-}
-
-.hero-visual {
-    background:
-        radial-gradient(circle at top left, rgba(135, 216, 129, 0.15), transparent 36%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.35));
-}
-
-.ledger-panel {
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-        radial-gradient(circle at top left, rgba(135, 216, 129, 0.12), transparent 34%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.section-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--moss);
-}
-
-.section-kicker::before {
-    content: '';
-    width: 2.25rem;
-    height: 1px;
-    background: currentColor;
-}
-
-.hero-orb {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(80px);
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.hero-orb-left {
-    left: -6rem;
-    top: 5rem;
-    height: 18rem;
-    width: 18rem;
-    background: rgba(135, 216, 129, 0.18);
-}
-
-.hero-orb-right {
-    right: 4%;
-    top: 8rem;
-    height: 20rem;
-    width: 20rem;
-    background: rgba(92, 143, 70, 0.12);
-}
-
-.cta-orb {
-    right: 6%;
-    top: 18%;
-    height: 16rem;
-    width: 16rem;
-    background: rgba(135, 216, 129, 0.16);
-}
-
-.grain-mask {
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03)),
-        radial-gradient(circle at 20% 20%, rgba(32, 19, 17, 0.045) 0 1px, transparent 1px);
-    background-size: auto, 24px 24px;
-    pointer-events: none;
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
 .text-balance {
     text-wrap: balance;
 }
 
-.float-card {
-    animation: float-card 7s ease-in-out infinite;
+.grid-mesh {
+    background-image: radial-gradient(circle at 1px 1px, #d3c3c0 1px, transparent 0);
+    background-size: 40px 40px;
 }
 
-.float-card:nth-child(2) {
-    animation-delay: 0.8s;
+.border-subtle {
+    border: 1px solid rgba(62, 39, 35, 0.1);
 }
 
-@keyframes float-card {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
+.glass-nav {
+    background: rgba(253, 251, 247, 0.98);
+}
 
-    50% {
-        transform: translateY(-6px);
-    }
+.bg-cream {
+    background-color: var(--cream);
+}
+
+.bg-surface-container-low {
+    background-color: var(--surface-container-low);
+}
+
+.text-espresso {
+    color: var(--espresso);
+}
+
+.text-on-surface-variant {
+    color: var(--on-surface-variant);
+}
+
+.text-cream {
+    color: var(--cream);
+}
+
+.text-sage {
+    color: var(--sage);
+}
+
+.bg-espresso {
+    background-color: var(--espresso);
+}
+
+.bg-sage {
+    background-color: var(--sage);
+}
+
+.border-outline-variant {
+    border-color: var(--outline-variant);
+}
+
+:deep(*) {
+    box-shadow: none !important;
 }
 </style>

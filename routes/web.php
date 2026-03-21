@@ -11,7 +11,18 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
+
+Route::get('/protocol', function () {
+    return Inertia::render('Protocol');
+})->name('protocol');
+
+Route::get('/origins', function () {
+    return Inertia::render('Origins', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+    ]);
+})->name('origins');
 
 Route::middleware([
     'auth:sanctum',

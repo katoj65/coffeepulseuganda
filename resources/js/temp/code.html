@@ -3,202 +3,192 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Bean Origin | Premium Ugandan Coffee Trade</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-error-container": "#93000a",
-              "on-background": "#1a1c1a",
-              "outline-variant": "#d3c3c0",
-              "tertiary-fixed": "#a3f69c",
-              "on-primary-fixed": "#2b1613",
-              "on-tertiary-fixed-variant": "#005312",
-              "on-primary": "#ffffff",
-              "tertiary-fixed-dim": "#88d982",
-              "surface-container-highest": "#e2e3df",
-              "on-secondary-fixed-variant": "#4c4542",
-              "tertiary": "#001d03",
-              "outline": "#827472",
-              "primary-container": "#3e2723",
-              "on-tertiary-container": "#56a554",
-              "on-secondary": "#ffffff",
-              "surface-tint": "#745853",
-              "secondary-fixed": "#ece0dc",
-              "secondary-container": "#ece0dc",
-              "inverse-primary": "#e3beb8",
-              "background": "#faf9f5",
-              "on-primary-container": "#ae8d87",
-              "primary-fixed": "#ffdad4",
-              "on-tertiary": "#ffffff",
-              "on-primary-fixed-variant": "#5b403c",
-              "surface-dim": "#dadad6",
-              "on-secondary-fixed": "#201a18",
-              "primary-fixed-dim": "#e3beb8",
-              "secondary-fixed-dim": "#cfc4c0",
-              "surface-container": "#eeeeea",
-              "error-container": "#ffdad6",
-              "on-surface-variant": "#504442",
-              "surface-container-low": "#f4f4f0",
-              "surface-container-high": "#e8e8e4",
-              "on-tertiary-fixed": "#002204",
-              "inverse-surface": "#2f312e",
-              "on-error": "#ffffff",
-              "on-secondary-container": "#6b6360",
-              "tertiary-container": "#003508",
-              "secondary": "#655d5a",
-              "inverse-on-surface": "#f1f1ed",
-              "surface-variant": "#e2e3df",
-              "error": "#ba1a1a",
-              "surface-container-lowest": "#ffffff",
-              "surface": "#faf9f5",
-              "primary": "#271310",
-              "on-surface": "#1a1c1a",
-              "surface-bright": "#faf9f5",
-              "sage": "#88d982",
-              "espresso": "#271310",
-              "cream": "#faf9f5"
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "espresso": "#3E2723",
+                        "sage": "#496640",
+                        "cream": "#FDFBF7",
+                        "on-surface-variant": "#504442",
+                        "outline-variant": "#d3c3c0",
+                        "surface-container-low": "#f4f4f0",
+                        "surface-container-high": "#e8e8e4",
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "none": "0",
+                        "sm": "0.125rem",
+                        "DEFAULT": "0.25rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
             },
-            fontFamily: {
-              "headline": ["Noto Serif"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.5rem", "xl": "1rem", "2xl": "1.5rem", "3xl": "2.5rem", "full": "9999px"},
-          },
-        },
-      }
+        }
     </script>
 <style>
-        body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; }
+        body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; font-size: 18px; line-height: 1.6; }
         .serif { font-family: 'Noto Serif', serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-        .glass-nav { background: rgba(250, 249, 245, 0.95); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .text-balance { text-wrap: balance; }
         .grid-mesh { background-image: radial-gradient(circle at 1px 1px, #d3c3c0 1px, transparent 0); background-size: 40px 40px; }
         
-        /* Flat UI Overrides */
+        /* Strict No Shadows Policy */
         * { box-shadow: none !important; }
-        .border-subtle { border: 1px solid rgba(39, 19, 16, 0.1); }
+        .border-subtle { border: 1px solid rgba(62, 39, 35, 0.1); }
+        .glass-nav { background: rgba(253, 251, 247, 0.98); }
     </style>
 </head>
-<body class="bg-cream text-espresso selection:bg-sage/30">
+<body class="bg-cream text-espresso selection:bg-sage/20">
 <!-- Navigation -->
-<nav class="fixed top-0 w-full z-[100] glass-nav border-b border-outline-variant/20">
-<div class="flex justify-between items-center w-full px-6 md:px-12 py-5 max-w-[1600px] mx-auto">
-<div class="text-2xl font-headline font-bold text-espresso tracking-tight flex items-center gap-2">
-<span class="w-8 h-8 bg-espresso rounded-full flex items-center justify-center text-cream text-lg">B</span>
+<nav class="fixed top-0 w-full z-[100] glass-nav border-b border-espresso/10">
+<div class="container mx-auto px-6 md:px-12 py-5 flex justify-between items-center">
+<div class="text-2xl font-headline font-bold text-espresso tracking-tight flex items-center gap-3">
+<span class="w-9 h-9 bg-espresso rounded-sm flex items-center justify-center text-cream text-xl">B</span>
                 Bean Origin
             </div>
-<div class="hidden lg:flex gap-10 items-center">
-<a class="text-sm font-semibold tracking-wide text-espresso border-b-2 border-espresso pb-1" href="#">Marketplace</a>
-<a class="text-sm font-semibold tracking-wide text-espresso/60 hover:text-espresso transition-colors" href="#">Direct Trade</a>
-<a class="text-sm font-semibold tracking-wide text-espresso/60 hover:text-espresso transition-colors" href="#">Logistics</a>
-<a class="text-sm font-semibold tracking-wide text-espresso/60 hover:text-espresso transition-colors" href="#">Impact</a>
+<div class="hidden lg:flex gap-12 items-center">
+<a class="text-sm font-bold tracking-wide text-espresso border-b-2 border-espresso pb-1" href="#">Marketplace</a>
+<a class="text-sm font-bold tracking-wide text-espresso/60 hover:text-espresso transition-colors" href="#">Direct Trade</a>
+<a class="text-sm font-bold tracking-wide text-espresso/60 hover:text-espresso transition-colors" href="#">Logistics</a>
+<a class="text-sm font-bold tracking-wide text-espresso/60 hover:text-espresso transition-colors" href="#">Impact</a>
 </div>
-<button class="bg-espresso text-cream px-7 py-2.5 rounded-full text-sm font-bold hover:bg-espresso/90 transition-all active:scale-95">
+<button class="bg-espresso text-cream px-8 py-3 rounded-sm text-sm font-bold hover:bg-espresso/90 transition-all border border-espresso">
                 Source Ugandan Coffee
             </button>
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-cream">
+<section class="relative min-h-[70vh] flex items-center pt-24 pb-20 overflow-hidden bg-cream">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover opacity-60" data-alt="Cinematic wide shot of Ugandan coffee highlands" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Fkj_AVCPHmKmSMc6FMbWh8xZipsrSIgEr5H6ZGwH82fIUosB8aPXHvUJ1J5mgddnO5C5Ko02SBtt2xCaEFH_PYheBEHAfhp0aXBysv2dmd5jbk6eV3nqpwpCSSAMkQfoZHvDolbs7nsplZpCU8EVv3RmBR7lOiOcJo00jCz8yTbnAx7YI4JZrjyprKHMiVOaLD79vB83R-Pp4MZu69R7uJyIoUD9RKWCqiQSH6GIR1zQS6KZBYq6WrE18Y_RQma0L7FbaC9JorI"/>
-<div class="absolute inset-0 bg-gradient-to-r from-cream via-cream/90 to-transparent"></div>
-<div class="absolute inset-0 grid-mesh opacity-20"></div>
+<img alt="Ugandan Highlands" class="w-full h-full object-cover opacity-20 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Fkj_AVCPHmKmSMc6FMbWh8xZipsrSIgEr5H6ZGwH82fIUosB8aPXHvUJ1J5mgddnO5C5Ko02SBtt2xCaEFH_PYheBEHAfhp0aXBysv2dmd5jbk6eV3nqpwpCSSAMkQfoZHvDolbs7nsplZpCU8EVv3RmBR7lOiOcJo00jCz8yTbnAx7YI4JZrjyprKHMiVOaLD79vB83R-Pp4MZu69R7uJyIoUD9RKWCqiQSH6GIR1zQS6KZBYq6WrE18Y_RQma0L7FbaC9JorI"/>
+<div class="absolute inset-0 bg-gradient-to-r from-cream via-cream/80 to-transparent"></div>
 </div>
 <div class="container mx-auto px-6 md:px-12 relative z-10">
-<div class="max-w-3xl">
-<div class="inline-flex items-center gap-3 px-4 py-2 bg-espresso/5 rounded-full border border-espresso/10 mb-8">
-<span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
-<span class="text-xs font-bold uppercase tracking-widest text-espresso/70">Verified Ugandan Origin</span>
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-sage/10 rounded-sm border border-sage/20 mb-8">
+<span class="w-2.5 h-2.5 rounded-full bg-sage"></span>
+<span class="text-xs font-black uppercase tracking-[0.2em] text-espresso/70">Verified Ugandan Origin</span>
 </div>
-<h1 class="serif text-6xl md:text-8xl font-bold text-espresso tracking-tight leading-[0.95] mb-8 text-balance">
-                    From Farm to Cup, <span class="text-sage italic">Transparently</span>
+<h1 class="serif text-5xl md:text-7xl lg:text-8xl font-medium text-espresso tracking-tight leading-[1.1] mb-8 text-balance">
+                    From Farm to Cup, <br/>
+<span class="text-sage italic">Transparently.</span>
 </h1>
-<p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed mb-12 max-w-2xl">
-                    Unlocking direct access to Uganda's finest coffee through a secure, traceable, and ethical global marketplace.
+<p class="text-lg md:text-xl text-on-surface-variant font-light leading-relaxed mb-10 max-w-2xl">
+                    The premier digital gateway to Uganda's finest coffee. Direct trade, blockchain-verified, and ethically sourced for global roasters.
                 </p>
-<div class="flex flex-col sm:flex-row gap-5">
-<button class="bg-espresso text-cream px-10 py-5 rounded-full text-lg font-bold border border-espresso hover:bg-espresso/90 transition-all">Explore Marketplace</button>
-<button class="bg-transparent border border-espresso/20 text-espresso px-10 py-5 rounded-full text-lg font-bold hover:bg-espresso/5 transition-all">Our Impact Report</button>
+<div class="flex flex-wrap gap-5">
+<button class="bg-espresso text-cream px-10 py-4 rounded-sm text-base font-bold border border-espresso hover:bg-transparent hover:text-espresso transition-all duration-300">Buy Coffee</button>
+<button class="bg-transparent border border-espresso text-espresso px-10 py-4 rounded-sm text-base font-bold hover:bg-espresso hover:text-cream transition-all duration-300">Explore Origins</button>
 </div>
 </div>
 </div>
-<!-- Floating Tech Stat (Flat) -->
+<!-- Flat Stat Card -->
 <div class="absolute bottom-12 right-12 hidden xl:block">
-<div class="bg-white/90 p-8 rounded-3xl border border-espresso/10 max-w-xs">
+<div class="bg-white p-8 rounded-sm border border-espresso/10 max-w-sm">
 <div class="flex items-center gap-4 mb-4">
 <span class="material-symbols-outlined text-sage text-4xl" data-icon="qr_code_scanner">qr_code_scanner</span>
-<span class="text-sm font-bold leading-tight">Instant Batch Verification</span>
+<span class="text-xs font-black uppercase tracking-widest text-espresso">Batch Verification</span>
 </div>
-<p class="text-xs text-on-surface-variant leading-relaxed">Scan any sack to view full harvest data, farmer demographics, and real-time shipping logs.</p>
+<p class="text-[15px] text-on-surface-variant leading-relaxed">Scan any sack to view full harvest data, farmer demographics, and real-time shipping logs.</p>
 </div>
 </div>
 </section>
-<!-- Regional Powerhouse (Flat) -->
-<section class="py-32 bg-surface-container-low/30 overflow-hidden">
+<!-- Global Scale Section -->
+<section class="py-24 bg-white border-y border-espresso/10">
 <div class="container mx-auto px-6 md:px-12">
-<div class="flex flex-col lg:flex-row items-center gap-20">
-<div class="lg:w-1/2 relative">
-<div class="relative group">
-<div class="relative aspect-[4/5] bg-white rounded-3xl overflow-hidden border border-espresso/10 flex items-center justify-center p-8">
-<img alt="Detailed map of Uganda coffee growing regions" class="w-full h-full object-contain p-4 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9VBp1lYAC_auhTL9zlojnra-vG7DvBjGBQIp-hWCmJWx_xueaP35XVeQSPuyJQMca0tb-_RgX9LSDzqg4ItEmOPE3Nu5tRVgVdDIrggrw81aSc1GBV8hMjMjehC2HXsFyrKbw_KGTvw0pzgqAns4ME23YMD5nb3fxW0wbdXoeaVV-KihCt5A_ONypD-jrk-_LEqnuDdNgrCk8CONR_xqv9-Xk3q8Oil4N07bukPGZk4wkrSOhj27YWkE0ajnq1xSomFZbtuvEOnw"/>
-<!-- Map UI elements preserved but flattened -->
-<div class="absolute bottom-8 right-8 bg-white p-5 rounded-2xl border border-espresso/10">
-<h5 class="text-[10px] font-black uppercase tracking-[0.2em] text-espresso/40 mb-3">Region Legend</h5>
-<div class="space-y-3">
-<div class="flex items-center gap-3">
-<span class="w-3 h-3 rounded-full bg-sage"></span>
-<span class="text-[10px] font-bold uppercase tracking-widest text-espresso">Robusta Lowlands</span>
+<div class="max-w-3xl mb-16">
+<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">Infrastructure</span>
+<h2 class="serif text-5xl md:text-6xl font-bold text-espresso leading-tight">Global Scale. Digital precision for modern roasters.</h2>
 </div>
-<div class="flex items-center gap-3">
-<div class="w-3 h-3 bg-espresso/40 rotate-45"></div>
-<span class="text-[10px] font-bold uppercase tracking-widest text-espresso">Highland Arabica</span>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<div class="w-14 h-14 bg-surface-container-low border border-espresso/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-espresso text-3xl" data-icon="hub">hub</span>
+</div>
+<h4 class="serif text-2xl font-bold">Export Visibility</h4>
+<p class="text-base text-on-surface-variant leading-relaxed">Direct access to live inventory across 12 major hubs across the globe.</p>
+</div>
+<div class="space-y-6">
+<div class="w-14 h-14 bg-surface-container-low border border-espresso/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-espresso text-3xl" data-icon="verified_user">verified_user</span>
+</div>
+<h4 class="serif text-2xl font-bold">Origin Assurance</h4>
+<p class="text-base text-on-surface-variant leading-relaxed">Every transaction is digitally signed for tamper-proof tracking and source integrity.</p>
+</div>
+<div class="space-y-6">
+<div class="w-14 h-14 bg-surface-container-low border border-espresso/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-espresso text-3xl" data-icon="currency_exchange">currency_exchange</span>
+</div>
+<h4 class="serif text-2xl font-bold">Secure Trade</h4>
+<p class="text-base text-on-surface-variant leading-relaxed">Integrated escrow and multi-currency blockchain payments for global simplicity.</p>
+</div>
+<div class="space-y-6">
+<div class="w-14 h-14 bg-surface-container-low border border-espresso/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-espresso text-3xl" data-icon="local_shipping">local_shipping</span>
+</div>
+<h4 class="serif text-2xl font-bold">Real-time Logistics</h4>
+<p class="text-base text-on-surface-variant leading-relaxed">Track shipments from the mill to your warehouse with precision telemetry.</p>
 </div>
 </div>
 </div>
-<div class="absolute top-8 left-8 bg-espresso p-4 rounded-2xl z-10">
-<span class="text-[10px] font-black uppercase tracking-tighter text-white/40 block mb-0.5">Production 2023</span>
-<span class="text-xl font-bold text-cream">6.2M Bags</span>
+</section>
+<!-- Regional Powerhouse -->
+<section class="py-24 bg-cream">
+<div class="container mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+<div class="lg:col-span-6">
+<div class="bg-white border border-espresso/10 p-10 rounded-sm relative">
+<img alt="Map of Uganda coffee regions" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9VBp1lYAC_auhTL9zlojnra-vG7DvBjGBQIp-hWCmJWx_xueaP35XVeQSPuyJQMca0tb-_RgX9LSDzqg4ItEmOPE3Nu5tRVgVdDIrggrw81aSc1GBV8hMjMjehC2HXsFyrKbw_KGTvw0pzgqAns4ME23YMD5nb3fxW0wbdXoeaVV-KihCt5A_ONypD-jrk-_LEqnuDdNgrCk8CONR_xqv9-Xk3q8Oil4N07bukPGZk4wkrSOhj27YWkE0ajnq1xSomFZbtuvEOnw"/>
+<div class="absolute top-12 left-12 bg-espresso text-cream px-6 py-4 rounded-sm border border-espresso">
+<span class="text-xs font-black uppercase tracking-tighter text-white/50 block mb-1">Annual Export</span>
+<span class="text-3xl font-bold">6.2M Bags</span>
 </div>
 </div>
 </div>
-</div>
-<div class="lg:w-1/2">
-<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-6 block">Regional Powerhouse</span>
-<h2 class="serif text-5xl md:text-6xl font-bold text-espresso mb-10 leading-[1.1]">The Heart of African Coffee</h2>
-<div class="space-y-12">
-<div class="flex gap-8 group">
-<div class="w-16 h-16 flex-shrink-0 bg-espresso text-cream rounded-2xl flex items-center justify-center transition-transform">
+<div class="lg:col-span-6 lg:pl-12">
+<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">Regional Powerhouse</span>
+<h2 class="serif text-5xl md:text-6xl font-bold text-espresso mb-10 leading-tight">The Heart of African Coffee</h2>
+<div class="space-y-10">
+<div class="flex gap-8">
+<div class="w-14 h-14 flex-shrink-0 bg-espresso text-cream rounded-sm flex items-center justify-center">
 <span class="material-symbols-outlined text-3xl" data-icon="volcano">volcano</span>
 </div>
 <div>
-<h4 class="font-bold text-xl text-espresso mb-2">Rich Volcanic Terroir</h4>
-<p class="text-on-surface-variant leading-relaxed">Uganda's unique altitude and nutrient-dense soil produce beans with unmatched complexity and character.</p>
+<h4 class="font-bold text-2xl text-espresso mb-3">Rich Volcanic Terroir</h4>
+<p class="text-lg text-on-surface-variant leading-relaxed">Uganda's unique altitude and nutrient-dense soil produce beans with unmatched complexity.</p>
 </div>
 </div>
-<div class="flex gap-8 group">
-<div class="w-16 h-16 flex-shrink-0 bg-espresso text-cream rounded-2xl flex items-center justify-center transition-transform">
+<div class="flex gap-8">
+<div class="w-14 h-14 flex-shrink-0 bg-espresso text-cream rounded-sm flex items-center justify-center">
 <span class="material-symbols-outlined text-3xl" data-icon="public">public</span>
 </div>
 <div>
-<h4 class="font-bold text-xl text-espresso mb-2">Dual Season Harvest</h4>
-<p class="text-on-surface-variant leading-relaxed">Located on the equator, Uganda benefits from two annual harvest cycles, ensuring consistent supply.</p>
+<h4 class="font-bold text-2xl text-espresso mb-3">Dual Season Harvest</h4>
+<p class="text-lg text-on-surface-variant leading-relaxed">Located on the equator, Uganda benefits from two annual harvest cycles, ensuring consistent supply.</p>
 </div>
 </div>
-<div class="flex gap-8 group">
-<div class="w-16 h-16 flex-shrink-0 bg-espresso text-cream rounded-2xl flex items-center justify-center transition-transform">
+<div class="flex gap-8">
+<div class="w-14 h-14 flex-shrink-0 bg-espresso text-cream rounded-sm flex items-center justify-center">
 <span class="material-symbols-outlined text-3xl" data-icon="groups_3">groups_3</span>
 </div>
 <div>
-<h4 class="font-bold text-xl text-espresso mb-2">1.7M Smallholder Families</h4>
-<p class="text-on-surface-variant leading-relaxed">Coffee is the lifeblood of Uganda, managed by dedicated families committed to quality.</p>
+<h4 class="font-bold text-2xl text-espresso mb-3">1.7M Smallholders</h4>
+<p class="text-lg text-on-surface-variant leading-relaxed">Coffee is the lifeblood of Uganda, managed by dedicated families committed to excellence.</p>
 </div>
 </div>
 </div>
@@ -206,330 +196,299 @@
 </div>
 </div>
 </section>
-<!-- Exceptional Quality Section Redesign -->
-<section class="py-32 overflow-hidden bg-white border-b border-espresso/5">
+<!-- Exceptional Quality -->
+<section class="py-24 bg-white border-y border-espresso/10">
+<div class="container mx-auto px-6 md:px-12">
+<div class="text-center max-w-2xl mx-auto mb-20">
+<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">Varietal Excellence</span>
+<h2 class="serif text-5xl md:text-6xl font-bold text-espresso mb-6">Exceptional Quality</h2>
+<p class="text-on-surface-variant text-xl">Defined by altitude and meticulously graded to meet international specialty standards.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-espresso/10 rounded-sm overflow-hidden">
+<!-- Arabica -->
+<div class="flex flex-col lg:flex-row border-b md:border-b-0 md:border-r border-espresso/10">
+<div class="lg:w-1/2 h-80 lg:h-auto">
+<img alt="Ugandan Arabica" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ"/>
+</div>
+<div class="lg:w-1/2 p-12 lg:p-14 flex flex-col justify-center bg-white">
+<span class="text-xs font-black uppercase tracking-widest text-sage mb-4">Highland Specialty</span>
+<h3 class="serif text-4xl font-bold text-espresso mb-8">Arabica</h3>
+<div class="space-y-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-espresso/40 text-2xl" data-icon="location_on">location_on</span>
+<span class="text-[13px] font-bold text-espresso uppercase tracking-wider">Mt. Elgon, Rwenzori</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-espresso/40 text-2xl" data-icon="landscape">landscape</span>
+<span class="text-[13px] font-bold text-espresso uppercase tracking-wider">1,300 – 2,300m</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-espresso/40 text-2xl" data-icon="palette">palette</span>
+<span class="text-[13px] font-bold text-espresso uppercase tracking-wider">Fruity &amp; Floral</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Robusta -->
+<div class="flex flex-col lg:flex-row">
+<div class="lg:w-1/2 h-80 lg:h-auto order-1 lg:order-2">
+<img alt="Ugandan Robusta" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC655FgLNC1Qo9KbsjljFL32jP9jDS_Rnn3AFs3rIlQX0GwAbhPuqYjriacFwEBc1xCFHMWBzvZe3fAPULN3n4uN0KkNoh_vsY6-kPw8Q2SQLTEYS1kEQtK8a-_nIp8L9HdynGm8Uw5S0BwkWq5OQ68ebnsxBj_etN4xaFindHNXp048WGTe1JuKIQrkH3MCBMv_QtEZwIHjsLCQLH7IGobkTyhTeZxXByfZDv-IxlmQ7CC2PhC-hQIHkqvz0AW40FmSiVGMlAq0k"/>
+</div>
+<div class="lg:w-1/2 p-12 lg:p-14 flex flex-col justify-center bg-surface-container-low/40 order-2 lg:order-1">
+<span class="text-xs font-black uppercase tracking-widest text-espresso/50 mb-4">Native Powerhouse</span>
+<h3 class="serif text-4xl font-bold text-espresso mb-8">Robusta</h3>
+<div class="space-y-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-espresso/40 text-2xl" data-icon="location_on">location_on</span>
+<span class="text-[13px] font-bold text-espresso uppercase tracking-wider">Central Basin</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-espresso/40 text-2xl" data-icon="landscape">landscape</span>
+<span class="text-[13px] font-bold text-espresso uppercase tracking-wider">900 – 1,500m</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-espresso/40 text-2xl" data-icon="bolt">bolt</span>
+<span class="text-[13px] font-bold text-espresso uppercase tracking-wider">Bold &amp; Chocolatey</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Full Traceability Section -->
+<section class="py-24 bg-cream overflow-hidden">
 <div class="container mx-auto px-6 md:px-12">
 <div class="text-center max-w-3xl mx-auto mb-20">
-<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">World-Class Varieties</span>
-<h2 class="serif text-5xl md:text-7xl font-bold text-espresso mb-6">Exceptional Quality</h2>
-<p class="text-on-surface-variant text-xl font-light">Uganda's diverse landscape produces two distinct, globally revered coffee varieties with unique characteristics.</p>
+<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">Immutable Trust</span>
+<h2 class="serif text-5xl md:text-6xl font-bold text-espresso mb-8">Full Traceability</h2>
+<p class="text-on-surface-variant text-xl">Real-time blockchain verification at every stage of the journey.</p>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-2 border border-espresso/10 rounded-2xl overflow-hidden bg-white">
-<!-- Arabica Side -->
-<div class="flex flex-col md:flex-row border-b lg:border-b-0 lg:border-r border-espresso/10">
-<div class="md:w-1/2 h-80 md:h-auto overflow-hidden">
-<img alt="Ugandan Arabica Coffee" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ"/>
-</div>
-<div class="md:w-1/2 p-10 flex flex-col justify-center">
-<div class="inline-block px-3 py-1 bg-sage/10 text-sage text-[10px] font-black uppercase tracking-widest rounded mb-4 w-fit">The Highland Specialty</div>
-<h3 class="serif text-4xl font-bold text-espresso mb-6">Arabica</h3>
-<div class="space-y-6">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-espresso/40" data-icon="location_on">location_on</span>
-<div>
-<p class="text-[10px] font-black uppercase tracking-widest text-espresso/40">Origin Regions</p>
-<p class="font-bold text-sm text-espresso">Mount Elgon, Rwenzori Mountains</p>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-espresso/40" data-icon="landscape">landscape</span>
-<div>
-<p class="text-[10px] font-black uppercase tracking-widest text-espresso/40">Altitude Range</p>
-<p class="font-bold text-sm text-espresso">1,300 – 2,300m</p>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-espresso/40" data-icon="palette">palette</span>
-<div>
-<p class="text-[10px] font-black uppercase tracking-widest text-espresso/40">Flavor Profile</p>
-<p class="font-bold text-sm text-espresso">Smooth &amp; Aromatic</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Robusta Side -->
-<div class="flex flex-col md:flex-row">
-<div class="md:w-1/2 h-80 md:h-auto overflow-hidden order-1 md:order-2">
-<img alt="Ugandan Robusta Coffee" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC655FgLNC1Qo9KbsjljFL32jP9jDS_Rnn3AFs3rIlQX0GwAbhPuqYjriacFwEBc1xCFHMWBzvZe3fAPULN3n4uN0KkNoh_vsY6-kPw8Q2SQLTEYS1kEQtK8a-_nIp8L9HdynGm8Uw5S0BwkWq5OQ68ebnsxBj_etN4xaFindHNXp048WGTe1JuKIQrkH3MCBMv_QtEZwIHjsLCQLH7IGobkTyhTeZxXByfZDv-IxlmQ7CC2PhC-hQIHkqvz0AW40FmSiVGMlAq0k"/>
-</div>
-<div class="md:w-1/2 p-10 flex flex-col justify-center order-2 md:order-1">
-<div class="inline-block px-3 py-1 bg-espresso/5 text-espresso/60 text-[10px] font-black uppercase tracking-widest rounded mb-4 w-fit">The Native Powerhouse</div>
-<h3 class="serif text-4xl font-bold text-espresso mb-6">Robusta</h3>
-<div class="space-y-6">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-espresso/40" data-icon="location_on">location_on</span>
-<div>
-<p class="text-[10px] font-black uppercase tracking-widest text-espresso/40">Origin Regions</p>
-<p class="font-bold text-sm text-espresso">Central Basin, Western Lowlands</p>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-espresso/40" data-icon="landscape">landscape</span>
-<div>
-<p class="text-[10px] font-black uppercase tracking-widest text-espresso/40">Altitude Range</p>
-<p class="font-bold text-sm text-espresso">900 – 1,500m</p>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-espresso/40" data-icon="flash_on">flash_on</span>
-<div>
-<p class="text-[10px] font-black uppercase tracking-widest text-espresso/40">Flavor Profile</p>
-<p class="font-bold text-sm text-espresso">Bold &amp; High Caffeine</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Traceability Section -->
-<section class="py-32 bg-cream overflow-hidden border-t border-espresso/5">
-<div class="container mx-auto px-6 md:px-12">
-<div class="text-center max-w-4xl mx-auto mb-20">
-<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-6 block">Direct &amp; Verifiable</span>
-<h2 class="serif text-5xl md:text-7xl font-bold text-espresso mb-8 leading-tight">Full Traceability</h2>
-<p class="text-on-surface-variant text-xl font-light">Powered by blockchain technology, we provide an immutable digital ledger for every single batch.</p>
-</div>
-<!-- Modern Sleek Visual Flow -->
-<div class="relative max-w-6xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Horizontal Step Flow -->
+<div class="relative mb-24">
+<div class="absolute top-1/2 left-0 w-full h-px bg-espresso/10 -translate-y-1/2 hidden lg:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
 <!-- Step 1 -->
-<div class="bg-white p-8 rounded-2xl border border-espresso/10 group transition-colors hover:border-sage relative">
-<div class="flex items-center justify-between mb-6">
-<span class="text-[10px] font-black text-sage tracking-[0.2em] uppercase">01 / Origin</span>
-<span class="material-symbols-outlined text-espresso/20 group-hover:text-sage transition-colors" data-icon="agriculture">agriculture</span>
+<div class="flex flex-col items-center text-center bg-cream px-4">
+<div class="w-20 h-20 bg-white border border-espresso/10 rounded-full flex items-center justify-center mb-6 hover:border-sage transition-all">
+<span class="material-symbols-outlined text-sage text-3xl" data-icon="agriculture">agriculture</span>
 </div>
-<h4 class="font-bold text-lg mb-2">Farming</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">GPS-tagged plots and farmer profiles ensure 100% origin verification.</p>
-<div class="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
-<span class="material-symbols-outlined text-espresso/10" data-icon="chevron_right">chevron_right</span>
-</div>
+<span class="text-[11px] font-black uppercase tracking-widest text-espresso/40 mb-2">01. Farming</span>
+<h4 class="serif text-2xl font-bold mb-3">GPS Tagged</h4>
+<p class="text-[15px] text-on-surface-variant leading-relaxed">Individual farm mapping for 100% origin verification.</p>
 </div>
 <!-- Step 2 -->
-<div class="bg-white p-8 rounded-2xl border border-espresso/10 group transition-colors hover:border-sage relative">
-<div class="flex items-center justify-between mb-6">
-<span class="text-[10px] font-black text-sage tracking-[0.2em] uppercase">02 / Log</span>
-<span class="material-symbols-outlined text-espresso/20 group-hover:text-sage transition-colors" data-icon="eco">eco</span>
+<div class="flex flex-col items-center text-center bg-cream px-4">
+<div class="w-20 h-20 bg-white border border-espresso/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-sage text-3xl" data-icon="precision_manufacturing">precision_manufacturing</span>
 </div>
-<h4 class="font-bold text-lg mb-2">Harvest</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">Real-time batch logging at harvest time with quality metrics.</p>
-<div class="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
-<span class="material-symbols-outlined text-espresso/10" data-icon="chevron_right">chevron_right</span>
-</div>
+<span class="text-[11px] font-black uppercase tracking-widest text-espresso/40 mb-2">02. Harvesting</span>
+<h4 class="serif text-2xl font-bold mb-3">Digital Entry</h4>
+<p class="text-[15px] text-on-surface-variant leading-relaxed">Live batch weight logging at collection gates.</p>
 </div>
 <!-- Step 3 -->
-<div class="bg-white p-8 rounded-2xl border border-espresso/10 group transition-colors hover:border-sage relative">
-<div class="flex items-center justify-between mb-6">
-<span class="text-[10px] font-black text-sage tracking-[0.2em] uppercase">03 / Proof</span>
-<span class="material-symbols-outlined text-espresso/20 group-hover:text-sage transition-colors" data-icon="factory">factory</span>
+<div class="flex flex-col items-center text-center bg-cream px-4">
+<div class="w-20 h-20 bg-white border border-espresso/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-sage text-3xl" data-icon="lab_research">lab_research</span>
 </div>
-<h4 class="font-bold text-lg mb-2">Processing</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">Cupping scores and certifications signed to the digital ledger.</p>
-<div class="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
-<span class="material-symbols-outlined text-espresso/10" data-icon="chevron_right">chevron_right</span>
-</div>
+<span class="text-[11px] font-black uppercase tracking-widest text-espresso/40 mb-2">03. Processing</span>
+<h4 class="serif text-2xl font-bold mb-3">Quality Audit</h4>
+<p class="text-[15px] text-on-surface-variant leading-relaxed">Q-Graded cupping scores secured via smart contracts.</p>
 </div>
 <!-- Step 4 -->
-<div class="bg-espresso p-8 rounded-2xl border border-espresso group">
-<div class="flex items-center justify-between mb-6">
-<span class="text-[10px] font-black text-sage tracking-[0.2em] uppercase">04 / Global</span>
-<span class="material-symbols-outlined text-cream/40" data-icon="local_shipping">local_shipping</span>
+<div class="flex flex-col items-center text-center bg-cream px-4">
+<div class="w-20 h-20 bg-espresso border border-espresso rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-sage text-3xl" data-icon="rocket_launch">rocket_launch</span>
 </div>
-<h4 class="font-bold text-lg text-cream mb-2">Export</h4>
-<p class="text-sm text-cream/60 leading-relaxed">Final container seal linked to digital certificate for global trust.</p>
-</div>
-</div>
-<!-- QR Integration (Flat) -->
-<div class="mt-16 bg-white rounded-3xl p-10 border border-espresso/10">
-<div class="flex flex-col lg:flex-row items-center gap-12">
-<div class="lg:w-1/2">
-<h3 class="serif text-3xl font-bold text-espresso mb-4">Scan. Verify. Trust.</h3>
-<p class="text-on-surface-variant leading-relaxed mb-6">"Blockchain acts as the underlying trust layer, making every record immutable and verifiable."</p>
-<div class="flex items-center gap-3 text-sage font-bold text-sm">
-<span class="material-symbols-outlined" data-icon="verified">verified</span>
-<span>Secured by OriginLedger™ Infrastructure</span>
+<span class="text-[11px] font-black uppercase tracking-widest text-white/40 mb-2">04. Export</span>
+<h4 class="serif text-2xl font-bold mb-3">Global Delivery</h4>
+<p class="text-[15px] text-on-surface-variant leading-relaxed">Final seal verification and shipping telemetry.</p>
 </div>
 </div>
-<div class="lg:w-1/2 flex justify-center lg:justify-end">
-<div class="bg-[#1a1c1a] text-cream p-8 rounded-2xl border border-white/10 w-full max-w-sm">
-<div class="flex justify-between items-start mb-6">
+</div>
+<!-- Verification Card -->
+<div class="bg-white border border-espresso/10 rounded-sm p-10 md:p-16">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div>
-<p class="text-[8px] font-black uppercase text-white/30 mb-1">Blockchain ID</p>
-<p class="font-mono text-sage text-xs">0x88...D982</p>
+<div class="inline-flex items-center gap-2 px-4 py-1.5 bg-sage/10 text-sage text-[11px] font-black uppercase tracking-widest mb-6 border border-sage/20">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+                            Blockchain Secured
+                        </div>
+<h3 class="serif text-5xl font-bold text-espresso mb-8 leading-tight">Scan. Verify. Trust.</h3>
+<p class="text-on-surface-variant text-xl leading-relaxed mb-10">"Our decentralized ledger ensures that smallholders receive fair compensation while global roasters get guaranteed quality without intermediaries."</p>
+<button class="bg-espresso text-cream px-10 py-4 rounded-sm text-sm font-bold uppercase tracking-widest border border-espresso hover:bg-transparent hover:text-espresso transition-all">Learn About Our Protocol</button>
 </div>
-<div class="p-2 bg-white rounded-lg">
-<img alt="Traceability QR Code" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ1cw6GFzJWeZDC7rp5Q67bhIpexr_wROyzEW15dHnRs6mJmUJ2lwmbP9ssEzzGahhvIJHZLJV__T1GVxcivw3vikpsxGPUxzYAqQrCm3k6T1ZWQzuskbemjfpSoB6IBpiqjHaZz-WhaKTnHRPmjqC0HzYcFUO-BpSw20hBwoISebRPpsNv2Gpa7Cf5JSJnKA3w7gGWBH-IKcHgjH-u7ekWRGt1UZzYZZBgudgWt7Wi0g8tOGj86OYz1tMfhCvB7zNkmepwakp8s"/>
+<div class="flex justify-center lg:justify-end">
+<div class="bg-espresso text-cream p-10 rounded-sm w-full max-w-sm border border-white/5 relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-sage opacity-10 rounded-full blur-3xl"></div>
+<div class="flex justify-between items-start mb-10">
+<div>
+<p class="text-[10px] font-black uppercase text-white/40 mb-2">Blockchain Hash</p>
+<p class="font-mono text-sage text-xs tracking-tight">0x88...D982_UG_24</p>
+</div>
+<div class="bg-white p-3 rounded-sm">
+<img alt="Verification QR Code" class="w-16 h-16" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ1cw6GFzJWeZDC7rp5Q67bhIpexr_wROyzEW15dHnRs6mJmUJ2lwmbP9ssEzzGahhvIJHZLJV__T1GVxcivw3vikpsxGPUxzYAqQrCm3k6T1ZWQzuskbemjfpSoB6IBpiqjHaZz-WhaKTnHRPmjqC0HzYcFUO-BpSw20hBwoISebRPpsNv2Gpa7Cf5JSJnKA3w7gGWBH-IKcHgjH-u7ekWRGt1UZzYZZBgudgWt7Wi0g8tOGj86OYz1tMfhCvB7zNkmepwakp8s"/>
 </div>
 </div>
-<div class="space-y-3">
-<div class="flex justify-between items-center text-[10px] uppercase text-white/40 border-b border-white/5 pb-2">
-<span>Status</span>
-<span class="text-sage font-bold">Verified Origin</span>
+<div class="space-y-6">
+<div class="flex justify-between items-center text-xs uppercase tracking-wider text-white/50 border-b border-white/10 pb-4">
+<span>Identity Status</span>
+<span class="text-sage font-black">100% Verified</span>
 </div>
-<div class="flex justify-between items-center text-[10px] uppercase text-white/40 border-b border-white/5 pb-2">
+<div class="flex justify-between items-center text-xs uppercase tracking-wider text-white/50 border-b border-white/10 pb-4">
 <span>Farmer Equity</span>
-<span class="text-sage">94% Distributed</span>
+<span class="text-sage font-black">94.2% Distributed</span>
+</div>
+<div class="flex justify-between items-center text-xs uppercase tracking-wider text-white/50">
+<span>Harvest Year</span>
+<span class="text-white font-black">2024 Reserve</span>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div></section>
-<!-- Global Market Grid -->
-<section class="py-32 bg-espresso text-cream overflow-hidden">
-<div class="container mx-auto px-6 md:px-12 relative">
-<div class="mb-20">
-<h2 class="serif text-5xl md:text-6xl font-bold mb-6">Global Scale.</h2>
-<p class="text-cream/50 text-xl max-w-2xl">Digital precision for modern roasters.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
-<div class="p-10 bg-espresso hover:bg-white/5 transition-colors">
-<span class="material-symbols-outlined text-4xl text-sage mb-8" data-icon="hub">hub</span>
-<h4 class="text-xl font-bold mb-4">Export Visibility</h4>
-<p class="text-sm text-cream/50">Direct access to live inventory data across 12 major hubs.</p>
-</div>
-<div class="p-10 bg-espresso hover:bg-white/5 transition-colors">
-<span class="material-symbols-outlined text-4xl text-sage mb-8" data-icon="verified_user">verified_user</span>
-<h4 class="text-xl font-bold mb-4">Origin Assurance</h4>
-<p class="text-sm text-cream/50">Digitally signed for tamper-proof origin tracking.</p>
-</div>
-<div class="p-10 bg-espresso hover:bg-white/5 transition-colors">
-<span class="material-symbols-outlined text-4xl text-sage mb-8" data-icon="payments">payments</span>
-<h4 class="text-xl font-bold mb-4">Secure Trade</h4>
-<p class="text-sm text-cream/50">Integrated escrow and multi-currency blockchain payments.</p>
-</div>
-<div class="p-10 bg-espresso hover:bg-white/5 transition-colors">
-<span class="material-symbols-outlined text-4xl text-sage mb-8" data-icon="monitoring">monitoring</span>
-<h4 class="text-xl font-bold mb-4">Real-time Logistics</h4>
-<p class="text-sm text-cream/50">Track your shipment from the mill to your warehouse.</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Ethical Sourcing -->
-<section class="py-32 bg-white">
+<section class="py-24 bg-white">
 <div class="container mx-auto px-6 md:px-12">
-<div class="flex flex-col lg:flex-row items-center gap-20">
-<div class="lg:w-5/12 order-2 lg:order-1">
-<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-6 block">Our Commitment</span>
-<h2 class="serif text-5xl font-bold text-espresso mb-8 leading-tight">Humanity Behind Every Bean</h2>
-<p class="text-lg text-on-surface-variant leading-relaxed mb-10">We're redefining the value chain by returning the majority of export value back to the farm gate.</p>
-<div class="grid grid-cols-2 gap-10">
-<div class="border-l-4 border-sage pl-6">
-<span class="text-4xl font-bold text-espresso block mb-2">94%</span>
-<p class="text-xs font-bold uppercase tracking-widest text-espresso/40">Farmer Revenue</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">Our Commitment</span>
+<h2 class="serif text-5xl md:text-6xl font-bold text-espresso mb-8 leading-tight">Humanity Behind Every Bean</h2>
+<p class="text-2xl text-on-surface-variant leading-relaxed mb-12">We're redefining the value chain by returning the majority of export value back to the farm gate. Sustainable coffee starts with sustainable lives.</p>
+<div class="grid grid-cols-2 gap-12">
+<div class="border-l-2 border-sage pl-8">
+<span class="text-5xl font-bold text-espresso block mb-3">94%</span>
+<p class="text-xs font-black uppercase tracking-widest text-espresso/40">Farmer Revenue Share</p>
 </div>
-<div class="border-l-4 border-sage pl-6">
-<span class="text-4xl font-bold text-espresso block mb-2">450+</span>
-<p class="text-xs font-bold uppercase tracking-widest text-espresso/40">Co-operatives</p>
+<div class="border-l-2 border-sage pl-8">
+<span class="text-5xl font-bold text-espresso block mb-3">450+</span>
+<p class="text-xs font-black uppercase tracking-widest text-espresso/40">Active Cooperatives</p>
 </div>
 </div>
 </div>
-<div class="lg:w-7/12 order-1 lg:order-2 relative">
-<div class="relative rounded-[2.5rem] overflow-hidden border border-espresso/10">
-<img class="w-full aspect-[4/3] object-cover" data-alt="Vivid portrait of a Ugandan coffee farmer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXvSttPduffZIREinpq-_orDOj8bpUOfVGxyUWCsA0DbWDyR2MhWJTneD1tv6c6xF9--uieNa29gdVXUmJrQ1MDLUrfeu_TOcnJUbPrzXgMb-bejXM99uXl5T4Bg01huLIp6byp2PpvNWUxlNcIgrHdUpFJWjXqdLQn7KMYnSq_D3rm5LTotxyaWZ4z8mwqLhcYN-BtXRVlQgDhaC9y2CfPfDQa88wRB2MoAkmVa36c1ZWrXaWgeo-pYhVf6MVfSKPUOjE3l2P8fU"/>
+<div class="order-1 lg:order-2">
+<div class="relative">
+<img alt="Ugandan Coffee Farmer" class="w-full aspect-[4/3] object-cover rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXvSttPduffZIREinpq-_orDOj8bpUOfVGxyUWCsA0DbWDyR2MhWJTneD1tv6c6xF9--uieNa29gdVXUmJrQ1MDLUrfeu_TOcnJUbPrzXgMb-bejXM99uXl5T4Bg01huLIp6byp2PpvNWUxlNcIgrHdUpFJWjXqdLQn7KMYnSq_D3rm5LTotxyaWZ4z8mwqLhcYN-BtXRVlQgDhaC9y2CfPfDQa88wRB2MoAkmVa36c1ZWrXaWgeo-pYhVf6MVfSKPUOjE3l2P8fU"/>
+<div class="absolute -bottom-8 -left-8 bg-cream border border-espresso/10 p-10 rounded-sm max-w-[320px] hidden md:block">
+<h5 class="font-bold text-lg mb-3 text-espresso">Impact Certified</h5>
+<p class="text-[13px] text-on-surface-variant leading-relaxed uppercase tracking-wider">Social impact metrics tracked across all cooperatives with annual transparency reports.</p>
 </div>
-<div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl text-espresso max-w-[280px] hidden md:block border border-espresso/10">
-<h5 class="font-bold text-xl mb-3">Impact Certified</h5>
-<p class="text-sm text-on-surface-variant leading-relaxed">Our platform tracks social impact metrics within cooperatives.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Featured Lots -->
-<section class="py-32 bg-cream">
+<section class="py-24 bg-surface-container-low/30">
 <div class="container mx-auto px-6 md:px-12">
-<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
 <div>
-<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-6 block">Direct Trading</span>
+<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">Direct Stock</span>
 <h2 class="serif text-5xl font-bold text-espresso">Featured Lots</h2>
 </div>
-<button class="flex items-center gap-3 text-espresso font-black uppercase tracking-widest text-xs">
-                    View All Stock
-                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
+<a class="inline-flex items-center gap-3 text-espresso font-black uppercase tracking-widest text-xs hover:text-sage transition-colors border-b border-espresso/20 pb-2" href="#">
+                    View All Inventory
+                    <span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Product Card -->
-<div class="bg-white rounded-3xl overflow-hidden border border-espresso/10 transition-colors hover:border-sage">
-<div class="h-64 overflow-hidden relative border-b border-espresso/5">
-<img class="w-full h-full object-cover" data-alt="Mount Elgon Beans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIkU25APwKtHRPH16ebxCtKBV00FUlXXopwK1QrDK3YTsqgfbpIvcqHeyATN-yp1_oDKYgd0RQtb6psW8w3Z3jD6Awv4uMRimif0YjuzNOqulXh3OofuKGMy3Qokdkg7XZ0VgCs8FrDJQ-ZoCuCS1kjsZ-svjk4DdqUyaVXtfktaC0voSwothnHGF73sUudPJj5Bu-saCv3YHAR7ClVC7PYc4yCL3Gs8jGnzVp5GuSLVtCFGpqrzHOfGxUQQUXS3qxAlClJNcpwOM"/>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Lot 1 -->
+<div class="bg-white border border-espresso/10 rounded-sm overflow-hidden flex flex-col hover:border-espresso transition-colors">
+<div class="h-72 overflow-hidden border-b border-espresso/5">
+<img alt="Mount Elgon Lots" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIkU25APwKtHRPH16ebxCtKBV00FUlXXopwK1QrDK3YTsqgfbpIvcqHeyATN-yp1_oDKYgd0RQtb6psW8w3Z3jD6Awv4uMRimif0YjuzNOqulXh3OofuKGMy3Qokdkg7XZ0VgCs8FrDJQ-ZoCuCS1kjsZ-svjk4DdqUyaVXtfktaC0voSwothnHGF73sUudPJj5Bu-saCv3YHAR7ClVC7PYc4yCL3Gs8jGnzVp5GuSLVtCFGpqrzHOfGxUQQUXS3qxAlClJNcpwOM"/>
 </div>
-<div class="p-8">
-<h3 class="serif text-2xl font-bold text-espresso mb-3">Mount Elgon High Peaks</h3>
-<p class="text-sm text-on-surface-variant mb-8 line-clamp-2">Highland grown, volcanic soil, honey processed with notes of nectarine.</p>
-<div class="flex items-center justify-between pt-6 border-t border-espresso/5">
-<span class="text-lg font-bold">12.5 Tons</span>
-<button class="bg-espresso text-cream px-6 py-2.5 rounded-full text-xs font-bold border border-espresso">Request Sample</button>
+<div class="p-10 flex-grow">
+<h3 class="serif text-3xl font-bold text-espresso mb-5">Mt. Elgon High Peaks</h3>
+<p class="text-base text-on-surface-variant mb-10 line-clamp-3">Highland Arabica, honey processed with distinct notes of wild honey and white nectarine.</p>
+<div class="flex items-center justify-between pt-8 border-t border-espresso/5">
+<div>
+<span class="block text-[10px] font-black uppercase tracking-widest text-espresso/40 mb-1">Available</span>
+<span class="text-lg font-bold text-espresso">12.5 Metric Tons</span>
+</div>
+<button class="bg-espresso text-cream px-8 py-3 rounded-sm text-xs font-black uppercase tracking-widest border border-espresso hover:bg-transparent hover:text-espresso transition-all">Sample</button>
 </div>
 </div>
 </div>
 <!-- Lot 2 -->
-<div class="bg-white rounded-3xl overflow-hidden border border-espresso/10 transition-colors hover:border-sage">
-<div class="h-64 overflow-hidden relative border-b border-espresso/5">
-<img class="w-full h-full object-cover" data-alt="Central Lake Robusta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDawoRPyhpWtIJI-WRZ0jMds2oFpLFKB1izAX0KvJC2uZ4K0QptLxoZxl7mMA8zOn7HRBZvOGquQslGPpMO57ku9I4jax2RephP1SxpJDja2-xgf_jZxtXDk5zdKU-i6-f2Q09tbdg1Hhc1euz1j3ec5HAxgh_tQIb4WrNhGTDA9_ABGItrKbBzrAU4hZblJRZL1Kje47rsjnQ-7UmsRuqT9PHrq4ykyh1_dQJnXdvNTCDtJpjmFGJkYJnr7t6SibVc9lxhCFSSnhU"/>
+<div class="bg-white border border-espresso/10 rounded-sm overflow-hidden flex flex-col hover:border-espresso transition-colors">
+<div class="h-72 overflow-hidden border-b border-espresso/5">
+<img alt="Lake Victoria Robusta" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDawoRPyhpWtIJI-WRZ0jMds2oFpLFKB1izAX0KvJC2uZ4K0QptLxoZxl7mMA8zOn7HRBZvOGquQslGPpMO57ku9I4jax2RephP1SxpJDja2-xgf_jZxtXDk5zdKU-i6-f2Q09tbdg1Hhc1euz1j3ec5HAxgh_tQIb4WrNhGTDA9_ABGItrKbBzrAU4hZblJRZL1Kje47rsjnQ-7UmsRuqT9PHrq4ykyh1_dQJnXdvNTCDtJpjmFGJkYJnr7t6SibVc9lxhCFSSnhU"/>
 </div>
-<div class="p-8">
-<h3 class="serif text-2xl font-bold text-espresso mb-3">Lake Victoria Reserve</h3>
-<p class="text-sm text-on-surface-variant mb-8 line-clamp-2">Screen 18, sun-dried naturally. Massive body, heavy cocoa finish.</p>
-<div class="flex items-center justify-between pt-6 border-t border-espresso/5">
-<span class="text-lg font-bold">45.0 Tons</span>
-<button class="bg-espresso text-cream px-6 py-2.5 rounded-full text-xs font-bold border border-espresso">Request Sample</button>
+<div class="p-10 flex-grow">
+<h3 class="serif text-3xl font-bold text-espresso mb-5">Lake Victoria Reserve</h3>
+<p class="text-base text-on-surface-variant mb-10 line-clamp-3">Fine Robusta, Screen 18. Massive syrupy body with a heavy dark cocoa and walnut finish.</p>
+<div class="flex items-center justify-between pt-8 border-t border-espresso/5">
+<div>
+<span class="block text-[10px] font-black uppercase tracking-widest text-espresso/40 mb-1">Available</span>
+<span class="text-lg font-bold text-espresso">45.0 Metric Tons</span>
+</div>
+<button class="bg-espresso text-cream px-8 py-3 rounded-sm text-xs font-black uppercase tracking-widest border border-espresso hover:bg-transparent hover:text-espresso transition-all">Sample</button>
 </div>
 </div>
 </div>
 <!-- Lot 3 -->
-<div class="bg-white rounded-3xl overflow-hidden border border-espresso/10 transition-colors hover:border-sage">
-<div class="h-64 overflow-hidden relative border-b border-espresso/5">
-<img class="w-full h-full object-cover" data-alt="Rwenzori Natural" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ"/>
+<div class="bg-white border border-espresso/10 rounded-sm overflow-hidden flex flex-col hover:border-espresso transition-colors">
+<div class="h-72 overflow-hidden border-b border-espresso/5">
+<img alt="Rwenzori Natural" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ"/>
 </div>
-<div class="p-8">
-<h3 class="serif text-2xl font-bold text-espresso mb-3">Mountains of the Moon</h3>
-<p class="text-sm text-on-surface-variant mb-8 line-clamp-2">Wild natural process. Explosive berries, jasmine, and tea-like finish.</p>
-<div class="flex items-center justify-between pt-6 border-t border-espresso/5">
-<span class="text-lg font-bold">5.8 Tons</span>
-<button class="bg-espresso text-cream px-6 py-2.5 rounded-full text-xs font-bold border border-espresso">Request Sample</button>
+<div class="p-10 flex-grow">
+<h3 class="serif text-3xl font-bold text-espresso mb-5">Mountains of the Moon</h3>
+<p class="text-base text-on-surface-variant mb-10 line-clamp-3">Wild natural process Arabica. Notes of explosive forest berries and jasmine tea.</p>
+<div class="flex items-center justify-between pt-8 border-t border-espresso/5">
+<div>
+<span class="block text-[10px] font-black uppercase tracking-widest text-espresso/40 mb-1">Available</span>
+<span class="text-lg font-bold text-espresso">5.8 Metric Tons</span>
+</div>
+<button class="bg-espresso text-cream px-8 py-3 rounded-sm text-xs font-black uppercase tracking-widest border border-espresso hover:bg-transparent hover:text-espresso transition-all">Sample</button>
 </div>
 </div>
 </div>
-</div>
-</div>
-</section>
-<!-- Final CTA -->
-<section class="py-40 relative bg-espresso text-cream overflow-hidden">
-<div class="absolute inset-0 grid-mesh opacity-10"></div>
-<div class="container mx-auto px-6 relative z-10 text-center max-w-5xl">
-<h2 class="serif text-6xl md:text-8xl font-bold mb-10 leading-none">Experience Ugandan Coffee</h2>
-<p class="text-xl md:text-2xl text-cream/60 mb-16 max-w-3xl mx-auto font-light leading-relaxed">Whether you seek unique profiles or scale, we connect you with absolute clarity.</p>
-<div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-<button class="bg-sage text-espresso px-14 py-6 rounded-full text-xl font-black border border-sage hover:bg-sage/90 transition-all">Start Trading Now</button>
-<button class="text-cream px-14 py-6 rounded-full text-xl font-bold border border-white/20 hover:bg-white/5 transition-all">Become a Partner</button>
 </div>
 </div>
 </section>
-<!-- Inquiry Form -->
-<section class="py-32 bg-cream">
-<div class="container mx-auto px-6 md:px-12 max-w-5xl">
-<div class="text-center mb-16">
-<h2 class="serif text-5xl font-bold text-espresso mb-6">Direct Sourcing Inquiry</h2>
+<!-- Direct Sourcing Inquiry -->
+<section class="py-24 bg-cream border-t border-espresso/10">
+<div class="container mx-auto px-6 md:px-12 max-w-4xl">
+<div class="text-center mb-20">
+<span class="text-xs font-black uppercase tracking-[0.3em] text-sage mb-4 block">Get Started</span>
+<h2 class="serif text-5xl md:text-6xl font-bold text-espresso mb-8">Direct Sourcing Inquiry</h2>
+<p class="text-on-surface-variant text-xl">Tell us your requirements and we'll connect you with the right origins.</p>
 </div>
-<div class="bg-white rounded-[2.5rem] p-8 md:p-16 border border-espresso/10">
-<form class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="space-y-2">
-<label class="text-[10px] font-black uppercase tracking-widest text-espresso/40 ml-1" for="full-name">Full Name</label>
-<input class="w-full bg-surface-container-low border border-espresso/5 rounded-xl px-6 py-4 focus:ring-0 focus:border-sage transition-all text-espresso placeholder-espresso/30" id="full-name" placeholder="John Doe" type="text"/>
+<div class="bg-white border border-espresso/10 rounded-sm p-10 md:p-16">
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="space-y-3">
+<label class="text-[11px] font-black uppercase tracking-widest text-espresso/40 ml-1" for="full-name">Full Name</label>
+<input class="w-full bg-surface-container-low border border-espresso/10 rounded-sm px-6 py-5 focus:ring-1 focus:ring-sage focus:border-sage transition-all text-espresso placeholder-espresso/30 outline-none text-base font-medium" id="full-name" placeholder="E.g. Alexander Walker" type="text"/>
 </div>
-<div class="space-y-2">
-<label class="text-[10px] font-black uppercase tracking-widest text-espresso/40 ml-1" for="company-name">Company Name</label>
-<input class="w-full bg-surface-container-low border border-espresso/5 rounded-xl px-6 py-4 focus:ring-0 focus:border-sage transition-all text-espresso placeholder-espresso/30" id="company-name" placeholder="Acme Roasters" type="text"/>
+<div class="space-y-3">
+<label class="text-[11px] font-black uppercase tracking-widest text-espresso/40 ml-1" for="company-name">Company Name</label>
+<input class="w-full bg-surface-container-low border border-espresso/10 rounded-sm px-6 py-5 focus:ring-1 focus:ring-sage focus:border-sage transition-all text-espresso placeholder-espresso/30 outline-none text-base font-medium" id="company-name" placeholder="E.g. Nordic Roasters" type="text"/>
 </div>
+</div>
+<div class="space-y-3">
+<label class="text-[11px] font-black uppercase tracking-widest text-espresso/40 ml-1" for="message">Sourcing Requirements</label>
+<textarea class="w-full bg-surface-container-low border border-espresso/10 rounded-sm px-6 py-5 focus:ring-1 focus:ring-sage focus:border-sage transition-all text-espresso placeholder-espresso/30 outline-none h-40 text-base font-medium" id="message" placeholder="Describe variety, volume, and destination port..."></textarea>
+</div>
+<button class="w-full bg-espresso text-cream py-6 rounded-sm text-lg font-bold uppercase tracking-widest border border-espresso hover:bg-transparent hover:text-espresso transition-all duration-300">
+                        Send Inquiry
+                    </button>
 </form>
 </div>
 </div>
 </section>
+<!-- Footer Simple -->
+<footer class="py-16 bg-espresso text-cream/40 text-center border-t border-white/5">
+<div class="container mx-auto px-6">
+<div class="text-2xl font-headline font-bold text-cream mb-6 flex items-center justify-center gap-3">
+<span class="w-9 h-9 bg-white rounded-sm flex items-center justify-center text-espresso text-xl">B</span>
+                Bean Origin
+            </div>
+<p class="text-xs font-black uppercase tracking-[0.2em] mb-6 text-cream/60">Empowering Ugandan Smallholders Through Digital Trust</p>
+<p class="text-[13px] tracking-wider">© 2024 Bean Origin Uganda Limited. All rights reserved.</p>
+</div>
+</footer>
 </body></html>

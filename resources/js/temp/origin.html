@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Uganda Coffee Trade - Explore Origins</title>
+<!-- Google Fonts: Noto Serif for headlines, Manrope for body/labels -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "primary-container": "#3e2723",
+              "on-primary-fixed-variant": "#5b403c",
+              "inverse-on-surface": "#f1f1ed",
+              "primary-fixed": "#ffdad4",
+              "on-background": "#1a1c1a",
+              "on-tertiary-container": "#56a554",
+              "inverse-surface": "#2f312e",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e8e8e4",
+              "surface-container": "#eeeeea",
+              "secondary-container": "#ece0dc",
+              "outline-variant": "#d3c3c0",
+              "surface-container-low": "#f4f4f0",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-secondary-container": "#6b6360",
+              "inverse-primary": "#e3beb8",
+              "tertiary-container": "#003508",
+              "on-surface-variant": "#504442",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#1a1c1a",
+              "secondary": "#655d5a",
+              "tertiary-fixed": "#a3f69c",
+              "on-secondary-fixed-variant": "#4c4542",
+              "primary": "#271310",
+              "surface": "#faf9f5",
+              "surface-variant": "#e2e3df",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#e3beb8",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed": "#201a18",
+              "surface-bright": "#faf9f5",
+              "tertiary": "#001d03",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#e2e3df",
+              "secondary-fixed": "#ece0dc",
+              "outline": "#827472",
+              "secondary-fixed-dim": "#cfc4c0",
+              "surface-dim": "#dadad6",
+              "on-primary-container": "#ae8d87",
+              "tertiary-fixed-dim": "#88d982",
+              "surface-tint": "#745853",
+              "background": "#faf9f5",
+              "on-tertiary-fixed": "#002204",
+              "on-primary-fixed": "#2b1613"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #faf9f5;
+        color: #1a1c1a;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Noto Serif', serif;
+      }
+      /* Bootstrap-like container behavior */
+      .container {
+        width: 100%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      @media (min-width: 576px) { .container { max-width: 540px; } }
+      @media (min-width: 768px) { .container { max-width: 720px; } }
+      @media (min-width: 992px) { .container { max-width: 960px; } }
+      @media (min-width: 1200px) { .container { max-width: 1140px; } }
+      @media (min-width: 1400px) { .container { max-width: 1320px; } }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-surface border-b border-surface-container">
+<div class="container py-4 flex justify-between items-center">
+<div class="text-xl font-bold tracking-tighter text-primary uppercase">
+            Uganda Coffee Trade
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-xs font-bold tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-xs font-bold tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Our Coffee</a>
+<a class="text-xs font-bold tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Traceability</a>
+<a class="text-xs font-bold tracking-widest uppercase text-primary border-b-2 border-primary pb-1" href="#">Origins</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container rounded-full transition-colors" data-icon="shopping_bag">shopping_bag</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container rounded-full transition-colors" data-icon="person">person</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="py-20 md:py-32">
+<div class="container">
+<div class="max-w-4xl mx-auto text-center">
+<span class="inline-block font-label uppercase tracking-[0.3em] text-xs text-on-surface-variant mb-6 font-bold">Discovery &amp; Heritage</span>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight text-primary leading-[1.1] mb-8">
+                    Explore Uganda's<br/><span class="italic font-normal serif text-on-primary-container">Coffee Origins</span>
+</h1>
+<p class="text-xl text-on-surface-variant leading-relaxed font-body max-w-2xl mx-auto">
+                    Deep in the heart of East Africa, a unique terroir shaped by ancient volcanic activity and the equatorial sun produces extraordinary beans.
+                </p>
+</div>
+</div>
+</section>
+<!-- Regional Overview / Map -->
+<section class="py-20 bg-surface-container-low border-y border-surface-container">
+<div class="container">
+<div class="row flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+<div class="w-full lg:w-7/12">
+<div class="relative aspect-[16/10] bg-surface-container overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover grayscale-[20%] opacity-90" data-alt="Stylized map of Uganda highlighting coffee growing regions" data-location="Uganda" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi2Nwk0gcDZjVHHIU_EpUtfpYTPQPRw7r9ex7RFyg4D0flruhwk9JvK2EsltHQN35ZuMz-ZgAy2yrWy8vdy7jnlrzPNDj1bnYcAB-Vjc8SYm5_glnSsWfV_mx-ue0T27oWRqQf2PigVAK4-KnxFoBQix8cOZHcVq70Z7W3IfaqUqwly9SY-9ENAz-rBF1V0-2H-0rtSPcApFf-4OfZ9uySpd0nZU_DgAYyq7KSJeM0FVbcDzG6C3-wnrcnNPg_D0mprgJrCDzVl0g"/>
+<!-- Map Hotspots -->
+<div class="absolute top-[35%] right-[15%] group">
+<div class="w-4 h-4 bg-primary rounded-full ring-4 ring-primary/20 cursor-pointer"></div>
+<span class="absolute top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-primary text-on-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">Mount Elgon</span>
+</div>
+<div class="absolute top-[50%] left-[10%] group">
+<div class="w-4 h-4 bg-primary rounded-full ring-4 ring-primary/20 cursor-pointer"></div>
+<span class="absolute top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-primary text-on-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">Rwenzori Ranges</span>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-5/12">
+<h2 class="text-4xl font-bold text-primary mb-6 leading-tight">A Tapestry of Terroir</h2>
+<p class="text-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Uganda's geography is defined by its massive mountain ranges and the sprawling Lake Victoria basin. These diverse landscapes allow us to produce both high-altitude Specialty Arabica and robust, full-bodied indigenous Robusta.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-start gap-6 group">
+<div class="p-3 bg-surface border border-outline-variant text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="mountains">mountain_flag</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary mb-1">Volcanic Altitudes</h4>
+<p class="text-sm text-on-surface-variant">Elevations exceeding 2,000m on the slopes of Mount Elgon.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 group">
+<div class="p-3 bg-surface border border-outline-variant text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="water_drop">water_drop</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary mb-1">Lake Basin Humidity</h4>
+<p class="text-sm text-on-surface-variant">Consistent moisture and heat for robust, indigenous Robusta.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Origin Cards (Grid) -->
+<section class="py-24">
+<div class="container">
+<div class="mb-16 text-center">
+<h2 class="text-3xl font-bold text-primary">Discover the Regions</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Mount Elgon -->
+<div class="flex flex-col bg-surface border border-outline-variant hover:border-primary transition-colors duration-300">
+<div class="aspect-square overflow-hidden border-b border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Slopes of Mount Elgon coffee plantation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6B1TvL1Gyx130nrXSXsubUW14LSw5tA7-SG21nLgG__bBvbi6bBojxh-CdhsZ7TzDtHnsJSUAmKpAwjY-I9zZMc1ROkvWHXrlKpAKMiSOuD79SGvSbtVv1TpR8YQQgwucJabCLJwI88_KdHVqqc_wnZLQ7r9MctG2jn2qjF1MyZBImHjj9MdDiGen-eiSw6exEhTKQFeG2Jzz-dPEr916G8yulrjE2A56Yc9DAh8w_n7-2xzNJJqXBzcAtkB6kmbK_WwWEERMMC8"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 bg-secondary-container text-on-secondary-container">Arabica</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-3">Mount Elgon</h3>
+<p class="text-sm text-on-surface-variant mb-8 leading-relaxed flex-grow">
+                            High altitude, volcanic soil, smooth and aromatic. Known for its complex acidity and notes of wild berries.
+                        </p>
+<button class="w-full py-4 border border-primary text-primary text-[11px] font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">Source Coffee</button>
+</div>
+</div>
+<!-- Rwenzori Ranges -->
+<div class="flex flex-col bg-surface border border-outline-variant hover:border-primary transition-colors duration-300">
+<div class="aspect-square overflow-hidden border-b border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Mist covered Rwenzori mountains with coffee plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAgs2icPTAkwklA5_DOPw6WNJpZM0G3GRoKKAbqMyT_S-jeF8bxyhPrjvRwz2zdv10H7wynFvqqy8eljNXwjACj-JTU-MMVe1QF4125keHdFIiHfpJ4Je46cMQOsKJ1ov3D7vk1wjDftFvEnXOs-XdX4uocIrXH_e_k19Bbaqm_J6QlsEg4GWZ1XvDTIf12v98Cul6kihzev9UMWXKkE3xpc5oerANkrHNbcPiP-Bdj8KaBIL_vILzWjZL5Sd8UqnqE93eqtZn3aE"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 bg-secondary-container text-on-secondary-container">Arabica</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-3">Rwenzori Ranges</h3>
+<p class="text-sm text-on-surface-variant mb-8 leading-relaxed flex-grow">
+                            Distinct microclimates producing high-altitude specialty lots with bright citrus notes and heavy floral profiles.
+                        </p>
+<button class="w-full py-4 border border-primary text-primary text-[11px] font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">Source Coffee</button>
+</div>
+</div>
+<!-- Lake Victoria Basin -->
+<div class="flex flex-col bg-surface border border-outline-variant hover:border-primary transition-colors duration-300">
+<div class="aspect-square overflow-hidden border-b border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Coffee drying near Lake Victoria basin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARglEH4FG7fQAahu4ffqwa38PALWVSopCdFnhy-FcJvRIOEyHCdmRUifn_VDJIwMLNTkm71mfba3mLCDjAsm0WMMG7oFuldXgUCkww3UQiR5w9rM7KmxBw2U87F4IxfXbKkKy5h54YoAvh8rC2eMnJaxthjv3j-n7k0Gj4tr3v3BGuJ3WGp-yFW1lKhaabqcWo48FnU9R5CUoMusQYScSsxlI10BDpT9c4-hI0EXUGlvWYzwhkMSK4LlpxTSCWcG2eXAoAF86z8E4"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 bg-tertiary text-on-tertiary">Robusta</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-3">Lake Victoria</h3>
+<p class="text-sm text-on-surface-variant mb-8 leading-relaxed flex-grow">
+                            Bold body, high caffeine, indigenous to the region. Perfect for espresso blends requiring creaminess.
+                        </p>
+<button class="w-full py-4 border border-primary text-primary text-[11px] font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">Source Coffee</button>
+</div>
+</div>
+<!-- Central Lowlands -->
+<div class="flex flex-col bg-surface border border-outline-variant hover:border-primary transition-colors duration-300">
+<div class="aspect-square overflow-hidden border-b border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Lush green coffee garden in central Uganda" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0WjtGCZIZstqNIyZJUwZxgNrMRYzxqjKsQAc9I6v5nn_IHq2e-9Pdv0L-WwmBBP5ubh9gdIkbFulAga7rLRIL9Noe9FURO1Ey7Kg4K2x0oIgAKTUu1yOH8p_xOpj1I0Wg73ZwT6IFU2ZWfL74PLgL13fZKj7A05eAyigB5GNyu-sc7OO8mvwl8raMD4NQ14KeD2ZMt46mW-CIs1iFOIVaLr9JwOXIgqFf4TT9sCFUEJ9x0_1T4GGcRXEXLcQTF_ThwIu2u6pQRFc"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 bg-tertiary text-on-tertiary">Robusta</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-3">Central Lowlands</h3>
+<p class="text-sm text-on-surface-variant mb-8 leading-relaxed flex-grow">
+                            Rich, fertile soils and sustainable farming practices that define Uganda's heritage as an export leader.
+                        </p>
+<button class="w-full py-4 border border-primary text-primary text-[11px] font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">Source Coffee</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Terroir & Quality Section -->
+<section class="py-24 bg-primary text-on-primary">
+<div class="container">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-5xl font-bold mb-8 leading-tight">Heritage in Every Harvest</h2>
+<p class="text-outline-variant text-lg mb-12 leading-relaxed max-w-lg">
+                        Uganda's unique advantage lies in its dual harvest seasons. While most coffee nations harvest once, our equatorial position allows for two distinct picking periods.
+                    </p>
+<div class="grid grid-cols-2 gap-6">
+<div class="p-8 border border-on-primary/10">
+<div class="text-4xl font-bold text-on-primary mb-2">3.5M+</div>
+<div class="text-[10px] uppercase tracking-[0.2em] font-bold text-outline-variant">Smallholder Farmers</div>
+</div>
+<div class="p-8 border border-on-primary/10">
+<div class="text-4xl font-bold text-on-primary mb-2">#1</div>
+<div class="text-[10px] uppercase tracking-[0.2em] font-bold text-outline-variant">African Exporter</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] overflow-hidden border border-on-primary/10">
+<img class="w-full h-full object-cover" data-alt="Hands holding freshly harvested coffee cherries" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNcqb6mgxw8k-jAdICd1Z3pxF7I0StsYznUGf37S0vQlh-sjJvM8cYdaJ66LUxNBWHQ-7kovi2ryp9qlsTOcw_md1JMTJhAwZ8kCltm0BNQ3XRqa-V1XcE4REKOxwIllQOlt-vfhS27XR4BDU5BbxNtcOG8b05B62bkHXBTr6qmyq2K77gzpD1sVSsoTDth9p8DdZL8z3EHLsk34J4nhKLRnSkLllPu6jl7N08BBN6cXgUh3nMHD1jqhCEsKY9TFgve1IUlhhT43E"/>
+</div>
+<div class="absolute -bottom-6 -left-6 p-10 bg-tertiary-container border border-on-primary/10 max-w-xs">
+<span class="material-symbols-outlined text-3xl mb-4 text-tertiary-fixed" data-icon="verified">verified</span>
+<p class="font-bold text-lg italic text-on-primary">"The dual harvest seasons are our biological gift."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant pt-20 pb-12">
+<div class="container">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+<div class="md:col-span-5">
+<div class="text-xl font-bold text-primary mb-6 uppercase tracking-tight">Uganda Coffee Trade</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-sm mb-8">
+                    Connecting world-class roasters with the finest Ugandan origins through transparency and integrity. From Seed to Cup with Integrity.
+                </p>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-bold text-sm text-primary uppercase tracking-widest mb-6">Resources</h4>
+<nav class="flex flex-col space-y-4">
+<a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Our Story</a>
+<a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Sustainability Report</a>
+<a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Trade Terms</a>
+<a class="text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="md:col-span-4">
+<h4 class="font-bold text-sm text-primary uppercase tracking-widest mb-6">Join the Movement</h4>
+<form class="flex border border-outline-variant mb-4">
+<input class="bg-transparent border-none px-4 py-3 text-sm flex-grow focus:ring-0" placeholder="Email address" type="email"/>
+<button class="px-8 py-3 bg-primary text-on-primary text-[10px] font-bold uppercase tracking-widest hover:bg-primary/90 transition-colors">Join</button>
+</form>
+<div class="text-[10px] text-on-surface-variant/60 font-bold uppercase tracking-widest">
+                    © 2024 Uganda Coffee Trade.
+                </div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
