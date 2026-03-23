@@ -1,10 +1,11 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import PublicFooter from '../Components/PublicFooter.vue';
+import PublicHeader from '../Components/PublicHeader.vue';
 import coffee1 from '../../images/coffee1.jpg';
 import coffee2 from '../../images/coffee2.jpg';
 import coffee3 from '../../images/coffee3.jpg';
 import coffee4 from '../../images/coffee4.jpg';
-import headerLogo from '../../images/logo.png';
 import mapImage from '../../images/map.png';
 import harvestImage from '../../images/community.jpg';
 
@@ -31,25 +32,18 @@ defineProps({
     </Head>
 
     <div class="origins-page bg-[#faf9f5] text-[#1a1c1a] selection:bg-[#3e2723] selection:text-white">
-        <nav class="sticky top-0 z-50 w-full border-b border-[#eeeeea] bg-[#faf9f5]/95 backdrop-blur-md">
-            <div class="container-custom flex items-center justify-between py-4">
-                <Link :href="route('home')" class="flex items-center gap-3 text-xl font-bold tracking-tight text-[#271310]">
-                    <img :src="headerLogo" alt="Coffee Pulse Uganda logo" class="h-10 w-10 rounded-full object-contain" />
-                    <span class="serif">Coffee Pulse Uganda</span>
-                </Link>
-
-                <div class="hidden items-center space-x-8 md:flex">
-                    <Link :href="route('home')" class="text-xs font-bold uppercase tracking-widest text-[#504442] transition-colors hover:text-[#271310]">Home</Link>
-                    <a class="text-xs font-bold uppercase tracking-widest text-[#504442] transition-colors hover:text-[#271310]" href="#regional-overview">Our Coffee</a>
-                    <Link :href="route('protocol')" class="text-xs font-bold uppercase tracking-widest text-[#504442] transition-colors hover:text-[#271310]">Traceability</Link>
-                    <a class="border-b-2 border-[#271310] pb-1 text-xs font-bold uppercase tracking-widest text-[#271310]" href="#origins-grid">Origins</a>
-                </div>
-
-                <div class="flex items-center gap-3">
+        <PublicHeader>
+            <template #nav>
+                <Link :href="route('home')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Home</Link>
+                <a class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]" href="#regional-overview">Our Coffee</a>
+                <Link :href="route('blockchain')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Traceability</Link>
+                <a class="text-sm font-semibold tracking-wider text-[#3e2723]" href="#origins-grid">Origins</a>
+            </template>
+            <template #actions>
                     <template v-if="$page.props.auth.user">
                         <Link
                             :href="route('dashboard')"
-                            class="rounded-full border border-[#271310] bg-[#271310] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#3e2723]"
+                            class="rounded-sm bg-[#3e2723] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-black"
                         >
                             Source Coffee
                         </Link>
@@ -57,7 +51,7 @@ defineProps({
                     <template v-else-if="canRegister">
                         <Link
                             :href="route('register')"
-                            class="rounded-full border border-[#271310] bg-[#271310] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#3e2723]"
+                            class="rounded-sm bg-[#3e2723] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-black"
                         >
                             Source Coffee
                         </Link>
@@ -65,14 +59,13 @@ defineProps({
                     <template v-else-if="canLogin">
                         <Link
                             :href="route('login')"
-                            class="rounded-full border border-[#271310] bg-[#271310] px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#3e2723]"
+                            class="rounded-sm bg-[#3e2723] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-black"
                         >
                             Source Coffee
                         </Link>
                     </template>
-                </div>
-            </div>
-        </nav>
+            </template>
+        </PublicHeader>
 
         <main>
             <section class="py-20 md:py-32">
@@ -318,42 +311,7 @@ defineProps({
             </section>
         </main>
 
-        <footer class="border-t border-[#d3c3c0] bg-[#f4f4f0] pb-12 pt-20">
-            <div class="container-custom">
-                <div class="mb-20 grid grid-cols-1 gap-12 md:grid-cols-12">
-                    <div class="md:col-span-5">
-                        <div class="mb-6 flex items-center gap-3">
-                            <img :src="headerLogo" alt="Coffee Pulse Uganda logo" class="h-10 w-10 rounded-full object-contain" />
-                            <div class="text-xl font-bold tracking-tight text-[#271310]">Coffee Pulse Uganda</div>
-                        </div>
-                        <p class="mb-8 max-w-sm text-sm leading-relaxed text-[#504442]">
-                            Connecting world-class roasters with Uganda's finest origins through transparency, integrity, and direct trade.
-                        </p>
-                    </div>
-
-                    <div class="md:col-span-3">
-                        <h4 class="mb-6 text-sm font-bold uppercase tracking-widest text-[#271310]">Resources</h4>
-                        <nav class="flex flex-col space-y-4">
-                            <Link :href="route('home')" class="text-sm text-[#504442] transition-colors hover:text-[#271310]">Home</Link>
-                            <Link :href="route('protocol')" class="text-sm text-[#504442] transition-colors hover:text-[#271310]">Protocol</Link>
-                            <a class="text-sm text-[#504442] transition-colors hover:text-[#271310]" href="#regional-overview">Origins Overview</a>
-                            <a class="text-sm text-[#504442] transition-colors hover:text-[#271310]" href="#origins-grid">Regional Profiles</a>
-                        </nav>
-                    </div>
-
-                    <div class="md:col-span-4">
-                        <h4 class="mb-6 text-sm font-bold uppercase tracking-widest text-[#271310]">Join the Movement</h4>
-                        <form class="mb-4 flex border border-[#d3c3c0]">
-                            <input type="email" placeholder="Email address" class="flex-grow border-none bg-transparent px-4 py-3 text-sm focus:ring-0" />
-                            <button type="button" class="bg-[#271310] px-8 py-3 text-[10px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#3e2723]">
-                                Join
-                            </button>
-                        </form>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#504442]/60">© 2026 Coffee Pulse Uganda.</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <PublicFooter />
     </div>
 </template>
 

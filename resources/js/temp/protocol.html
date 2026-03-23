@@ -3,333 +3,380 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Our Protocol: The Foundation of Trust | Origin Protocol</title>
+<title>Our Protocol | EspressoChain</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-error": "#ffffff",
-              "error-container": "#ffdad6",
-              "surface": "#faf9f5",
-              "surface-container-high": "#e8e8e4",
-              "inverse-on-surface": "#f1f1ed",
-              "surface-container-low": "#f4f4f0",
-              "secondary-container": "#ece0dc",
-              "primary-fixed": "#ffdad4",
-              "background": "#faf9f5",
-              "surface-bright": "#faf9f5",
-              "on-secondary-container": "#6b6360",
-              "surface-container": "#eeeeea",
-              "on-tertiary": "#ffffff",
-              "on-surface": "#1a1c1a",
-              "surface-dim": "#dadad6",
-              "on-primary-container": "#ae8d87",
-              "surface-tint": "#745853",
-              "secondary-fixed": "#ece0dc",
-              "inverse-surface": "#2f312e",
-              "error": "#ba1a1a",
-              "tertiary": "#001d03",
-              "surface-container-lowest": "#ffffff",
-              "outline-variant": "#d3c3c0",
-              "on-secondary-fixed": "#201a18",
-              "primary-container": "#3e2723",
-              "secondary": "#655d5a",
-              "primary-fixed-dim": "#e3beb8",
-              "on-tertiary-fixed-variant": "#005312",
-              "on-secondary": "#ffffff",
-              "inverse-primary": "#e3beb8",
-              "on-error-container": "#93000a",
-              "secondary-fixed-dim": "#cfc4c0",
-              "tertiary-container": "#003508",
-              "on-primary-fixed-variant": "#5b403c",
-              "tertiary-fixed-dim": "#88d982",
-              "primary": "#271310",
-              "on-tertiary-fixed": "#002204",
-              "on-primary": "#ffffff",
-              "tertiary-fixed": "#a3f69c",
-              "surface-variant": "#e2e3df",
-              "on-tertiary-container": "#56a554",
-              "on-primary-fixed": "#2b1613",
-              "on-background": "#1a1c1a",
-              "on-secondary-fixed-variant": "#4c4542",
-              "outline": "#827472",
-              "on-surface-variant": "#504442",
-              "surface-container-highest": "#e2e3df"
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#e2e3df",
+                        "outline": "#827472",
+                        "on-surface-variant": "#504442",
+                        "on-secondary-fixed-variant": "#4c4542",
+                        "on-background": "#1a1c1a",
+                        "tertiary-fixed": "#a3f69c",
+                        "surface-variant": "#e2e3df",
+                        "on-tertiary-container": "#56a554",
+                        "on-primary-fixed": "#2b1613",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#002204",
+                        "tertiary-fixed-dim": "#88d982",
+                        "primary": "#271310",
+                        "tertiary-container": "#003508",
+                        "on-primary-fixed-variant": "#5b403c",
+                        "secondary-fixed-dim": "#cfc4c0",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#e3beb8",
+                        "primary-fixed-dim": "#e3beb8",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#655d5a",
+                        "primary-container": "#3e2723",
+                        "on-secondary-fixed": "#201a18",
+                        "outline-variant": "#eeeeea",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#001d03",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f312e",
+                        "surface-tint": "#745853",
+                        "secondary-fixed": "#ece0dc",
+                        "on-primary-container": "#ae8d87",
+                        "surface-dim": "#dadad6",
+                        "surface-container": "#eeeeea",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1a1c1a",
+                        "on-secondary-container": "#6b6360",
+                        "surface-bright": "#faf9f5",
+                        "background": "#fdfbf7",
+                        "surface-container-low": "#f4f4f0",
+                        "secondary-container": "#ece0dc",
+                        "primary-fixed": "#ffdad4",
+                        "inverse-on-surface": "#f1f1ed",
+                        "surface-container-high": "#e8e8e4",
+                        "surface": "#faf9f5",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "4px", "xl": "8px", "full": "9999px"},
+                },
             },
-            fontFamily: {
-              "headline": ["Noto Serif"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
-        },
-      }
+        }
     </script>
 <style>
         .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
-        .container-custom {
+        body {
+            font-family: 'Manrope', sans-serif;
+            font-size: 18px;
+            background-color: #fdfbf7;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif', serif;
+        }
+        .container-lg {
             max-width: 1320px;
             margin-left: auto;
             margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
-        body { background-color: #faf9f5; color: #271310; }
+        /* Remove all shadows as requested */
+        * { box-shadow: none !important; }
+        .hero-gradient {
+            background: #271310;
+        }
+        .nav-link {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
     </style>
 </head>
-<body class="font-body selection:bg-tertiary-container selection:text-tertiary-fixed">
-<!-- Top Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-[#faf9f5]/80 backdrop-blur-md border-b border-[#eeeeea]">
-<div class="container-custom flex justify-between items-center py-4">
-<span class="text-xl font-bold tracking-widest text-[#271310] uppercase font-headline">Origin Protocol</span>
-<div class="hidden md:flex gap-8 items-center font-headline font-medium tracking-tight">
-<a class="text-[#271310] font-bold border-b-2 border-[#271310] pb-1" href="#">Traceability</a>
-<a class="text-[#271310]/60 hover:text-[#271310] transition-colors" href="#">Quality</a>
-<a class="text-[#271310]/60 hover:text-[#271310] transition-colors" href="#">Ethics</a>
-<a class="text-[#271310]/60 hover:text-[#271310] transition-colors" href="#">Governance</a>
-</div>
-<button class="px-6 py-2 bg-primary text-on-primary font-label text-sm uppercase tracking-widest hover:bg-opacity-90 transition-all">Connect Wallet</button>
-</div>
+<body class="text-on-surface selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-[#fdfbf7]/90 backdrop-blur-md">
+<div class="container-lg flex justify-between items-center py-6">
+<div class="text-2xl font-bold text-primary font-['Noto_Serif'] tracking-tight">
+            EspressoChain
+        </div>
+<nav class="hidden md:flex items-center space-x-12">
+<a class="nav-link text-primary/60 hover:text-primary transition-colors" href="#">Home</a>
+<a class="nav-link text-primary border-b border-primary/40 pb-0.5" href="#">Protocol</a>
+<a class="nav-link text-primary/60 hover:text-primary transition-colors" href="#">Origins</a>
+<a class="nav-link text-primary/60 hover:text-primary transition-colors" href="#">Contact</a>
 </nav>
-<!-- Hero Section -->
-<header class="pt-40 pb-20">
-<div class="container-custom">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-<div class="md:col-span-7">
-<p class="font-label text-xs uppercase tracking-[0.2em] text-on-secondary-container mb-6">Foundational Architecture</p>
-<h1 class="font-headline text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight tracking-tight mb-8">
-                    Our Protocol: <br/>The Foundation of Trust
-                </h1>
-<p class="text-xl text-secondary leading-relaxed max-w-2xl font-light">
-                    Bean Origin leverages decentralized ledger technology and rigorous ethical frameworks to redefine the global coffee trade. We transform the supply chain into a transparent, verifiable ecosystem.
-                </p>
-</div>
-<div class="md:col-span-5">
-<div class="p-12 bg-surface-container-low aspect-square flex flex-col justify-end border border-outline-variant/30">
-<span class="material-symbols-outlined text-5xl text-primary mb-6" data-icon="hub">hub</span>
-<h3 class="font-headline text-2xl font-bold mb-3">Immutable</h3>
-<p class="text-secondary leading-relaxed">Every bean, every transaction, locked in time. A permanent record for a sustainable future.</p>
-</div>
-</div>
-</div>
+<button class="bg-primary text-on-primary px-7 py-3 rounded-lg font-label text-xs font-bold uppercase tracking-widest transition-all hover:bg-primary-container">
+            Source Ugandan Coffee
+        </button>
 </div>
 </header>
-<!-- Blockchain Verification -->
-<section class="py-24 bg-surface-container-low">
-<div class="container-custom">
-<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
-<h2 class="font-headline text-4xl font-bold text-primary">Blockchain Verification</h2>
-<span class="font-label text-sm uppercase tracking-widest text-on-tertiary-container border-b border-on-tertiary-container/20 pb-1">The Immutable Ledger</span>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-<div class="lg:col-span-2 p-10 bg-surface-container-lowest flex flex-col justify-between border border-outline-variant/20">
-<div>
-<div class="flex gap-2 mb-10">
-<div class="w-2.5 h-2.5 rounded-full bg-tertiary"></div>
-<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/30"></div>
-<div class="w-2.5 h-2.5 rounded-full bg-outline-variant/30"></div>
-</div>
-<h3 class="font-headline text-3xl font-bold mb-6">Real-Time Integrity Verification</h3>
-<p class="text-lg text-secondary leading-relaxed font-light mb-12 max-w-2xl">
-                        Our private blockchain acts as a digital twin for physical shipments. From the moment a cherry is harvested to its arrival, every movement creates a cryptographic proof that cannot be altered.
+<main>
+<!-- Hero Section -->
+<section class="pt-40 pb-20 md:pt-48 md:pb-32 bg-background">
+<div class="container-lg">
+<div class="hero-gradient text-on-primary p-16 lg:p-28 text-center rounded-3xl overflow-hidden relative">
+<div class="max-w-3xl mx-auto relative z-10">
+<span class="inline-block px-4 py-1.5 mb-10 bg-white/5 border border-white/10 rounded-full font-label text-[10px] tracking-[0.2em] uppercase">The Bean Origin Protocol</span>
+<h1 class="text-5xl md:text-7xl font-bold mb-10 leading-[1.1]">The Trust Protocol</h1>
+<p class="text-lg md:text-2xl opacity-70 font-light leading-relaxed mb-14 max-w-2xl mx-auto">
+                        A robust framework for a transparent coffee exchange, bridging the gap between historical heritage and digital immutability.
                     </p>
-</div>
-<div class="grid grid-cols-3 gap-8 border-t border-surface-container pt-8">
-<div>
-<p class="font-label text-xs uppercase tracking-tighter text-on-secondary-container mb-2">Latency</p>
-<p class="font-headline text-2xl font-bold">0.4s</p>
-</div>
-<div>
-<p class="font-label text-xs uppercase tracking-tighter text-on-secondary-container mb-2">Nodes</p>
-<p class="font-headline text-2xl font-bold">1,240+</p>
-</div>
-<div>
-<p class="font-label text-xs uppercase tracking-tighter text-on-secondary-container mb-2">Hashing</p>
-<p class="font-headline text-2xl font-bold">SHA-256</p>
-</div>
-</div>
-</div>
-<div class="p-10 bg-primary text-on-primary flex flex-col justify-center relative overflow-hidden">
-<div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
-<span class="material-symbols-outlined text-6xl mb-8 relative z-10" data-icon="verified">verified</span>
-<h3 class="font-headline text-2xl font-bold mb-4 relative z-10">Origin Integrity</h3>
-<p class="text-on-primary/80 font-light leading-relaxed relative z-10">
-                    Eliminating fraud in geographical indications through decentralized validator clusters at the farmgate, ensuring 100% provenance accuracy.
-                </p>
-</div>
-</div>
-</div>
-</section>
-<!-- Quality & Grading Section -->
-<section class="py-32">
-<div class="container-custom">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-<div class="lg:col-span-5 relative">
-<img class="w-full aspect-[4/5] object-cover filter grayscale contrast-125" data-alt="Close up of professional coffee cupping and grading session" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChW1oge2ONPjtzdumWI_z-bUzYba8F825T4de2HQQ8_pqmGpfwVv0PvAvIaTOztaRzCE4m3acydPSP6LLYvgFbnLW2yStfRYRrP66NjRNCLeebuzKOCNmDBGLtlQSPjuq0neoDgR2M34N6XLU4cvWWucmhycIhnBax0mJFg-DHXOYgZo55VHxJ5-wI2b_NNWgcschDNE_wDs3wmUV5-lJbT_m_tsZ_Fmx23ceDjpSGUEfKh-MUtMsp5AGDCToaSRVRFbuWdP9qTZM"/>
-<div class="absolute bottom-0 right-0 p-8 bg-secondary-container translate-y-8 -translate-x-8">
-<p class="font-headline text-4xl font-bold text-on-secondary-fixed">87+</p>
-<p class="font-label text-xs uppercase tracking-widest text-on-secondary-container">SCA Protocol Threshold</p>
-</div>
-</div>
-<div class="lg:col-span-7">
-<h2 class="font-headline text-5xl font-bold mb-8 text-primary">Quality &amp; Grading Protocol</h2>
-<p class="text-xl text-secondary mb-12 font-light leading-relaxed">
-                    We strictly adhere to Specialty Coffee Association (SCA) standards. Every batch processed through our protocol undergoes a rigorous dual-verification process.
-                </p>
-<div class="grid gap-10">
-<div class="flex gap-8 items-start">
-<span class="font-headline text-primary-container text-2xl font-bold border-b-2 border-primary-container/20">01</span>
-<div>
-<h4 class="font-bold text-lg mb-2">Q-Grader Certification</h4>
-<p class="text-secondary leading-relaxed">Licensed Q-Graders analyze samples for defects, fragrance, and acidity before any digital batch is minted on-chain.</p>
-</div>
-</div>
-<div class="flex gap-8 items-start">
-<span class="font-headline text-primary-container text-2xl font-bold border-b-2 border-primary-container/20">02</span>
-<div>
-<h4 class="font-bold text-lg mb-2">Species-Specific Standards</h4>
-<p class="text-secondary leading-relaxed">Distinct sensory evaluation protocols tailored to Arabica and Robusta, ensuring fair market positioning for all producers.</p>
-</div>
-</div>
-<div class="flex gap-8 items-start">
-<span class="font-headline text-primary-container text-2xl font-bold border-b-2 border-primary-container/20">03</span>
-<div>
-<h4 class="font-bold text-lg mb-2">Batch Verification</h4>
-<p class="text-secondary leading-relaxed">Final verification post-processing. Moisture content, screen size, and density analysis are permanently logged.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Ethical Sourcing Section -->
-<section class="py-24 bg-primary-container text-on-primary">
-<div class="container-custom">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-<div>
-<h2 class="font-headline text-4xl font-bold mb-8">Ethical Sourcing Framework</h2>
-<p class="text-on-primary/80 text-lg font-light mb-12 leading-relaxed">
-                    Our protocol mandates a 'Direct-to-Farmer' pricing model. By removing intermediaries, we ensure a minimum of 40% above market value goes directly to local cooperatives.
-                </p>
-<div class="p-10 bg-tertiary-container border border-tertiary-fixed-dim/10">
-<h4 class="text-tertiary-fixed font-bold mb-6 uppercase tracking-widest text-xs">Impact Report 2023</h4>
-<div class="grid grid-cols-2 gap-10">
-<div>
-<p class="text-4xl font-headline font-bold text-tertiary-fixed mb-1">$3.42</p>
-<p class="text-[10px] text-tertiary-fixed/60 uppercase tracking-widest">Avg. Price/lb to Farmer</p>
-</div>
-<div>
-<p class="text-4xl font-headline font-bold text-tertiary-fixed mb-1">+22%</p>
-<p class="text-[10px] text-tertiary-fixed/60 uppercase tracking-widest">Cooperative Growth</p>
-</div>
-</div>
-</div>
-</div>
-<div class="relative">
-<div class="aspect-square bg-surface-container-high/5 p-16 flex items-center justify-center border border-white/5">
-<span class="material-symbols-outlined text-[10rem] text-tertiary-fixed-dim/10" data-icon="eco">eco</span>
-<div class="absolute inset-0 flex flex-col justify-center items-center text-center p-12">
-<h3 class="font-headline text-4xl font-bold mb-6 italic leading-snug">"Profitability follows transparency."</h3>
-<div class="w-12 h-[1px] bg-tertiary-fixed-dim/40 mb-6"></div>
-<p class="text-on-primary/60 font-label uppercase text-xs tracking-[0.3em]">— Sustainable Trade Mandate</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Traceability Flow -->
-<section class="py-32">
-<div class="container-custom">
-<div class="text-center mb-24">
-<h2 class="font-headline text-4xl font-bold mb-4 text-primary">Traceability in Action</h2>
-<p class="text-secondary max-w-xl mx-auto font-light">The lifecycle of a Digital Batch from farmgate to final export clearance.</p>
-</div>
-<div class="relative">
-<div class="hidden lg:block absolute top-[2.5rem] left-0 w-full h-[1px] bg-surface-container-high z-0"></div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-<div class="bg-surface p-10 text-center border-t-4 border-primary border-x border-b border-surface-container-high">
-<span class="material-symbols-outlined text-4xl mb-6 text-primary" data-icon="agriculture">agriculture</span>
-<h5 class="font-bold text-lg mb-3">Harvest Registration</h5>
-<p class="text-sm text-secondary font-light leading-relaxed">Farm coordinates and cherry weight logged at collection point.</p>
-</div>
-<div class="bg-surface p-10 text-center border-t-4 border-primary border-x border-b border-surface-container-high">
-<span class="material-symbols-outlined text-4xl mb-6 text-primary" data-icon="conveyor_belt">conveyor_belt</span>
-<h5 class="font-bold text-lg mb-3">Processing Proof</h5>
-<p class="text-sm text-secondary font-light leading-relaxed">Milling method (Washed/Natural) and moisture logs verified.</p>
-</div>
-<div class="bg-surface p-10 text-center border-t-4 border-primary border-x border-b border-surface-container-high">
-<span class="material-symbols-outlined text-4xl mb-6 text-primary" data-icon="contract">contract</span>
-<h5 class="font-bold text-lg mb-3">Smart Contract Mint</h5>
-<p class="text-sm text-secondary font-light leading-relaxed">Physical batch becomes a Digital Asset with SCA score attached.</p>
-</div>
-<div class="bg-surface p-10 text-center border-t-4 border-primary border-x border-b border-surface-container-high">
-<span class="material-symbols-outlined text-4xl mb-6 text-primary" data-icon="vessel">fluid</span>
-<h5 class="font-bold text-lg mb-3">Export Clearance</h5>
-<p class="text-sm text-secondary font-light leading-relaxed">Shipping manifest and regulatory docs anchored to the ledger.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Regulatory Section -->
-<section class="py-16 bg-surface-container-high">
-<div class="container-custom flex flex-col md:flex-row gap-12 items-center">
-<div class="md:w-1/3">
-<h3 class="font-headline text-2xl font-bold text-primary">Global Compliance Standards</h3>
-</div>
-<div class="md:w-2/3 grid grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-<div class="flex items-center gap-4 group">
-<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="gavel">gavel</span>
-<span class="font-label text-xs uppercase tracking-widest font-bold text-secondary">EUDR Compliant</span>
-</div>
-<div class="flex items-center gap-4 group">
-<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="policy">policy</span>
-<span class="font-label text-xs uppercase tracking-widest font-bold text-secondary">US C-TPAT</span>
-</div>
-<div class="flex items-center gap-4 group">
-<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="verified_user">verified_user</span>
-<span class="font-label text-xs uppercase tracking-widest font-bold text-secondary">ISO 22000</span>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-32 text-center bg-surface">
-<div class="container-custom">
-<div class="max-w-3xl mx-auto">
-<h2 class="font-headline text-5xl md:text-6xl font-bold mb-10 text-primary">Ready to transform your supply chain?</h2>
 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-<button class="px-12 py-5 bg-tertiary-container text-on-tertiary-container font-label uppercase tracking-widest font-bold hover:bg-tertiary-fixed transition-colors">Join the Exchange</button>
-<button class="px-12 py-5 border-2 border-primary text-primary font-label uppercase tracking-widest font-bold hover:bg-primary hover:text-on-primary transition-colors">Whitepaper</button>
+<button class="bg-tertiary-fixed text-on-tertiary-fixed px-12 py-5 rounded-xl font-label font-bold uppercase tracking-widest text-xs hover:brightness-105 transition-all">
+                            Explore Ledger
+                        </button>
+<button class="bg-white/5 text-white px-12 py-5 rounded-xl font-label font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all">
+                            Download Whitepaper
+                        </button>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute bottom-0 right-0 w-64 h-64 bg-tertiary-fixed/5 rounded-full blur-3xl -mb-32 -mr-32"></div>
+</div>
+</div>
+</section>
+<!-- Blockchain Verification (Immutable Ledger) -->
+<section class="py-24 md:py-40 bg-surface-container-low">
+<div class="container-lg">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="bg-surface p-12 md:p-16 rounded-3xl">
+<div class="grid grid-cols-3 gap-8">
+<div class="rounded-2xl p-8 flex flex-col items-center justify-center bg-surface-container-high transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="block">block</span>
+<div class="h-0.5 w-8 bg-primary/20 rounded-full"></div>
+</div>
+<div class="rounded-2xl p-8 flex flex-col items-center justify-center bg-surface-container-high transition-transform hover:-translate-y-1 translate-y-8">
+<span class="material-symbols-outlined text-tertiary-container text-3xl mb-4" data-icon="link">link</span>
+<div class="h-0.5 w-8 bg-tertiary-container/20 rounded-full"></div>
+</div>
+<div class="rounded-2xl p-8 flex flex-col items-center justify-center bg-surface-container-high transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="verified_user">verified_user</span>
+<div class="h-0.5 w-8 bg-primary/20 rounded-full"></div>
+</div>
+<div class="col-span-2 bg-primary p-8 rounded-2xl text-white mt-8">
+<span class="block text-[10px] uppercase tracking-[0.2em] mb-3 opacity-50 font-label font-bold">Hash Verification</span>
+<code class="text-sm break-all opacity-80 font-mono tracking-wider">0x4F7e29A1C394...d92F</code>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-8 rounded-2xl flex items-center justify-center mt-8">
+<span class="material-symbols-outlined text-3xl" data-icon="hub">hub</span>
+</div>
+</div>
+</div>
+<div class="lg:pl-10">
+<h2 class="text-4xl md:text-5xl font-bold mb-10 text-primary leading-tight">Immutable Ledger</h2>
+<p class="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-12 font-light">
+                        The EspressoChain Protocol records every single transaction, shipment, and cupping score on an immutable blockchain ledger. This ensures total origin integrity that cannot be altered, forged, or hidden.
+                    </p>
+<div class="space-y-12">
+<div class="flex gap-8">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="task_alt">task_alt</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary mb-2">Cryptographic Proof</h4>
+<p class="text-base text-on-surface-variant leading-relaxed font-light">Each lot is assigned a unique digital fingerprint (hash) at the point of harvest.</p>
+</div>
+</div>
+<div class="flex gap-8">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="sync_alt">sync_alt</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary mb-2">Real-time Reconciliation</h4>
+<p class="text-base text-on-surface-variant leading-relaxed font-light">Automated smart contracts verify volume flow to prevent "coffee washing" or diluting premium lots.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
+<!-- Quality & Grading Protocol -->
+<section class="py-24 md:py-40 bg-background">
+<div class="container-lg">
+<div class="max-w-2xl mb-24">
+<h2 class="text-4xl md:text-5xl font-bold mb-8 text-primary leading-tight">Quality &amp; Grading Protocol</h2>
+<p class="text-on-surface-variant text-lg md:text-xl leading-relaxed font-light">
+                    We adhere to the highest industry standards. Every batch undergoes a rigorous evaluation by certified Q-Graders using the Specialty Coffee Association (SCA) cupping protocol.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="bg-surface-container-low p-12 rounded-3xl group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start mb-10">
+<span class="material-symbols-outlined text-primary text-5xl opacity-80 group-hover:opacity-100 transition-opacity" data-icon="cognition">cognition</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest font-label">Arabica</span>
+</div>
+<h3 class="text-2xl font-bold mb-5 text-primary">SCA Standards</h3>
+<p class="text-base text-on-surface-variant leading-relaxed font-light">Evaluation of fragrance, flavor, aftertaste, acidity, body, and balance. Minimum score of 80 required for specialty status.</p>
+</div>
+<div class="bg-surface-container-low p-12 rounded-3xl group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start mb-10">
+<span class="material-symbols-outlined text-primary text-5xl opacity-80 group-hover:opacity-100 transition-opacity" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest font-label">Robusta</span>
+</div>
+<h3 class="text-2xl font-bold mb-5 text-primary">Fine Robusta Protocol</h3>
+<p class="text-base text-on-surface-variant leading-relaxed font-light">Utilizing CQI standards for Fine Robusta to identify high-quality, sustainable alternatives to traditional varietals.</p>
+</div>
+<div class="bg-surface-container-low p-12 rounded-3xl group hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start mb-10">
+<span class="material-symbols-outlined text-primary text-5xl opacity-80 group-hover:opacity-100 transition-opacity" data-icon="badge">badge</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest font-label">Staff</span>
+</div>
+<h3 class="text-2xl font-bold mb-5 text-primary">Q-Grader Verification</h3>
+<p class="text-base text-on-surface-variant leading-relaxed font-light">All sensory reports are digitally signed by a licensed Q-Grader to ensure professional objectivity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Ethical Sourcing Framework -->
+<section class="py-24 md:py-40 bg-surface-container-high">
+<div class="container-lg">
+<div class="grid grid-cols-1 lg:grid-cols-5 items-stretch overflow-hidden rounded-[2.5rem] bg-primary text-on-primary">
+<div class="lg:col-span-2 relative min-h-[500px]">
+<img alt="Coffee farmer" class="absolute inset-0 w-full h-full object-cover grayscale opacity-30 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCrMbzlxfkYkokX47BKW4h7sIFSaJ2fr084cw-5tM7YNnexKZiwBKbXDnHyc781AwOYSmo8UhZ98GPfxXd7PzMnFXgEfkyOil5Q9n6wTDLBYHQFIj4JpmCF10WM57j7CTzK22d53ZxRJM32rq8Rypnw9kWWfTb8rf0xLntx9hiYhp4aYXPqL9Dz3hAVTvV2Fa0gGBkfdlp_1_pwCm9UhKP7rG7QIaIkqDA0Rim70FcM2Z26k4jiDsi8uaCdGlI7p5h5bEpIC8-SfQ"/>
+<div class="absolute inset-0 flex items-center justify-center p-8">
+<div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-[2rem] border border-white/10">
+<span class="block text-6xl font-bold text-tertiary-fixed mb-4">+28%</span>
+<span class="font-label text-[10px] uppercase tracking-[0.3em] font-bold opacity-80">Avg. Margin Increase</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3 p-16 lg:p-24 flex flex-col justify-center">
+<h2 class="text-4xl md:text-5xl font-bold mb-10 leading-tight">Ethical Sourcing Framework</h2>
+<p class="text-xl mb-16 opacity-70 font-light leading-relaxed max-w-xl">
+                        Our 'Direct-to-Farmer' pricing model removes predatory intermediaries. By utilizing EspressoChain, local cooperatives receive payments directly, ensuring they capture more of the retail value.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+<div>
+<h5 class="font-bold text-tertiary-fixed text-[11px] uppercase tracking-[0.2em] mb-6 font-label">Transparency</h5>
+<p class="text-base opacity-60 font-light leading-relaxed">Farmers can view the final sale price of their coffee in real-time on our public gateway.</p>
+</div>
+<div>
+<h5 class="font-bold text-tertiary-fixed text-[11px] uppercase tracking-[0.2em] mb-6 font-label">Infrastructure</h5>
+<p class="text-base opacity-60 font-light leading-relaxed">5% of every transaction fee is reinvested into local washing stations and drying beds.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Traceability in Action -->
+<section class="py-24 md:py-40 bg-background">
+<div class="container-lg text-center">
+<div class="max-w-2xl mx-auto mb-24">
+<h2 class="text-4xl md:text-5xl font-bold mb-8 text-primary leading-tight">Traceability in Action</h2>
+<p class="text-on-surface-variant text-lg md:text-xl font-light">A seamless journey from the mountain soil to the global export terminal.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+<!-- Step 1 -->
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low text-primary flex items-center justify-center font-bold text-xl mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500">1</div>
+<span class="material-symbols-outlined text-5xl mb-8 text-primary/40 group-hover:text-primary transition-colors duration-500" data-icon="agriculture">agriculture</span>
+<h4 class="font-bold text-xl mb-4 text-primary">Harvest Registration</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-light max-w-[200px]">IoT scales record weight and geolocate the farm lot.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low text-primary flex items-center justify-center font-bold text-xl mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500">2</div>
+<span class="material-symbols-outlined text-5xl mb-8 text-primary/40 group-hover:text-primary transition-colors duration-500" data-icon="waves">waves</span>
+<h4 class="font-bold text-xl mb-4 text-primary">Processing Update</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-light max-w-[200px]">Status change to Washed, Honey, or Natural process on-chain.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low text-primary flex items-center justify-center font-bold text-xl mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500">3</div>
+<span class="material-symbols-outlined text-5xl mb-8 text-primary/40 group-hover:text-primary transition-colors duration-500" data-icon="fact_check">fact_check</span>
+<h4 class="font-bold text-xl mb-4 text-primary">Quality Cupping</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-light max-w-[200px]">Certified score entry and lot grading certification.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low text-primary flex items-center justify-center font-bold text-xl mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500">4</div>
+<span class="material-symbols-outlined text-5xl mb-8 text-primary/40 group-hover:text-primary transition-colors duration-500" data-icon="sailing">sailing</span>
+<h4 class="font-bold text-xl mb-4 text-primary">Export Clearance</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed font-light max-w-[200px]">Final bill of lading issued with cryptographic verification.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Compliance -->
+<section class="py-24 md:py-40 bg-surface-container-low">
+<div class="container-lg">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div>
+<h2 class="text-4xl md:text-5xl font-bold mb-10 text-primary leading-tight">Global Compliance</h2>
+<p class="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-16 max-w-xl font-light">
+                        EspressoChain is engineered to meet and exceed global regulatory requirements for commodity trading and environmental stewardship.
+                    </p>
+<div class="flex flex-wrap gap-5">
+<div class="flex items-center gap-4 bg-background px-7 py-4 rounded-2xl group hover:bg-primary hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors" data-icon="eco">eco</span>
+<span class="font-label text-[11px] font-bold uppercase tracking-[0.15em]">EUDR Deforestation</span>
+</div>
+<div class="flex items-center gap-4 bg-background px-7 py-4 rounded-2xl group hover:bg-primary hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors" data-icon="security">security</span>
+<span class="font-label text-[11px] font-bold uppercase tracking-[0.15em]">US C-TPAT</span>
+</div>
+<div class="flex items-center gap-4 bg-background px-7 py-4 rounded-2xl group hover:bg-primary hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-label text-[11px] font-bold uppercase tracking-[0.15em]">ISO 22000</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute inset-0 bg-primary/5 rounded-[2.5rem] transform translate-x-6 translate-y-6"></div>
+<div class="relative overflow-hidden rounded-[2.5rem]">
+<img alt="Coffee beans" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEGX5Wmhx-nO6Z27r2q8cXBZFyChzfMQlYWIyxxYkXykwtvetvX7QYQ9YcNYasV1zapEJ3jQa_xORTBGpHzHRwHhVcib755-t76JMOTUXIu1AZ9exMbovHyAJPU2nRCC069LdhWXkP3Omrl5FFTFczFaBmgJg5T0hqZOpK964o0iz-ifAsepwv9-jqg8GCMck6ozBG37S1CX760x3q-BQMUXM50DpP2zmj_jaSyFDu0CPe1ceaZyHmXk7D4UkvDQCObGV8sRSTJrE"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
 <!-- Footer -->
-<footer class="bg-surface-container-highest py-16 border-t border-outline-variant/20">
-<div class="container-custom">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-<div class="flex flex-col gap-3">
-<span class="text-xl font-black text-primary uppercase tracking-tighter">Origin Protocol</span>
-<p class="font-body text-xs tracking-widest uppercase text-secondary">© 2024 Bean Origin Protocol. Built on Heritage &amp; Transparency.</p>
+<footer class="bg-surface-container py-24">
+<div class="container-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-20">
+<div class="col-span-1 md:col-span-1">
+<div class="text-2xl font-bold text-primary mb-8 font-headline">EspressoChain</div>
+<p class="text-on-surface-variant text-base font-light leading-relaxed max-w-xs">
+                    The world's first decentralized estate protocol for specialty coffee trade, ensuring equity from soil to cup.
+                </p>
 </div>
-<div class="flex flex-wrap gap-x-10 gap-y-4 font-body text-xs tracking-widest uppercase font-bold">
-<a class="text-primary/60 hover:text-primary transition-colors" href="#">Blockchain Explorer</a>
-<a class="text-primary/60 hover:text-primary transition-colors" href="#">Smart Contracts</a>
-<a class="text-primary/60 hover:text-primary transition-colors" href="#">Impact Report</a>
-<a class="text-primary/60 hover:text-primary transition-colors" href="#">Privacy</a>
+<div>
+<h5 class="text-primary font-bold text-[11px] uppercase tracking-[0.2em] mb-8 font-label">Protocol</h5>
+<nav class="flex flex-col gap-5">
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest font-label" href="#">Documentation</a>
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest font-label" href="#">Security Audit</a>
+</nav>
 </div>
+<div>
+<h5 class="text-primary font-bold text-[11px] uppercase tracking-[0.2em] mb-8 font-label">Legal</h5>
+<nav class="flex flex-col gap-5">
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest font-label" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest font-label" href="#">Terms of Service</a>
+</nav>
+</div>
+<div>
+<h5 class="text-primary font-bold text-[11px] uppercase tracking-[0.2em] mb-8 font-label">Contact</h5>
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors text-sm font-medium tracking-wide" href="mailto:hello@espressochain.io">hello@espressochain.io</a>
+</div>
+</div>
+<div class="mt-24 pt-10 border-t border-primary/5 text-center">
+<p class="text-on-surface-variant/40 text-[10px] uppercase tracking-[0.3em] font-label font-bold">
+                © 2024 EspressoChain Protocol. All rights reserved.
+            </p>
 </div>
 </div>
 </footer>

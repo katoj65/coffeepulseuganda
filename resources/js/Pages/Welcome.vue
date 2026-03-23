@@ -1,13 +1,19 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { computed } from 'vue';
+import { ElNotification } from 'element-plus';
+import { Head, Link, useForm } from '@inertiajs/vue3';
+import PublicHeader from '../Components/PublicHeader.vue';
 import arabicaImage from '../../images/coffee1.jpg';
 import communityImage from '../../images/community.jpg';
+import featuredLotOne from '../../images/image1.jpg';
+import featuredLotThree from '../../images/image3.jpg';
+import featuredLotFour from '../../images/image4.jpg';
 import robustaImage from '../../images/coffee2.jpg';
 import headerLogo from '../../images/logo.png';
 import regionalMap from '../../images/map.png';
 import qrImage from '../../images/qr.jpg';
 
-defineProps({
+const props = defineProps({
     canLogin: {
         type: Boolean,
         default: false,
@@ -16,7 +22,68 @@ defineProps({
         type: Boolean,
         default: false,
     },
+    featuredLots: {
+        type: Array,
+        default: () => [],
+    },
 });
+
+const fallbackFeaturedLots = [
+    {
+        id: 'fallback-1',
+        title: 'Mt. Elgon High Peaks',
+        description: 'Highland Arabica, honey processed with distinct notes of wild honey and white nectarine.',
+        amount: '12.5 Metric Tons',
+        image: featuredLotOne,
+    },
+    {
+        id: 'fallback-2',
+        title: 'Lake Victoria Reserve',
+        description: 'Fine Robusta, Screen 18. Massive syrupy body with a heavy dark cocoa and walnut finish.',
+        amount: '45.0 Metric Tons',
+        image: featuredLotThree,
+    },
+    {
+        id: 'fallback-3',
+        title: 'Mountains of the Moon',
+        description: 'Wild natural process Arabica. Notes of explosive forest berries and jasmine tea.',
+        amount: '5.8 Metric Tons',
+        image: featuredLotFour,
+    },
+];
+
+const displayedFeaturedLots = computed(() => (
+    props.featuredLots.length
+        ? props.featuredLots.map((lot, index) => ({
+            ...lot,
+            image: lot.image || fallbackFeaturedLots[index % fallbackFeaturedLots.length].image,
+        }))
+        : fallbackFeaturedLots
+));
+
+const inquiryForm = useForm({
+    names: '',
+    company: '',
+    email: '',
+    phone: '',
+    description: '',
+});
+
+const submitInquiry = () => {
+    inquiryForm.post(route('inquiries.store'), {
+        preserveScroll: true,
+        onSuccess: () => {
+            ElNotification({
+                title: 'Inquiry sent',
+                message: 'Your inquiry has been sent successfully. We will get back to you soon.',
+                type: 'success',
+                position: 'top-right',
+            });
+
+            inquiryForm.reset('names', 'company', 'email', 'phone', 'description');
+        },
+    });
+};
 </script>
 
 <template>
@@ -30,54 +97,14 @@ defineProps({
     </Head>
 
     <div class="landing-page bg-cream text-espresso selection:bg-sage/20">
-        <nav class="glass-nav fixed top-0 z-[100] w-full border-b border-espresso/10">
-            <div class="container mx-auto flex items-center justify-between px-6 py-5 md:px-12">
-                <Link :href="route('home')" class="flex items-center gap-3 text-2xl font-bold tracking-tight text-espresso">
-                    <img :src="headerLogo" alt="Coffee Pulse Uganda logo" class="h-10 w-10 rounded-full object-contain" />
-                    <span class="serif">Coffee Pulse Uganda</span>
-                </Link>
-
-                <div class="hidden items-center gap-12 lg:flex">
-                    <a class="border-b-2 border-espresso pb-1 text-sm font-bold tracking-wide text-espresso" href="#marketplace">Marketplace</a>
-                    <a class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso" href="#traceability">Direct Trade</a>
-                    <a class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso" href="#global-scale">Logistics</a>
-                    <a class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso" href="#impact">Impact</a>
-                    <Link :href="route('protocol')" class="text-sm font-bold tracking-wide text-espresso/60 transition-colors hover:text-espresso">Protocol</Link>
-                </div>
-
-                <template v-if="$page.props.auth.user">
-                    <Link
-                        :href="route('dashboard')"
-                        class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
-                    >
-                        Source Ugandan Coffee
-                    </Link>
-                </template>
-                <template v-else-if="canRegister">
-                    <Link
-                        :href="route('register')"
-                        class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
-                    >
-                        Source Ugandan Coffee
-                    </Link>
-                </template>
-                <template v-else-if="canLogin">
-                    <Link
-                        :href="route('login')"
-                        class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
-                    >
-                        Source Ugandan Coffee
-                    </Link>
-                </template>
-                <a
-                    v-else
-                    href="#inquiry"
-                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-sm font-bold text-cream transition-all hover:bg-espresso/90"
-                >
-                    Source Ugandan Coffee
-                </a>
-            </div>
-        </nav>
+        <PublicHeader>
+            <template #nav>
+                <Link :href="route('about')" class="text-sm font-semibold uppercase tracking-wider text-[#3e2723]">About</Link>
+                <Link :href="route('contact')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Contact</Link>
+                <a class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]" href="#global-scale">Marketplace</a>
+                <Link :href="route('sustainability')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Sustainability</Link>
+            </template>
+        </PublicHeader>
 
         <section class="relative flex min-h-[70vh] items-center overflow-hidden bg-cream pb-20 pt-24">
             <div class="absolute inset-0 z-0">
@@ -389,9 +416,6 @@ defineProps({
                             <p class="mb-10 text-xl leading-relaxed text-on-surface-variant">
                                 "Our decentralized ledger ensures that smallholders receive fair compensation while global roasters get guaranteed quality without intermediaries."
                             </p>
-                            <Link :href="route('protocol')" class="rounded-sm border border-espresso bg-espresso px-10 py-4 text-sm font-bold uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso">
-                                Learn About Our Protocol
-                            </Link>
                         </div>
 
                         <div class="flex justify-center lg:justify-end">
@@ -480,89 +504,38 @@ defineProps({
                         <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Direct Stock</span>
                         <h2 class="serif text-5xl font-bold text-espresso">Featured Lots</h2>
                     </div>
-                    <a class="inline-flex items-center gap-3 border-b border-espresso/20 pb-2 text-xs font-black uppercase tracking-widest text-espresso transition-colors hover:text-sage" href="#inquiry">
+                    <Link
+                        :href="route('inventory.index')"
+                        class="inline-flex items-center gap-3 border-b border-espresso/20 pb-2 text-xs font-black uppercase tracking-widest text-espresso transition-colors hover:text-sage"
+                    >
                         View All Inventory
                         <span class="material-symbols-outlined text-base">arrow_forward</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso">
+                    <div
+                        v-for="lot in displayedFeaturedLots"
+                        :key="lot.id"
+                        class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso"
+                    >
                         <div class="h-72 overflow-hidden border-b border-espresso/5">
-                            <img
-                                alt="Mount Elgon Lots"
-                                class="h-full w-full object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIkU25APwKtHRPH16ebxCtKBV00FUlXXopwK1QrDK3YTsqgfbpIvcqHeyATN-yp1_oDKYgd0RQtb6psW8w3Z3jD6Awv4uMRimif0YjuzNOqulXh3OofuKGMy3Qokdkg7XZ0VgCs8FrDJQ-ZoCuCS1kjsZ-svjk4DdqUyaVXtfktaC0voSwothnHGF73sUudPJj5Bu-saCv3YHAR7ClVC7PYc4yCL3Gs8jGnzVp5GuSLVtCFGpqrzHOfGxUQQUXS3qxAlClJNcpwOM"
-                            />
+                            <img :src="lot.image" :alt="lot.title" class="h-full w-full object-cover" />
                         </div>
                         <div class="flex-grow p-10">
-                            <h3 class="serif mb-5 text-3xl font-bold text-espresso">Mt. Elgon High Peaks</h3>
-                            <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">Highland Arabica, honey processed with distinct notes of wild honey and white nectarine.</p>
+                            <h3 class="serif mb-5 text-3xl font-bold text-espresso">{{ lot.title }}</h3>
+                            <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">{{ lot.description }}</p>
                             <div class="flex items-center justify-between border-t border-espresso/5 pt-8">
                                 <div>
                                     <span class="mb-1 block text-[10px] font-black uppercase tracking-widest text-espresso/40">Available</span>
-                                    <span class="text-lg font-bold text-espresso">12.5 Metric Tons</span>
+                                    <span class="text-lg font-bold text-espresso">{{ lot.amount }}</span>
                                 </div>
-                                <a
-                                    href="#inquiry"
+                                <Link
+                                    :href="typeof lot.id === 'number' ? route('sample.show', lot.id) : route('sample.index')"
                                     class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso"
                                 >
                                     Sample
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso">
-                        <div class="h-72 overflow-hidden border-b border-espresso/5">
-                            <img
-                                alt="Lake Victoria Robusta"
-                                class="h-full w-full object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDawoRPyhpWtIJI-WRZ0jMds2oFpLFKB1izAX0KvJC2uZ4K0QptLxoZxl7mMA8zOn7HRBZvOGquQslGPpMO57ku9I4jax2RephP1SxpJDja2-xgf_jZxtXDk5zdKU-i6-f2Q09tbdg1Hhc1euz1j3ec5HAxgh_tQIb4WrNhGTDA9_ABGItrKbBzrAU4hZblJRZL1Kje47rsjnQ-7UmsRuqT9PHrq4ykyh1_dQJnXdvNTCDtJpjmFGJkYJnr7t6SibVc9lxhCFSSnhU"
-                            />
-                        </div>
-                        <div class="flex-grow p-10">
-                            <h3 class="serif mb-5 text-3xl font-bold text-espresso">Lake Victoria Reserve</h3>
-                            <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">
-                                Fine Robusta, Screen 18. Massive syrupy body with a heavy dark cocoa and walnut finish.
-                            </p>
-                            <div class="flex items-center justify-between border-t border-espresso/5 pt-8">
-                                <div>
-                                    <span class="mb-1 block text-[10px] font-black uppercase tracking-widest text-espresso/40">Available</span>
-                                    <span class="text-lg font-bold text-espresso">45.0 Metric Tons</span>
-                                </div>
-                                <a
-                                    href="#inquiry"
-                                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso"
-                                >
-                                    Sample
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso">
-                        <div class="h-72 overflow-hidden border-b border-espresso/5">
-                            <img
-                                alt="Rwenzori Natural"
-                                class="h-full w-full object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56dDq0NCAuQrILGfOkNO3elQjey6k289V37PFspGfVjdMV_XY5Fk72hBb9kwAcc5Bq9Sb6T08Hv1v-h8RRU1vD4tGL2dgfUDPukgXiwzr8QBZkc0ksPC4wNc9FmgQD8ded1kD2F36IRmtUNv-_xZeMWJXOpqdIqnIqlyrIwXrcItCDRJzgQ5GIwePmgtogRENiezi10Mmi4PtJxuhpULKRXNuJNKQdqfOzcsjqo6TEKbcneI5uXDbh17I2hplp_mN6rPWQWoBPhQ"
-                            />
-                        </div>
-                        <div class="flex-grow p-10">
-                            <h3 class="serif mb-5 text-3xl font-bold text-espresso">Mountains of the Moon</h3>
-                            <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">Wild natural process Arabica. Notes of explosive forest berries and jasmine tea.</p>
-                            <div class="flex items-center justify-between border-t border-espresso/5 pt-8">
-                                <div>
-                                    <span class="mb-1 block text-[10px] font-black uppercase tracking-widest text-espresso/40">Available</span>
-                                    <span class="text-lg font-bold text-espresso">5.8 Metric Tons</span>
-                                </div>
-                                <a
-                                    href="#inquiry"
-                                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso"
-                                >
-                                    Sample
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -579,16 +552,18 @@ defineProps({
                 </div>
 
                 <div class="rounded-sm border border-espresso/10 bg-white p-10 md:p-16">
-                    <form class="space-y-10" @submit.prevent>
+                    <form class="space-y-10" @submit.prevent="submitInquiry">
                         <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
                             <div class="space-y-3">
                                 <label class="ml-1 text-[11px] font-black uppercase tracking-widest text-espresso/40" for="full-name">Full Name</label>
                                 <input
                                     id="full-name"
                                     type="text"
+                                    v-model="inquiryForm.names"
                                     placeholder="E.g. Alexander Walker"
                                     class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                                 />
+                                <p v-if="inquiryForm.errors.names" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.names }}</p>
                             </div>
 
                             <div class="space-y-3">
@@ -596,9 +571,35 @@ defineProps({
                                 <input
                                     id="company-name"
                                     type="text"
+                                    v-model="inquiryForm.company"
                                     placeholder="E.g. Nordic Roasters"
                                     class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                                 />
+                                <p v-if="inquiryForm.errors.company" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.company }}</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="ml-1 text-[11px] font-black uppercase tracking-widest text-espresso/40" for="email-address">Email Address</label>
+                                <input
+                                    id="email-address"
+                                    type="email"
+                                    v-model="inquiryForm.email"
+                                    placeholder="E.g. sourcing@roastery.com"
+                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                />
+                                <p v-if="inquiryForm.errors.email" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.email }}</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="ml-1 text-[11px] font-black uppercase tracking-widest text-espresso/40" for="telephone">Telephone</label>
+                                <input
+                                    id="telephone"
+                                    type="tel"
+                                    v-model="inquiryForm.phone"
+                                    placeholder="E.g. +256 700 123456"
+                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                />
+                                <p v-if="inquiryForm.errors.phone" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.phone }}</p>
                             </div>
                         </div>
 
@@ -606,29 +607,119 @@ defineProps({
                             <label class="ml-1 text-[11px] font-black uppercase tracking-widest text-espresso/40" for="message">Sourcing Requirements</label>
                             <textarea
                                 id="message"
+                                v-model="inquiryForm.description"
                                 placeholder="Describe variety, volume, and destination port..."
                                 class="h-40 w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                             ></textarea>
+                            <p v-if="inquiryForm.errors.description" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.description }}</p>
                         </div>
 
                         <button
+                            type="submit"
+                            :disabled="inquiryForm.processing"
                             class="w-full rounded-sm border border-espresso bg-espresso py-6 text-lg font-bold uppercase tracking-widest text-cream transition-all duration-300 hover:bg-transparent hover:text-espresso"
                         >
-                            Send Inquiry
+                            {{ inquiryForm.processing ? 'Sending Inquiry...' : 'Send Inquiry' }}
                         </button>
                     </form>
                 </div>
             </div>
         </section>
 
-        <footer class="border-t border-white/5 bg-espresso py-16 text-center text-cream/40">
-            <div class="container mx-auto px-6">
-                <div class="mb-6 flex items-center justify-center gap-3 text-2xl font-bold text-cream">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-sm bg-white text-xl text-espresso">B</span>
-                    <span class="serif">Bean Origin</span>
+        <footer class="border-t border-white/10 bg-espresso py-24 text-cream">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="mb-20 grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-12">
+                    <div class="lg:col-span-5">
+                        <div class="mb-8 flex items-center gap-3 text-2xl font-bold text-cream">
+                            <img :src="headerLogo" alt="Coffee Pulse Uganda logo" class="h-10 w-10 rounded-full object-contain" />
+                            <span class="serif">Coffee Pulse Uganda</span>
+                        </div>
+                        <p class="max-w-md text-xl font-normal leading-relaxed text-cream/90">
+                            Connecting the world to Uganda's finest coffee through radical transparency and ethical trade. Empowering smallholders through digital trust.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-3">
+                        <h5 class="mb-8 text-xs font-black uppercase tracking-[0.3em] text-white">Contact Us</h5>
+                        <div class="space-y-6 text-base text-cream/95">
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-xl text-white">location_on</span>
+                                <p>Kampala, Uganda<br />Serving global buyers with traceable origin coffee</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-xl text-white">travel_explore</span>
+                                <div class="space-y-2">
+                                    <Link :href="route('origins')" class="block font-medium transition-colors hover:text-white">Explore Origins</Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4">
+                        <h5 class="mb-8 text-xs font-black uppercase tracking-[0.3em] text-white">Follow Our Journey</h5>
+                        <div class="flex flex-wrap gap-5 sm:flex-nowrap">
+                            <a
+                                aria-label="Instagram"
+                                class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
+                                href="#"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
+                                    <path
+                                        d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5Zm5.25-2a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"
+                                    />
+                                </svg>
+                            </a>
+                            <a
+                                aria-label="LinkedIn"
+                                class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
+                                href="#"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
+                                    <path
+                                        d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.5 9.75h2.88V18.5H5.5V9.75Zm4.69 0h2.76v1.2H13a3 3 0 0 1 2.73-1.5c2.92 0 3.46 1.92 3.46 4.42v4.63h-2.87v-4.1c0-.98-.02-2.24-1.37-2.24s-1.58 1.06-1.58 2.17v4.17h-2.88V9.75Z"
+                                    />
+                                </svg>
+                            </a>
+                            <a
+                                aria-label="Twitter/X"
+                                class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
+                                href="#"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
+                                    <path
+                                        d="M18.9 3H21l-4.58 5.24L21.8 21h-4.22l-3.31-4.74L10.1 21H8l4.89-5.59L7.8 3h4.28l2.99 4.29L18.9 3Zm-1.48 16.5h1.16L11.45 4.42h-1.24l7.21 15.08Z"
+                                    />
+                                </svg>
+                            </a>
+                            <a
+                                aria-label="Facebook"
+                                class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
+                                href="#"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
+                                    <path
+                                        d="M13.5 21v-7.13H16l.38-2.95H13.5V9.03c0-.86.24-1.44 1.46-1.44h1.56V4.95c-.27-.04-1.18-.11-2.25-.11-2.23 0-3.76 1.36-3.76 3.87v2.21H8v2.95h2.51V21h2.99Z"
+                                    />
+                                </svg>
+                            </a>
+                            <a
+                                aria-label="TikTok"
+                                class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
+                                href="#"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
+                                    <path
+                                        d="M14.94 3c.19 1.67 1.12 3.3 2.53 4.29a6.16 6.16 0 0 0 3.58 1.13v3.05a9.08 9.08 0 0 1-3.27-.62v5.66c0 3.86-3.13 6.99-6.99 6.99a7 7 0 0 1 0-13.99c.29 0 .58.02.87.06v3.16a3.88 3.88 0 0 0-.87-.1 3.87 3.87 0 1 0 3.87 3.88V3h3.28Z"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <p class="mb-6 text-xs font-black uppercase tracking-[0.2em] text-cream/60">Empowering Ugandan Smallholders Through Digital Trust</p>
-                <p class="text-[13px] tracking-wider">© 2026 Bean Origin Uganda Limited. All rights reserved.</p>
+
+                <div class="flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-12 md:flex-row">
+                    <p class="text-sm font-bold uppercase tracking-wider text-cream/80">© 2026 Coffee Pulse Uganda. All rights reserved.</p>
+                </div>
             </div>
         </footer>
     </div>

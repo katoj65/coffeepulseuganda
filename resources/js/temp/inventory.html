@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Available Inventory | The Digital Estate</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            maxWidth: {
+              'bootstrap': '1200px',
+            },
+            colors: {
+              "surface-dim": "#dadad6",
+              "surface-variant": "#e2e3df",
+              "secondary-container": "#ece0dc",
+              "primary": "#271310",
+              "tertiary-fixed-dim": "#88d982",
+              "secondary-fixed-dim": "#cfc4c0",
+              "on-secondary-fixed": "#201a18",
+              "surface-tint": "#745853",
+              "on-tertiary-fixed": "#002204",
+              "primary-container": "#3e2723",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-primary-fixed": "#2b1613",
+              "on-surface": "#1a1c1a",
+              "inverse-surface": "#2f312e",
+              "surface-bright": "#faf9f5",
+              "tertiary": "#001d03",
+              "error": "#ba1a1a",
+              "outline": "#827472",
+              "secondary-fixed": "#ece0dc",
+              "tertiary-fixed": "#a3f69c",
+              "background": "#faf9f5",
+              "surface-container-high": "#e8e8e4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1a1c1a",
+              "on-secondary-fixed-variant": "#4c4542",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#003508",
+              "secondary": "#655d5a",
+              "inverse-on-surface": "#f1f1ed",
+              "primary-fixed": "#ffdad4",
+              "on-primary-container": "#ae8d87",
+              "on-secondary-container": "#6b6360",
+              "outline-variant": "#d3c3c0",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container": "#eeeeea",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#56a554",
+              "on-surface-variant": "#504442",
+              "surface-container-low": "#f4f4f0",
+              "primary-fixed-dim": "#e3beb8",
+              "surface-container-highest": "#e2e3df",
+              "surface": "#faf9f5",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#5b403c",
+              "inverse-primary": "#e3beb8"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-primary font-body">
+<!-- TopNavBar -->
+<nav class="bg-[#faf9f5] sticky top-0 z-50">
+<div class="bg-[#eeeeea] h-[1px] w-full"></div>
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-bootstrap mx-auto">
+<div class="text-2xl font-serif tracking-widest text-[#271310] uppercase">The Digital Estate</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Noto_Serif'] font-bold tracking-tight text-[#3e2723]/70 hover:text-[#271310] transition-colors" href="#">Origins</a>
+<a class="font-['Noto_Serif'] font-bold tracking-tight text-[#271310] border-b-2 border-[#271310] pb-1" href="#">Inventory</a>
+<a class="font-['Noto_Serif'] font-bold tracking-tight text-[#3e2723]/70 hover:text-[#271310] transition-colors" href="#">Traceability</a>
+<a class="font-['Noto_Serif'] font-bold tracking-tight text-[#3e2723]/70 hover:text-[#271310] transition-colors" href="#">Sustainability</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl cursor-pointer hover:bg-[#eeeeea] p-2 rounded-md transition-all">search</span>
+<span class="material-symbols-outlined text-2xl cursor-pointer hover:bg-[#eeeeea] p-2 rounded-md transition-all" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<header class="pt-20 pb-16">
+<div class="max-w-bootstrap mx-auto px-12">
+<div class="max-w-4xl">
+<span class="font-label text-sm uppercase tracking-[0.2em] text-on-surface-variant/70 mb-4 block">Regional Collection 2024</span>
+<h1 class="font-headline text-5xl md:text-6xl font-bold tracking-tight text-primary leading-tight mb-8">
+                    Uganda's Finest: Current Coffee Inventory
+                </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-3xl">
+                    Discover the rich diversity of Ugandan coffee. From the bold, sun-drenched Robusta of the Lake Victoria basin to the elegant, high-altitude Arabica of Mount Elgon, our available lots represent the pinnacle of ethical sourcing and quality.
+                </p>
+</div>
+</div>
+</header>
+<!-- Featured Coffee Types -->
+<section class="mb-32">
+<div class="max-w-bootstrap mx-auto px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+<div class="md:col-span-7 bg-surface-container-low p-10 flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<div class="bg-secondary-container inline-block px-3 py-1 mb-6">
+<span class="font-label text-xs uppercase tracking-widest text-primary">High-Altitude Variety</span>
+</div>
+<h2 class="font-headline text-4xl font-bold mb-4">Ugandan Arabica</h2>
+<p class="text-lg text-on-surface-variant max-w-md mb-8">
+                        High-altitude, smooth, and incredibly aromatic. Grown primarily in the foothills of Mt. Elgon and the Rwenzori Mountains.
+                    </p>
+<ul class="space-y-3 font-label text-sm uppercase tracking-wide text-primary/80">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary-container rounded-full"></span> Citric Acidity</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary-container rounded-full"></span> Floral Notes</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary-container rounded-full"></span> Complex Body</li>
+</ul>
+</div>
+<div class="absolute -right-12 -bottom-12 w-80 h-80 opacity-20 rotate-12">
+<img alt="" class="w-full h-full object-cover" data-alt="Macro photo of green unroasted arabica coffee beans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmz8_yEgpG8VIAaYM_NMYu3eAnvoRQ12_UrMQHGnH1M1wd5iERo6klU2ZmYD103SrHZxJIr7PIoKJj3jd3bmJeeZMcdzzrErfc2yYYTbXoR1gOZg21Wu3bNIZdmZqsQCxtYeyFnFl32Hc-MLm5A8QLWs1uhohYDbEN1FpyGThcdwse-Uj5Py8B78QFHq8nBTdytsSFMDFnaDjncmvmRN4c5LR6dM95_hg7ollcev__QPOifvbXa1wqLTIGDAKTnAyO0xvOn6nvEic"/>
+</div>
+</div>
+<div class="md:col-span-5 bg-surface-container p-10 flex flex-col justify-between">
+<div>
+<div class="bg-secondary-container inline-block px-3 py-1 mb-6">
+<span class="font-label text-xs uppercase tracking-widest text-primary">Indigenous Heritage</span>
+</div>
+<h2 class="font-headline text-4xl font-bold mb-4">Fine Robusta</h2>
+<p class="text-lg text-on-surface-variant mb-8">
+                        Bold body, high caffeine, and a rich heritage. Our Fine Robusta is processed with the same care as specialty Arabica.
+                    </p>
+</div>
+<div class="mt-auto">
+<img alt="" class="w-full h-48 object-cover mb-6" data-alt="Dark roasted coffee beans in a wooden scoop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1SSaNiA-HGXXCd6qr7KRv3CUpjr7WSQ9gRBOP5oUmXQ0Y7PjwMtIhyxbOACyNzvWF55bVPLjNFcWl9ZqWHZ3GVWBxl1T8-qRQhA9HneilZtoFplGUBuCpfOxExM3Md9zjdxWchNHjCxfk3zz6D9qAOZTo2Xk22Q0m0mFU3VPF9zin4ws8wYKFMjG5z-rUxWks7w_Rnx6A2AArOor5xh-6_BYwvdp3X6NlBjzFzb_AhWu772KiaR0Ne2gS3gTq62mg0VJ11L1Srlw"/>
+<p class="font-label text-sm uppercase tracking-wide text-primary/60 italic text-right">Lake Victoria Basin</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Inventory Grid -->
+<section class="mb-32">
+<div class="max-w-bootstrap mx-auto px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h3 class="font-headline text-3xl font-bold text-primary mb-2">Live Inventory</h3>
+<p class="text-on-surface-variant">Real-time availability of current lots ready for export.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-high px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span class="font-label text-sm uppercase tracking-wider">Filter Status</span>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label text-xs uppercase tracking-[0.15em]">
+<th class="px-6 py-5 font-semibold">Lot Name</th>
+<th class="px-6 py-5 font-semibold">Origin</th>
+<th class="px-6 py-5 font-semibold">Quality</th>
+<th class="px-6 py-5 font-semibold">Process</th>
+<th class="px-6 py-5 font-semibold">Status</th>
+<th class="px-6 py-5 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-8">
+<span class="font-headline text-lg font-bold block">Mount Elgon Sipi Falls</span>
+<span class="text-xs text-on-surface-variant/70 uppercase tracking-tighter">Lot ID: UG-24-001</span>
+</td>
+<td class="px-6 py-8 text-on-surface-variant">Kapchorwa Region</td>
+<td class="px-6 py-8">
+<span class="bg-tertiary-container text-tertiary-fixed px-3 py-1 rounded-full text-sm font-bold">86.5 SCA</span>
+</td>
+<td class="px-6 py-8 text-on-surface-variant">Fully Washed</td>
+<td class="px-6 py-8">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label text-xs uppercase tracking-widest text-primary">Available</span>
+</div>
+</td>
+<td class="px-6 py-8 text-right">
+<div class="flex justify-end gap-3">
+<button class="px-4 py-2 text-xs font-label uppercase tracking-widest text-primary hover:bg-surface-container-high transition-all">Passport</button>
+<button class="bg-primary text-on-primary px-4 py-2 text-xs font-label uppercase tracking-widest scale-102 transition-transform">Request Sample</button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-8">
+<span class="font-headline text-lg font-bold block">Rwenzori Sun-Dried</span>
+<span class="text-xs text-on-surface-variant/70 uppercase tracking-tighter">Lot ID: UG-24-042</span>
+</td>
+<td class="px-6 py-8 text-on-surface-variant">Kasese Highlands</td>
+<td class="px-6 py-8">
+<span class="bg-tertiary-container text-tertiary-fixed px-3 py-1 rounded-full text-sm font-bold">84.0 SCA</span>
+</td>
+<td class="px-6 py-8 text-on-surface-variant">Natural</td>
+<td class="px-6 py-8">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Sample Only</span>
+</div>
+</td>
+<td class="px-6 py-8 text-right">
+<div class="flex justify-end gap-3">
+<button class="px-4 py-2 text-xs font-label uppercase tracking-widest text-primary hover:bg-surface-container-high transition-all">Passport</button>
+<button class="bg-primary text-on-primary px-4 py-2 text-xs font-label uppercase tracking-widest scale-102 transition-transform">Request Sample</button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-8">
+<span class="font-headline text-lg font-bold block">Zombo Erussi Plateau</span>
+<span class="text-xs text-on-surface-variant/70 uppercase tracking-tighter">Lot ID: UG-24-089</span>
+</td>
+<td class="px-6 py-8 text-on-surface-variant">West Nile</td>
+<td class="px-6 py-8">
+<span class="bg-tertiary-container text-tertiary-fixed px-3 py-1 rounded-full text-sm font-bold">85.2 SCA</span>
+</td>
+<td class="px-6 py-8 text-on-surface-variant">Honey Process</td>
+<td class="px-6 py-8">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label text-xs uppercase tracking-widest text-primary">Available</span>
+</div>
+</td>
+<td class="px-6 py-8 text-right">
+<div class="flex justify-end gap-3">
+<button class="px-4 py-2 text-xs font-label uppercase tracking-widest text-primary hover:bg-surface-container-high transition-all">Passport</button>
+<button class="bg-primary text-on-primary px-4 py-2 text-xs font-label uppercase tracking-widest scale-102 transition-transform">Request Sample</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Sourcing Map & Sustainability Section -->
+<section class="mb-32">
+<div class="max-w-bootstrap mx-auto px-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div class="relative min-h-[500px] bg-surface-container rounded-sm overflow-hidden flex items-center justify-center group">
+<div class="absolute inset-0 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700">
+<img alt="" class="w-full h-full object-cover" data-alt="Topographic abstract map of a mountainous region" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdT5WQSlL6fNRgQ2agyCqgWyQUEtzEbMZb-H-VianN4aqr8zHP1rOAjXImbHN4kiQgFJtC_kBrxKcudZj9IA0eTDhmhFDaILRBqF7tCVQJpsc1apFCfipr1WnI3UW9Yx2Wz98hyVD-EhdJKwv0NrDardfnGCIGBABDX_BGb8anO10KtuYtYyVMhvrVfi_GtVaBknYjTG1L61d3RgSYtLxSSP1BqHqJdYKzMpc-aeXTpDAZqLpHwHTL-StBMTJjQ2cjNmEe5xU23mY"/>
+</div>
+<div class="relative z-10 text-center bg-surface-container-lowest/80 backdrop-blur-md p-10 max-w-sm mx-auto shadow-sm">
+<span class="material-symbols-outlined text-4xl mb-4 text-tertiary">location_on</span>
+<h3 class="font-headline text-2xl font-bold mb-4">Origin Mapping</h3>
+<p class="text-on-surface-variant mb-6">Explore the precise micro-climates where our beans are nurtured.</p>
+<a class="font-label text-xs uppercase tracking-widest border-b border-primary pb-1" href="#">Open Interactive Atlas</a>
+</div>
+<!-- Sourcing Map data-location -->
+<div class="hidden" data-location="Uganda" style=""></div>
+</div>
+<div class="flex flex-col justify-center">
+<div class="bg-tertiary-container text-tertiary-fixed-dim p-12 relative overflow-hidden h-full flex flex-col justify-center">
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+<h3 class="font-headline text-3xl font-bold">The Root of Change</h3>
+</div>
+<p class="text-lg mb-8 leading-relaxed opacity-90">
+                            Our sustainability badge is not just a label—it's a commitment. We ensure every lot in our inventory meets rigorous ethical trade standards, with 95% of the export value returning to the farming cooperatives.
+                        </p>
+<div class="grid grid-cols-2 gap-6 border-t border-on-tertiary-container/20 pt-8">
+<div>
+<span class="block font-headline text-2xl font-bold">Direct-Trade</span>
+<span class="font-label text-xs uppercase tracking-widest opacity-60">Transparency Verified</span>
+</div>
+<div>
+<span class="block font-headline text-2xl font-bold">Rainforest+</span>
+<span class="font-label text-xs uppercase tracking-widest opacity-60">Certified Organic</span>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#eeeeea] w-full mt-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-16 max-w-bootstrap mx-auto">
+<div>
+<div class="font-serif text-lg text-[#271310] mb-6">The Digital Estate</div>
+<p class="font-['Manrope'] text-sm tracking-wide text-[#3e2723]/60 max-w-xs leading-relaxed">
+                    Connecting global roasters with the heritage and precision of East African coffee estates.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-label text-xs uppercase tracking-widest font-bold text-primary mb-2">Company</span>
+<a class="font-['Manrope'] text-sm tracking-wide text-[#3e2723]/60 hover:text-[#003508] transition-colors" href="#">Mission Statement</a>
+<a class="font-['Manrope'] text-sm tracking-wide text-[#3e2723]/60 hover:text-[#003508] transition-colors" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label text-xs uppercase tracking-widest font-bold text-primary mb-2">Legal</span>
+<a class="font-['Manrope'] text-sm tracking-wide text-[#3e2723]/60 hover:text-[#003508] transition-colors" href="#">Global Logistics</a>
+<a class="font-['Manrope'] text-sm tracking-wide text-[#3e2723]/60 hover:text-[#003508] transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+<div class="md:text-right">
+<p class="font-['Manrope'] text-sm tracking-wide text-[#3e2723]/60">
+                    © 2024 The Digital Estate. Excellence from Seed to Cup.
+                </p>
+<div class="mt-8 flex md:justify-end gap-6">
+<span class="material-symbols-outlined text-[#3e2723]/40 hover:text-primary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-[#3e2723]/40 hover:text-primary cursor-pointer transition-colors">mail</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

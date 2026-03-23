@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bean Origin | Global Coffee Exchange Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#faf9f5",
+              "surface-container-highest": "#e2e3df",
+              "inverse-primary": "#e3beb8",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#5b403c",
+              "surface-container": "#eeeeea",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f4f4f0",
+              "primary-fixed-dim": "#e3beb8",
+              "on-tertiary-container": "#56a554",
+              "on-surface-variant": "#504442",
+              "primary-fixed": "#ffdad4",
+              "on-primary-container": "#ae8d87",
+              "inverse-on-surface": "#f1f1ed",
+              "outline-variant": "#d3c3c0",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#6b6360",
+              "surface-container-high": "#e8e8e4",
+              "tertiary-fixed": "#a3f69c",
+              "background": "#faf9f5",
+              "tertiary-container": "#003508",
+              "secondary": "#655d5a",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1a1c1a",
+              "on-secondary-fixed-variant": "#4c4542",
+              "on-error-container": "#93000a",
+              "surface-bright": "#faf9f5",
+              "tertiary": "#001d03",
+              "inverse-surface": "#2f312e",
+              "secondary-fixed": "#ece0dc",
+              "error": "#ba1a1a",
+              "outline": "#827472",
+              "primary-container": "#3e2723",
+              "surface-tint": "#745853",
+              "on-tertiary-fixed": "#002204",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-primary-fixed": "#2b1613",
+              "on-surface": "#1a1c1a",
+              "secondary-container": "#ece0dc",
+              "primary": "#271310",
+              "on-secondary-fixed": "#201a18",
+              "tertiary-fixed-dim": "#88d982",
+              "secondary-fixed-dim": "#cfc4c0",
+              "surface-dim": "#dadad6",
+              "surface-variant": "#e2e3df"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+      }
+      h1, h2, h3, .font-headline {
+        font-family: 'Noto Serif', serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-tertiary-container selection:text-tertiary-fixed">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#faf9f5] dark:bg-[#1a110f] border-r-0 flex flex-col p-6 space-y-4 z-50">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">coffee</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-[#271310] tracking-tight">Bean Origin</h1>
+<p class="text-[10px] uppercase tracking-[0.1em] text-secondary opacity-70">Global Coffee Exchange</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active Tab: Inventory (Contextual for Dashboard) -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#271310] dark:text-[#ffffff] font-semibold bg-[#ffffff] dark:bg-[#3e2723] rounded-lg shadow-sm transition-transform duration-200 scale-102" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3e2723]/80 dark:text-[#d3c3c0]/80 hover:text-[#271310] hover:bg-[#eeeeea] dark:hover:bg-[#2b1a17] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-sm">Cooperatives</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3e2723]/80 dark:text-[#d3c3c0]/80 hover:text-[#271310] hover:bg-[#eeeeea] dark:hover:bg-[#2b1a17] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-sm">Trade Ledger</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3e2723]/80 dark:text-[#d3c3c0]/80 hover:text-[#271310] hover:bg-[#eeeeea] dark:hover:bg-[#2b1a17] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span class="text-sm">Sustainability</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3e2723]/80 dark:text-[#d3c3c0]/80 hover:text-[#271310] hover:bg-[#eeeeea] dark:hover:bg-[#2b1a17] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant/10">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-lg flex items-center justify-center gap-2 font-bold transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-sm">lock</span>
+                Secure Lot
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 h-20 bg-[#faf9f5] dark:bg-[#1a110f] border-b-0 sticky top-0 z-40">
+<div class="flex items-center gap-8">
+<h2 class="font-headline font-bold text-2xl text-[#271310] dark:text-[#ece0dc]">Dashboard Overview</h2>
+<div class="hidden md:flex items-center bg-surface-container-high px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline/60" placeholder="Search transactions, lots, or certs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-primary/70 hover:bg-[#e8e8e4] rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-[1px] h-6 bg-outline-variant/20 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-primary">Admin User</p>
+<p class="text-[10px] text-secondary">Global Exchange Mgr</p>
+</div>
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Administrator Profile Photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhxRLOjFlOtWGcM_vGMQ58Fy4gCNHhAngB7RQUuL7LDPYEaLoz5je-EFholLrYY2pbKImCbH-j0g497-ow0rgKACrFYH4dG82zj8ecMRLhNoWUI03qj3P2BmoJleDG05gTYCJ4rqptKcmCNOlBokss2nfqUlI5SQan-2nUMvaBsc6nDRyg7-AYPGjwWxKuxWC6hhy4qB1iKpjGRqOayCQE1AAmSrTIA_2KhFq8owuK6bUm4Z07Wi3qk-4DBUNmINXZh8SQ1nMkfcc"/>
+</div>
+</div>
+</header>
+<div class="px-8 py-8 space-y-12">
+<!-- Quick Actions Section -->
+<section class="flex flex-wrap gap-4">
+<button class="flex items-center gap-3 bg-tertiary-container text-tertiary-fixed px-6 py-4 rounded-xl font-bold transition-all hover:scale-[1.02] shadow-sm">
+<span class="material-symbols-outlined">add_box</span>
+                    Mint New Batch
+                </button>
+<button class="flex items-center gap-3 bg-surface-container-lowest text-primary px-6 py-4 rounded-xl font-bold transition-all hover:scale-[1.02] shadow-sm">
+<span class="material-symbols-outlined">verified_user</span>
+                    Issue Traceability Certificate
+                </button>
+<button class="flex items-center gap-3 bg-surface-container-lowest text-primary px-6 py-4 rounded-xl font-bold transition-all hover:scale-[1.02] shadow-sm">
+<span class="material-symbols-outlined">mail</span>
+                    Review Export Inquiry
+                </button>
+</section>
+<!-- Overview Cards: Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Trade Volume -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between h-48 transition-transform hover:scale-[1.01]">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary opacity-60">Total Trade Volume</span>
+<span class="material-symbols-outlined text-primary-container">trending_up</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold text-primary">$12.4M</h3>
+<p class="text-xs text-on-tertiary-container font-medium mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +14.2% from last month
+                        </p>
+</div>
+</div>
+<!-- Active Cooperatives -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between h-48 transition-transform hover:scale-[1.01]">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary opacity-60">Active Cooperatives</span>
+<span class="material-symbols-outlined text-primary-container">groups</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold text-primary">42</h3>
+<p class="text-xs text-secondary opacity-60 mt-1">Direct Trade Partners</p>
+</div>
+</div>
+<!-- Total Coffee Batches -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between h-48 transition-transform hover:scale-[1.01]">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary opacity-60">Coffee Batches</span>
+<span class="material-symbols-outlined text-primary-container">category</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold text-primary">842</h3>
+<p class="text-xs text-secondary opacity-60 mt-1">On-chain Tracked Lots</p>
+</div>
+</div>
+<!-- Sustainability Score -->
+<div class="bg-tertiary text-tertiary-fixed p-8 rounded-xl flex flex-col justify-between h-48 transition-transform hover:scale-[1.01] overflow-hidden relative">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">eco</span>
+</div>
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold uppercase tracking-widest text-tertiary-fixed opacity-60">Sustainability</span>
+<span class="material-symbols-outlined text-tertiary-fixed">verified</span>
+</div>
+<div>
+<h3 class="text-4xl font-headline font-bold">94/100</h3>
+<p class="text-xs text-tertiary-fixed-dim font-medium mt-1 uppercase tracking-tighter">Certified Regenerative</p>
+</div>
+</div>
+</section>
+<!-- Main Data Section: Asymmetric Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Regional Inventory Table (Column 1-7) -->
+<section class="lg:col-span-7 space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Regional Inventory</h3>
+<p class="text-sm text-secondary">Stock levels and quality metrics by Ugandan coffee terroir.</p>
+</div>
+<button class="text-xs font-bold text-primary-container underline underline-offset-4">Export Inventory Report</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-none">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">Region &amp; Variety</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">Stock Level</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">SCA Quality</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-6">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div>
+<p class="text-sm font-bold text-primary">Mount Elgon</p>
+<p class="text-[10px] text-secondary">Arabica • SL14/SL28</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="text-sm font-medium text-primary">4,250 Bags</p>
+<div class="w-full h-1 bg-surface-container rounded-full mt-2">
+<div class="w-3/4 h-full bg-primary-container rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="inline-flex items-center px-2 py-1 bg-secondary-container text-primary text-[11px] font-bold rounded">87.5 Avg</span>
+</td>
+<td class="px-6 py-6">
+<span class="text-[10px] font-bold text-on-tertiary-container bg-tertiary-fixed/30 px-2 py-1 rounded">HEALTHY</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-6">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div>
+<p class="text-sm font-bold text-primary">Rwenzori Mountains</p>
+<p class="text-[10px] text-secondary">Arabica • Natural Process</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="text-sm font-medium text-primary">2,810 Bags</p>
+<div class="w-full h-1 bg-surface-container rounded-full mt-2">
+<div class="w-1/2 h-full bg-primary-container rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="inline-flex items-center px-2 py-1 bg-secondary-container text-primary text-[11px] font-bold rounded">86.2 Avg</span>
+</td>
+<td class="px-6 py-6">
+<span class="text-[10px] font-bold text-on-tertiary-container bg-tertiary-fixed/30 px-2 py-1 rounded">HEALTHY</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-6">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<div>
+<p class="text-sm font-bold text-primary">Lake Victoria Basin</p>
+<p class="text-[10px] text-secondary">Robusta • Screen 18</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="text-sm font-medium text-primary">12,400 Bags</p>
+<div class="w-full h-1 bg-surface-container rounded-full mt-2">
+<div class="w-full h-full bg-tertiary-container rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="inline-flex items-center px-2 py-1 bg-secondary-container text-primary text-[11px] font-bold rounded">82.0 Avg</span>
+</td>
+<td class="px-6 py-6">
+<span class="text-[10px] font-bold text-on-error-container bg-error-container/40 px-2 py-1 rounded">HIGH STOCK</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Live Blockchain Ledger (Column 8-12) -->
+<section class="lg:col-span-5 space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Blockchain Ledger</h3>
+<p class="text-sm text-secondary">Verified on-chain transactions.</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-on-tertiary-container font-bold uppercase">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-tertiary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-on-tertiary-container"></span>
+</span>
+                            Live Updates
+                        </div>
+</div>
+<div class="space-y-4">
+<!-- Transaction Card -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-tertiary-container flex items-start justify-between">
+<div class="flex gap-4">
+<div class="p-2 bg-surface-container-lowest rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="token">token</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Batch #BO-842 Minted</p>
+<p class="text-[10px] font-mono text-secondary truncate w-40">0x72a...f492b9</p>
+<p class="text-[11px] text-secondary mt-1">Mt. Elgon Cooperative • 500 Bags</p>
+</div>
+</div>
+<span class="text-[10px] text-secondary font-medium">2 mins ago</span>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-primary-container flex items-start justify-between">
+<div class="flex gap-4">
+<div class="p-2 bg-surface-container-lowest rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="handshake">handshake</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Trade Settled: LOT-192</p>
+<p class="text-[10px] font-mono text-secondary truncate w-40">0x12c...e11d04</p>
+<p class="text-[11px] text-secondary mt-1">Settlement: $42,500 USDC</p>
+</div>
+</div>
+<span class="text-[10px] text-secondary font-medium">14 mins ago</span>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-outline flex items-start justify-between opacity-80">
+<div class="flex gap-4">
+<div class="p-2 bg-surface-container-lowest rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="assignment_turned_in">assignment_turned_in</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Export Clearance Verified</p>
+<p class="text-[10px] font-mono text-secondary truncate w-40">0x99a...c03ff8</p>
+<p class="text-[11px] text-secondary mt-1">UCDA Digital Cert #8821</p>
+</div>
+</div>
+<span class="text-[10px] text-secondary font-medium">45 mins ago</span>
+</div>
+<button class="w-full py-4 text-xs font-bold text-primary hover:bg-surface-container-high transition-colors rounded-xl border border-dashed border-outline-variant">
+                            View Full Blockchain Explorer
+                        </button>
+</div>
+</section>
+</div>
+<!-- Footer-style Metadata -->
+<footer class="pt-8 flex justify-between items-center text-[11px] text-secondary opacity-50 font-medium">
+<div class="flex gap-6">
+<p>© 2024 Bean Origin Global Exchange</p>
+<a class="hover:text-primary transition-colors" href="#">Privacy Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Nodes Status</a>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-on-tertiary-container"></div>
+<p>Blockchain Mainnet Synced: Block #19,842,012</p>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

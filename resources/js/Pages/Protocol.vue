@@ -1,320 +1,351 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import headerLogo from '../../images/logo.png';
+import PublicFooter from '../Components/PublicFooter.vue';
+import PublicHeader from '../Components/PublicHeader.vue';
+
+defineProps({
+    canLogin: {
+        type: Boolean,
+        default: false,
+    },
+    canRegister: {
+        type: Boolean,
+        default: false,
+    },
+});
+
+const ledgerPoints = [
+    {
+        icon: 'task_alt',
+        title: 'Cryptographic Proof',
+        description: 'Each lot is assigned a unique digital fingerprint (hash) at the point of harvest.',
+    },
+    {
+        icon: 'sync_alt',
+        title: 'Real-time Reconciliation',
+        description: 'Automated smart contracts verify volume flow to prevent coffee washing or diluting premium lots.',
+    },
+];
+
+const gradingCards = [
+    {
+        icon: 'cognition',
+        label: 'Arabica',
+        title: 'SCA Standards',
+        description: 'Evaluation of fragrance, flavor, aftertaste, acidity, body, and balance. Minimum score of 80 required for specialty status.',
+    },
+    {
+        icon: 'assignment_turned_in',
+        label: 'Robusta',
+        title: 'Fine Robusta Protocol',
+        description: 'Utilizing CQI standards for Fine Robusta to identify high-quality, sustainable alternatives to traditional varietals.',
+    },
+    {
+        icon: 'badge',
+        label: 'Staff',
+        title: 'Q-Grader Verification',
+        description: 'All sensory reports are digitally signed by a licensed Q-Grader to ensure professional objectivity.',
+    },
+];
+
+const sourcingPillars = [
+    {
+        title: 'Transparency',
+        description: 'Farmers can view the final sale price of their coffee in real-time on our public gateway.',
+    },
+    {
+        title: 'Infrastructure',
+        description: '5% of every transaction fee is reinvested into local washing stations and drying beds.',
+    },
+];
+
+const traceabilitySteps = [
+    {
+        number: '1',
+        icon: 'agriculture',
+        title: 'Harvest Registration',
+        description: 'IoT scales record weight and geolocate the farm lot.',
+    },
+    {
+        number: '2',
+        icon: 'waves',
+        title: 'Processing Update',
+        description: 'Status change to Washed, Honey, or Natural process on-chain.',
+    },
+    {
+        number: '3',
+        icon: 'fact_check',
+        title: 'Quality Cupping',
+        description: 'Certified score entry and lot grading certification.',
+    },
+    {
+        number: '4',
+        icon: 'sailing',
+        title: 'Export Clearance',
+        description: 'Final bill of lading issued with cryptographic verification.',
+    },
+];
+
+const complianceTags = [
+    { icon: 'eco', label: 'EUDR Deforestation' },
+    { icon: 'security', label: 'US C-TPAT' },
+    { icon: 'workspace_premium', label: 'ISO 22000' },
+];
 </script>
 
 <template>
-    <Head title="Our Protocol: The Foundation of Trust | Origin Protocol">
+    <Head title="Protocol | Coffee Pulse Uganda">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&family=Manrope:wght@300;400;500;600;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;600;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
             rel="stylesheet"
         />
     </Head>
 
-    <div class="protocol-page bg-[#faf9f5] text-[#271310] selection:bg-[#003508] selection:text-[#a3f69c]">
-        <nav class="fixed top-0 z-50 w-full border-b border-[#eeeeea] bg-[#faf9f5]/80 backdrop-blur-md">
-            <div class="container-custom flex items-center justify-between py-4">
-                <Link :href="route('home')" class="flex items-center gap-3 text-xl font-bold uppercase tracking-widest text-[#271310]">
-                    <img :src="headerLogo" alt="Coffee Pulse Uganda logo" class="h-10 w-10 rounded-full object-contain" />
-                    <span class="serif">Origin Protocol</span>
-                </Link>
-
-                <div class="hidden items-center gap-8 font-medium tracking-tight md:flex">
-                    <a class="border-b-2 border-[#271310] pb-1 text-[#271310]" href="#traceability">Traceability</a>
-                    <a class="text-[#271310]/60 transition-colors hover:text-[#271310]" href="#quality">Quality</a>
-                    <a class="text-[#271310]/60 transition-colors hover:text-[#271310]" href="#ethics">Ethics</a>
-                    <a class="text-[#271310]/60 transition-colors hover:text-[#271310]" href="#governance">Governance</a>
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <button class="bg-[#271310] px-6 py-2 text-sm uppercase tracking-widest text-white transition-all hover:bg-opacity-90">
-                        Connect Wallet
-                    </button>
-                    <Link :href="route('home')" class="hidden text-xs font-bold uppercase tracking-widest text-[#271310]/70 transition-colors hover:text-[#271310] md:block">
-                        Back
+    <div class="bg-[#fdfbf7] font-body text-[#1a1c1a] selection:bg-[#a3f69c] selection:text-[#002204]">
+        <PublicHeader>
+            <template #nav>
+                <Link :href="route('home')" class="nav-link text-xs font-semibold uppercase tracking-[0.1em] text-[#271310]/60">Home</Link>
+                <Link :href="route('origins')" class="nav-link text-xs font-semibold uppercase tracking-[0.1em] text-[#271310]/60">Origins</Link>
+                <Link :href="route('contact')" class="nav-link text-xs font-semibold uppercase tracking-[0.1em] text-[#271310]/60">Contact</Link>
+            </template>
+            <template #actions>
+                <template v-if="$page.props.auth.user">
+                    <Link :href="route('dashboard')" class="rounded-lg bg-[#271310] px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-[#3e2723]">
+                        Source Ugandan Coffee
                     </Link>
-                </div>
-            </div>
-        </nav>
+                </template>
+                <template v-else-if="canRegister">
+                    <Link :href="route('register')" class="rounded-lg bg-[#271310] px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-[#3e2723]">
+                        Source Ugandan Coffee
+                    </Link>
+                </template>
+                <template v-else-if="canLogin">
+                    <Link :href="route('login')" class="rounded-lg bg-[#271310] px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-[#3e2723]">
+                        Source Ugandan Coffee
+                    </Link>
+                </template>
+                <Link v-else :href="route('inventory.index')" class="rounded-lg bg-[#271310] px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-[#3e2723]">
+                    Source Ugandan Coffee
+                </Link>
+            </template>
+        </PublicHeader>
 
-        <header class="pb-20 pt-40">
-            <div class="container-custom">
-                <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
-                    <div class="md:col-span-7">
-                        <p class="mb-6 text-xs uppercase tracking-[0.2em] text-[#6b6360]">Foundational Architecture</p>
-                        <h1 class="serif mb-8 text-5xl font-bold leading-tight tracking-tight text-[#271310] md:text-6xl lg:text-7xl">
-                            Our Protocol: <br />
-                            The Foundation of Trust
-                        </h1>
-                        <p class="max-w-2xl text-xl font-light leading-relaxed text-[#655d5a]">
-                            Bean Origin leverages decentralized ledger technology and rigorous ethical frameworks to redefine the global coffee trade. We transform the supply chain into a transparent, verifiable ecosystem.
-                        </p>
-                    </div>
-
-                    <div class="md:col-span-5">
-                        <div class="flex aspect-square flex-col justify-end border border-[#d3c3c0]/30 bg-[#f4f4f0] p-12">
-                            <span class="material-symbols-outlined mb-6 text-5xl text-[#271310]">hub</span>
-                            <h3 class="serif mb-3 text-2xl font-bold">Immutable</h3>
-                            <p class="leading-relaxed text-[#655d5a]">Every bean, every transaction, locked in time. A permanent record for a sustainable future.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <section id="traceability" class="bg-[#f4f4f0] py-24">
-            <div class="container-custom">
-                <div class="mb-16 flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
-                    <h2 class="serif text-4xl font-bold text-[#271310]">Blockchain Verification</h2>
-                    <span class="border-b border-[#56a554]/20 pb-1 text-sm uppercase tracking-widest text-[#56a554]">The Immutable Ledger</span>
-                </div>
-
-                <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-                    <div class="flex flex-col justify-between border border-[#d3c3c0]/20 bg-white p-10 lg:col-span-2">
-                        <div>
-                            <div class="mb-10 flex gap-2">
-                                <div class="h-2.5 w-2.5 rounded-full bg-[#001d03]"></div>
-                                <div class="h-2.5 w-2.5 rounded-full bg-[#d3c3c0]/30"></div>
-                                <div class="h-2.5 w-2.5 rounded-full bg-[#d3c3c0]/30"></div>
-                            </div>
-                            <h3 class="serif mb-6 text-3xl font-bold">Real-Time Integrity Verification</h3>
-                            <p class="mb-12 max-w-2xl text-lg font-light leading-relaxed text-[#655d5a]">
-                                Our private blockchain acts as a digital twin for physical shipments. From the moment a cherry is harvested to its arrival, every movement creates a cryptographic proof that cannot be altered.
+        <main>
+            <section class="bg-[#fdfbf7] pb-20 pt-40 md:pb-32 md:pt-48">
+                <div class="container-lg">
+                    <div class="hero-gradient relative overflow-hidden rounded-[1.5rem] p-16 text-center text-white lg:p-28">
+                        <div class="relative z-10 mx-auto max-w-3xl">
+                            <span class="mb-10 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em]">
+                                The Bean Origin Protocol
+                            </span>
+                            <h1 class="mb-10 font-headline text-5xl font-bold leading-[1.1] md:text-7xl">The Trust Protocol</h1>
+                            <p class="mx-auto mb-14 max-w-2xl text-lg font-light leading-relaxed opacity-70 md:text-2xl">
+                                A robust framework for a transparent coffee exchange, bridging the gap between historical heritage and digital immutability.
                             </p>
+                            <div class="flex flex-col justify-center gap-6 sm:flex-row">
+                                <a href="#ledger" class="rounded-xl bg-[#a3f69c] px-12 py-5 text-xs font-bold uppercase tracking-widest text-[#002204] transition-all hover:brightness-105">
+                                    Explore Ledger
+                                </a>
+                                <a href="#governance" class="rounded-xl bg-white/5 px-12 py-5 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-white/10">
+                                    Download Whitepaper
+                                </a>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 right-0 -mb-32 -mr-32 h-64 w-64 rounded-full bg-[#a3f69c]/5 blur-3xl"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ledger" class="bg-[#f4f4f0] py-24 md:py-40">
+                <div class="container-lg">
+                    <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
+                        <div class="rounded-[1.5rem] bg-white p-12 md:p-16">
+                            <div class="grid grid-cols-3 gap-8">
+                                <div class="flex flex-col items-center justify-center rounded-2xl bg-[#e8e8e4] p-8 transition-transform hover:-translate-y-1">
+                                    <span class="material-symbols-outlined mb-4 text-3xl text-[#271310]">block</span>
+                                    <div class="h-0.5 w-8 rounded-full bg-[#271310]/20"></div>
+                                </div>
+                                <div class="flex translate-y-8 flex-col items-center justify-center rounded-2xl bg-[#e8e8e4] p-8 transition-transform hover:-translate-y-1">
+                                    <span class="material-symbols-outlined mb-4 text-3xl text-[#003508]">link</span>
+                                    <div class="h-0.5 w-8 rounded-full bg-[#003508]/20"></div>
+                                </div>
+                                <div class="flex flex-col items-center justify-center rounded-2xl bg-[#e8e8e4] p-8 transition-transform hover:-translate-y-1">
+                                    <span class="material-symbols-outlined mb-4 text-3xl text-[#271310]">verified_user</span>
+                                    <div class="h-0.5 w-8 rounded-full bg-[#271310]/20"></div>
+                                </div>
+                                <div class="col-span-2 mt-8 rounded-2xl bg-[#271310] p-8 text-white">
+                                    <span class="mb-3 block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Hash Verification</span>
+                                    <code class="break-all font-mono text-sm tracking-wider opacity-80">0x4F7e29A1C394...d92F</code>
+                                </div>
+                                <div class="mt-8 flex items-center justify-center rounded-2xl bg-[#a3f69c] p-8 text-[#002204]">
+                                    <span class="material-symbols-outlined text-3xl">hub</span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-8 border-t border-[#eeeeea] pt-8">
-                            <div>
-                                <p class="mb-2 text-xs uppercase tracking-tighter text-[#6b6360]">Latency</p>
-                                <p class="serif text-2xl font-bold">0.4s</p>
-                            </div>
-                            <div>
-                                <p class="mb-2 text-xs uppercase tracking-tighter text-[#6b6360]">Nodes</p>
-                                <p class="serif text-2xl font-bold">1,240+</p>
-                            </div>
-                            <div>
-                                <p class="mb-2 text-xs uppercase tracking-tighter text-[#6b6360]">Hashing</p>
-                                <p class="serif text-2xl font-bold">SHA-256</p>
+                        <div class="lg:pl-10">
+                            <h2 class="mb-10 font-headline text-4xl font-bold leading-tight text-[#271310] md:text-5xl">Immutable Ledger</h2>
+                            <p class="mb-12 text-lg font-light leading-relaxed text-[#504442] md:text-xl">
+                                The EspressoChain Protocol records every single transaction, shipment, and cupping score on an immutable blockchain ledger. This ensures total origin integrity that cannot be altered, forged, or hidden.
+                            </p>
+                            <div class="space-y-12">
+                                <div v-for="point in ledgerPoints" :key="point.title" class="flex gap-8">
+                                    <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#e2e3df]">
+                                        <span class="material-symbols-outlined text-2xl text-[#271310]">{{ point.icon }}</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-2 text-xl font-bold text-[#271310]">{{ point.title }}</h4>
+                                        <p class="text-base font-light leading-relaxed text-[#504442]">{{ point.description }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="relative flex flex-col justify-center overflow-hidden bg-[#271310] p-10 text-white">
-                        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
-                        <span class="material-symbols-outlined relative z-10 mb-8 text-6xl">verified</span>
-                        <h3 class="serif relative z-10 mb-4 text-2xl font-bold">Origin Integrity</h3>
-                        <p class="relative z-10 font-light leading-relaxed text-white/80">
-                            Eliminating fraud in geographical indications through decentralized validator clusters at the farmgate, ensuring 100% provenance accuracy.
+            <section class="bg-[#fdfbf7] py-24 md:py-40">
+                <div class="container-lg">
+                    <div class="mb-24 max-w-2xl">
+                        <h2 class="mb-8 font-headline text-4xl font-bold leading-tight text-[#271310] md:text-5xl">Quality &amp; Grading Protocol</h2>
+                        <p class="text-lg font-light leading-relaxed text-[#504442] md:text-xl">
+                            We adhere to the highest industry standards. Every batch undergoes a rigorous evaluation by certified Q-Graders using the Specialty Coffee Association (SCA) cupping protocol.
                         </p>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="quality" class="py-32">
-            <div class="container-custom">
-                <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
-                    <div class="relative lg:col-span-5">
-                        <img
-                            class="aspect-[4/5] w-full object-cover grayscale contrast-125"
-                            alt="Close up of professional coffee cupping and grading session"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuChW1oge2ONPjtzdumWI_z-bUzYba8F825T4de2HQQ8_pqmGpfwVv0PvAvIaTOztaRzCE4m3acydPSP6LLYvgFbnLW2yStfRYRrP66NjRNCLeebuzKOCNmDBGLtlQSPjuq0neoDgR2M34N6XLU4cvWWucmhycIhnBax0mJFg-DHXOYgZo55VHxJ5-wI2b_NNWgcschDNE_wDs3wmUV5-lJbT_m_tsZ_Fmx23ceDjpSGUEfKh-MUtMsp5AGDCToaSRVRFbuWdP9qTZM"
-                        />
-                        <div class="absolute bottom-0 right-0 translate-x-[-2rem] translate-y-8 bg-[#ece0dc] p-8">
-                            <p class="serif text-4xl font-bold text-[#201a18]">87+</p>
-                            <p class="text-xs uppercase tracking-widest text-[#6b6360]">SCA Protocol Threshold</p>
+                    <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+                        <div v-for="card in gradingCards" :key="card.title" class="group rounded-[1.5rem] bg-[#f4f4f0] p-12 transition-colors hover:bg-[#eeeeea]">
+                            <div class="mb-10 flex items-start justify-between">
+                                <span class="material-symbols-outlined text-5xl text-[#271310] opacity-80 transition-opacity group-hover:opacity-100">{{ card.icon }}</span>
+                                <span class="rounded-full bg-[#ece0dc] px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-[#201a18]">{{ card.label }}</span>
+                            </div>
+                            <h3 class="mb-5 text-2xl font-bold text-[#271310]">{{ card.title }}</h3>
+                            <p class="text-base font-light leading-relaxed text-[#504442]">{{ card.description }}</p>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="lg:col-span-7">
-                        <h2 class="serif mb-8 text-5xl font-bold text-[#271310]">Quality &amp; Grading Protocol</h2>
-                        <p class="mb-12 text-xl font-light leading-relaxed text-[#655d5a]">
-                            We strictly adhere to Specialty Coffee Association (SCA) standards. Every batch processed through our protocol undergoes a rigorous dual-verification process.
-                        </p>
-
-                        <div class="grid gap-10">
-                            <div class="flex items-start gap-8">
-                                <span class="serif border-b-2 border-[#3e2723]/20 text-2xl font-bold text-[#3e2723]">01</span>
-                                <div>
-                                    <h4 class="mb-2 text-lg font-bold">Q-Grader Certification</h4>
-                                    <p class="leading-relaxed text-[#655d5a]">Licensed Q-Graders analyze samples for defects, fragrance, and acidity before any digital batch is minted on-chain.</p>
+            <section class="bg-[#e8e8e4] py-24 md:py-40">
+                <div class="container-lg">
+                    <div class="grid grid-cols-1 items-stretch overflow-hidden rounded-[2.5rem] bg-[#271310] text-white lg:grid-cols-5">
+                        <div class="relative min-h-[500px] lg:col-span-2">
+                            <img
+                                alt="Coffee farmer"
+                                class="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-luminosity grayscale"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCrMbzlxfkYkokX47BKW4h7sIFSaJ2fr084cw-5tM7YNnexKZiwBKbXDnHyc781AwOYSmo8UhZ98GPfxXd7PzMnFXgEfkyOil5Q9n6wTDLBYHQFIj4JpmCF10WM57j7CTzK22d53ZxRJM32rq8Rypnw9kWWfTb8rf0xLntx9hiYhp4aYXPqL9Dz3hAVTvV2Fa0gGBkfdlp_1_pwCm9UhKP7rG7QIaIkqDA0Rim70FcM2Z26k4jiDsi8uaCdGlI7p5h5bEpIC8-SfQ"
+                            />
+                            <div class="absolute inset-0 flex items-center justify-center p-8">
+                                <div class="rounded-[2rem] border border-white/10 bg-white/5 p-12 text-center backdrop-blur-xl">
+                                    <span class="mb-4 block text-6xl font-bold text-[#a3f69c]">+28%</span>
+                                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-80">Avg. Margin Increase</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="flex items-start gap-8">
-                                <span class="serif border-b-2 border-[#3e2723]/20 text-2xl font-bold text-[#3e2723]">02</span>
-                                <div>
-                                    <h4 class="mb-2 text-lg font-bold">Species-Specific Standards</h4>
-                                    <p class="leading-relaxed text-[#655d5a]">Distinct sensory evaluation protocols tailored to Arabica and Robusta, ensuring fair market positioning for all producers.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start gap-8">
-                                <span class="serif border-b-2 border-[#3e2723]/20 text-2xl font-bold text-[#3e2723]">03</span>
-                                <div>
-                                    <h4 class="mb-2 text-lg font-bold">Batch Verification</h4>
-                                    <p class="leading-relaxed text-[#655d5a]">Final verification post-processing. Moisture content, screen size, and density analysis are permanently logged.</p>
+                        <div class="flex flex-col justify-center p-16 lg:col-span-3 lg:p-24">
+                            <h2 class="mb-10 font-headline text-4xl font-bold leading-tight md:text-5xl">Ethical Sourcing Framework</h2>
+                            <p class="mb-16 max-w-xl text-xl font-light leading-relaxed opacity-70">
+                                Our Direct-to-Farmer pricing model removes predatory intermediaries. By utilizing EspressoChain, local cooperatives receive payments directly, ensuring they capture more of the retail value.
+                            </p>
+                            <div class="grid grid-cols-1 gap-12 sm:grid-cols-2">
+                                <div v-for="pillar in sourcingPillars" :key="pillar.title">
+                                    <h5 class="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-[#a3f69c]">{{ pillar.title }}</h5>
+                                    <p class="text-base font-light leading-relaxed opacity-60">{{ pillar.description }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="ethics" class="bg-[#3e2723] py-24 text-white">
-            <div class="container-custom">
-                <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
-                    <div>
-                        <h2 class="serif mb-8 text-4xl font-bold">Ethical Sourcing Framework</h2>
-                        <p class="mb-12 text-lg font-light leading-relaxed text-white/80">
-                            Our protocol mandates a 'Direct-to-Farmer' pricing model. By removing intermediaries, we ensure a minimum of 40% above market value goes directly to local cooperatives.
-                        </p>
+            <section class="bg-[#fdfbf7] py-24 md:py-40">
+                <div class="container-lg text-center">
+                    <div class="mx-auto mb-24 max-w-2xl">
+                        <h2 class="mb-8 font-headline text-4xl font-bold leading-tight text-[#271310] md:text-5xl">Traceability in Action</h2>
+                        <p class="text-lg font-light text-[#504442] md:text-xl">A seamless journey from the mountain soil to the global export terminal.</p>
+                    </div>
 
-                        <div class="border border-[#88d982]/10 bg-[#003508] p-10">
-                            <h4 class="mb-6 text-xs font-bold uppercase tracking-widest text-[#a3f69c]">Impact Report 2023</h4>
-                            <div class="grid grid-cols-2 gap-10">
-                                <div>
-                                    <p class="serif mb-1 text-4xl font-bold text-[#a3f69c]">$3.42</p>
-                                    <p class="text-[10px] uppercase tracking-widest text-[#a3f69c]/60">Avg. Price/lb to Farmer</p>
-                                </div>
-                                <div>
-                                    <p class="serif mb-1 text-4xl font-bold text-[#a3f69c]">+22%</p>
-                                    <p class="text-[10px] uppercase tracking-widest text-[#a3f69c]/60">Cooperative Growth</p>
+                    <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+                        <div v-for="step in traceabilitySteps" :key="step.number" class="group flex flex-col items-center">
+                            <div class="mb-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#f4f4f0] text-xl font-bold text-[#271310] transition-all duration-500 group-hover:bg-[#271310] group-hover:text-white">
+                                {{ step.number }}
+                            </div>
+                            <span class="material-symbols-outlined mb-8 text-5xl text-[#271310]/40 transition-colors duration-500 group-hover:text-[#271310]">{{ step.icon }}</span>
+                            <h4 class="mb-4 text-xl font-bold text-[#271310]">{{ step.title }}</h4>
+                            <p class="max-w-[200px] text-sm font-light leading-relaxed text-[#504442]">{{ step.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="governance" class="bg-[#f4f4f0] py-24 md:py-40">
+                <div class="container-lg">
+                    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
+                        <div>
+                            <h2 class="mb-10 font-headline text-4xl font-bold leading-tight text-[#271310] md:text-5xl">Global Compliance</h2>
+                            <p class="mb-16 max-w-xl text-lg font-light leading-relaxed text-[#504442] md:text-xl">
+                                EspressoChain is engineered to meet and exceed global regulatory requirements for commodity trading and environmental stewardship.
+                            </p>
+                            <div class="flex flex-wrap gap-5">
+                                <div
+                                    v-for="tag in complianceTags"
+                                    :key="tag.label"
+                                    class="group flex items-center gap-4 rounded-2xl bg-[#fdfbf7] px-7 py-4 transition-all duration-300 hover:bg-[#271310] hover:text-white"
+                                >
+                                    <span class="material-symbols-outlined text-[#271310] transition-colors group-hover:text-white">{{ tag.icon }}</span>
+                                    <span class="text-[11px] font-bold uppercase tracking-[0.15em]">{{ tag.label }}</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="relative">
-                        <div class="flex aspect-square items-center justify-center border border-white/5 bg-white/5 p-16">
-                            <span class="material-symbols-outlined text-[10rem] text-[#88d982]/10">eco</span>
-                            <div class="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
-                                <h3 class="serif mb-6 text-4xl font-bold italic leading-snug">"Profitability follows transparency."</h3>
-                                <div class="mb-6 h-px w-12 bg-[#88d982]/40"></div>
-                                <p class="text-xs uppercase tracking-[0.3em] text-white/60">Sustainable Trade Mandate</p>
+                        <div class="relative">
+                            <div class="absolute inset-0 translate-x-6 translate-y-6 rounded-[2.5rem] bg-[#271310]/5"></div>
+                            <div class="relative overflow-hidden rounded-[2.5rem]">
+                                <img
+                                    alt="Coffee beans"
+                                    class="h-auto w-full scale-105 grayscale transition-all duration-1000 hover:scale-100 hover:grayscale-0"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEGX5Wmhx-nO6Z27r2q8cXBZFyChzfMQlYWIyxxYkXykwtvetvX7QYQ9YcNYasV1zapEJ3jQa_xORTBGpHzHRwHhVcib755-t76JMOTUXIu1AZ9exMbovHyAJPU2nRCC069LdhWXkP3Omrl5FFTFczFaBmgJg5T0hqZOpK964o0iz-ifAsepwv9-jqg8GCMck6ozBG37S1CX760x3q-BQMUXM50DpP2zmj_jaSyFDu0CPe1ceaZyHmXk7D4UkvDQCObGV8sRSTJrE"
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <section id="governance" class="py-32">
-            <div class="container-custom">
-                <div class="mb-24 text-center">
-                    <h2 class="serif mb-4 text-4xl font-bold text-[#271310]">Traceability in Action</h2>
-                    <p class="mx-auto max-w-xl font-light text-[#3e2723]">The lifecycle of a Digital Batch from farmgate to final export clearance.</p>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute left-0 top-[2.5rem] z-0 hidden h-px w-full bg-[#e8e8e4] lg:block"></div>
-                    <div class="relative z-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        <div class="border-x border-b border-[#e8e8e4] border-t-4 border-[#271310] bg-[#faf9f5] p-10 text-center">
-                            <span class="material-symbols-outlined mb-6 text-4xl text-[#271310]">agriculture</span>
-                            <h5 class="mb-3 text-lg font-bold">Harvest Registration</h5>
-                            <p class="text-sm font-normal leading-relaxed text-[#3e2723]">Farm coordinates and cherry weight logged at collection point.</p>
-                        </div>
-                        <div class="border-x border-b border-[#e8e8e4] border-t-4 border-[#271310] bg-[#faf9f5] p-10 text-center">
-                            <span class="material-symbols-outlined mb-6 text-4xl text-[#271310]">conveyor_belt</span>
-                            <h5 class="mb-3 text-lg font-bold">Processing Proof</h5>
-                            <p class="text-sm font-normal leading-relaxed text-[#3e2723]">Milling method (Washed/Natural) and moisture logs verified.</p>
-                        </div>
-                        <div class="border-x border-b border-[#e8e8e4] border-t-4 border-[#271310] bg-[#faf9f5] p-10 text-center">
-                            <span class="material-symbols-outlined mb-6 text-4xl text-[#271310]">contract</span>
-                            <h5 class="mb-3 text-lg font-bold">Smart Contract Mint</h5>
-                            <p class="text-sm font-normal leading-relaxed text-[#3e2723]">Physical batch becomes a Digital Asset with SCA score attached.</p>
-                        </div>
-                        <div class="border-x border-b border-[#e8e8e4] border-t-4 border-[#271310] bg-[#faf9f5] p-10 text-center">
-                            <span class="material-symbols-outlined mb-6 text-4xl text-[#271310]">fluid</span>
-                            <h5 class="mb-3 text-lg font-bold">Export Clearance</h5>
-                            <p class="text-sm font-normal leading-relaxed text-[#3e2723]">Shipping manifest and regulatory docs anchored to the ledger.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-[#e8e8e4] py-16">
-            <div class="container-custom flex flex-col items-center gap-12 md:flex-row">
-                <div class="md:w-1/3">
-                    <h3 class="serif text-2xl font-bold text-[#271310]">Global Compliance Standards</h3>
-                </div>
-                <div class="grid w-full grid-cols-2 gap-8 md:w-2/3 lg:grid-cols-3">
-                    <div class="group flex items-center gap-4">
-                        <span class="material-symbols-outlined text-2xl text-[#001d03]">gavel</span>
-                        <span class="text-xs font-bold uppercase tracking-widest text-[#655d5a]">EUDR Compliant</span>
-                    </div>
-                    <div class="group flex items-center gap-4">
-                        <span class="material-symbols-outlined text-2xl text-[#001d03]">policy</span>
-                        <span class="text-xs font-bold uppercase tracking-widest text-[#655d5a]">US C-TPAT</span>
-                    </div>
-                    <div class="group flex items-center gap-4">
-                        <span class="material-symbols-outlined text-2xl text-[#001d03]">verified_user</span>
-                        <span class="text-xs font-bold uppercase tracking-widest text-[#655d5a]">ISO 22000</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-[#faf9f5] py-32 text-center">
-            <div class="container-custom">
-                <div class="mx-auto max-w-3xl">
-                    <h2 class="serif mb-10 text-5xl font-bold text-[#271310] md:text-6xl">Ready to transform your supply chain?</h2>
-                    <div class="flex flex-col justify-center gap-6 sm:flex-row">
-                        <Link :href="route('home')" class="bg-[#003508] px-12 py-5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#88d982] hover:text-[#002204]">
-                            Join the Exchange
-                        </Link>
-                        <button class="border-2 border-[#271310] px-12 py-5 text-xs font-bold uppercase tracking-widest text-[#271310] transition-colors hover:bg-[#271310] hover:text-white">
-                            Whitepaper
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="border-t border-[#d3c3c0]/20 bg-[#e2e3df] py-16">
-            <div class="container-custom">
-                <div class="flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
-                    <div class="flex flex-col gap-3">
-                        <span class="text-xl font-black uppercase tracking-tighter text-[#271310]">Origin Protocol</span>
-                        <p class="text-xs uppercase tracking-widest text-[#655d5a]">© 2024 Bean Origin Protocol. Built on Heritage &amp; Transparency.</p>
-                    </div>
-
-                    <div class="flex flex-wrap gap-x-10 gap-y-4 text-xs font-bold uppercase tracking-widest">
-                        <a class="text-[#271310]/60 transition-colors hover:text-[#271310]" href="#traceability">Blockchain Explorer</a>
-                        <a class="text-[#271310]/60 transition-colors hover:text-[#271310]" href="#quality">Smart Contracts</a>
-                        <a class="text-[#271310]/60 transition-colors hover:text-[#271310]" href="#ethics">Impact Report</a>
-                        <a class="text-[#271310]/60 transition-colors hover:text-[#271310]" href="#governance">Privacy</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <PublicFooter />
     </div>
 </template>
 
 <style scoped>
-.protocol-page {
+.font-body {
     font-family: 'Manrope', sans-serif;
-    -webkit-font-smoothing: antialiased;
 }
 
-.serif {
+.font-headline {
     font-family: 'Noto Serif', serif;
 }
 
-.container-custom {
+.container-lg {
     max-width: 1320px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.hero-gradient {
+    background: #271310;
 }
 
 .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    vertical-align: middle;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+* {
+    box-shadow: none !important;
 }
 </style>

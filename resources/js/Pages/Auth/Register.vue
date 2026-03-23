@@ -31,82 +31,126 @@ const submit = () => {
             <AuthenticationCardLogo />
         </template>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
-                <TextInput
-                    id="name"
-                    v-model="form.name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-                <InputError class="mt-2" :message="form.errors.name" />
+        <div class="space-y-8">
+            <div class="space-y-4">
+                <span class="inline-flex rounded-full bg-[#f8f2ec] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#3e2723]">
+                    Create Account
+                </span>
+                <div>
+                    <h2 class="font-headline text-3xl font-bold leading-tight text-[#271310] sm:text-4xl">
+                        Join the Coffee Pulse operations platform.
+                    </h2>
+                    <p class="mt-3 text-base leading-7 text-[#655d5a]">
+                        Set up your account to access sourcing tools, inventory insights, sample coordination, and trade-ready traceability workflows.
+                    </p>
+                </div>
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="username"
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
+            <form class="space-y-6" @submit.prevent="submit">
+                <div class="space-y-2">
+                    <InputLabel for="name" value="Full Name" class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]" />
+                    <TextInput
+                        id="name"
+                        v-model="form.name"
+                        type="text"
+                        class="block w-full rounded-[1.25rem] border-transparent bg-[#fcfaf7] px-4 py-3.5 text-sm text-[#271310] shadow-none placeholder:text-[#655d5a]/45 focus:border-transparent focus:bg-white focus:ring-0"
+                        required
+                        autofocus
+                        autocomplete="name"
+                        placeholder="Your full name"
+                    />
+                    <InputError class="mt-2 text-sm font-medium text-red-700" :message="form.errors.name" />
+                </div>
 
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
+                <div class="space-y-2">
+                    <InputLabel for="email" value="Business Email" class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]" />
+                    <TextInput
+                        id="email"
+                        v-model="form.email"
+                        type="email"
+                        class="block w-full rounded-[1.25rem] border-transparent bg-[#fcfaf7] px-4 py-3.5 text-sm text-[#271310] shadow-none placeholder:text-[#655d5a]/45 focus:border-transparent focus:bg-white focus:ring-0"
+                        required
+                        autocomplete="username"
+                        placeholder="name@company.com"
+                    />
+                    <InputError class="mt-2 text-sm font-medium text-red-700" :message="form.errors.email" />
+                </div>
 
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-                <TextInput
-                    id="password_confirmation"
-                    v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
-
-            <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">
-                <InputLabel for="terms">
-                    <div class="flex items-center">
-                        <Checkbox id="terms" v-model:checked="form.terms" name="terms" required />
-
-                        <div class="ms-2">
-                            I agree to the <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Privacy Policy</a>
-                        </div>
+                <div class="grid gap-6 sm:grid-cols-2">
+                    <div class="space-y-2">
+                        <InputLabel for="password" value="Password" class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]" />
+                        <TextInput
+                            id="password"
+                            v-model="form.password"
+                            type="password"
+                            class="block w-full rounded-[1.25rem] border-transparent bg-[#fcfaf7] px-4 py-3.5 text-sm text-[#271310] shadow-none placeholder:text-[#655d5a]/45 focus:border-transparent focus:bg-white focus:ring-0"
+                            required
+                            autocomplete="new-password"
+                            placeholder="Create password"
+                        />
+                        <InputError class="mt-2 text-sm font-medium text-red-700" :message="form.errors.password" />
                     </div>
-                    <InputError class="mt-2" :message="form.errors.terms" />
-                </InputLabel>
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Already registered?
-                </Link>
+                    <div class="space-y-2">
+                        <InputLabel for="password_confirmation" value="Confirm Password" class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]" />
+                        <TextInput
+                            id="password_confirmation"
+                            v-model="form.password_confirmation"
+                            type="password"
+                            class="block w-full rounded-[1.25rem] border-transparent bg-[#fcfaf7] px-4 py-3.5 text-sm text-[#271310] shadow-none placeholder:text-[#655d5a]/45 focus:border-transparent focus:bg-white focus:ring-0"
+                            required
+                            autocomplete="new-password"
+                            placeholder="Repeat password"
+                        />
+                        <InputError class="mt-2 text-sm font-medium text-red-700" :message="form.errors.password_confirmation" />
+                    </div>
+                </div>
 
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
-            </div>
-        </form>
+                <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="rounded-[1.25rem] bg-[#faf5ef] p-4">
+                    <InputLabel for="terms">
+                        <div class="flex items-start gap-3">
+                            <Checkbox
+                                id="terms"
+                                v-model:checked="form.terms"
+                                name="terms"
+                                required
+                                class="mt-1 rounded border-[#827472] text-[#271310] shadow-none focus:ring-0"
+                            />
+
+                            <div class="text-sm leading-6 text-[#655d5a]">
+                                I agree to the
+                                <a target="_blank" :href="route('terms.show')" class="font-semibold text-[#271310] underline decoration-[#d8c6ba] underline-offset-4">Terms of Service</a>
+                                and
+                                <a target="_blank" :href="route('policy.show')" class="font-semibold text-[#271310] underline decoration-[#d8c6ba] underline-offset-4">Privacy Policy</a>.
+                            </div>
+                        </div>
+                        <InputError class="mt-3 text-sm font-medium text-red-700" :message="form.errors.terms" />
+                    </InputLabel>
+                </div>
+
+                <div class="flex flex-col gap-4 border-t border-[#d8c6ba]/50 pt-4 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-[#655d5a]">
+                        Already have an account?
+                        <Link :href="route('login')" class="font-semibold text-[#271310] underline decoration-[#d8c6ba] underline-offset-4">
+                            Log in
+                        </Link>
+                    </p>
+
+                    <PrimaryButton
+                        class="inline-flex items-center justify-center rounded-[1.25rem] bg-[#271310] px-6 py-3 text-sm font-bold tracking-[0.08em] text-white shadow-none transition-colors hover:bg-[#3e2723] focus:bg-[#3e2723] focus:ring-0 active:bg-[#1e0f0d]"
+                        :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing"
+                    >
+                        Register
+                    </PrimaryButton>
+                </div>
+            </form>
+        </div>
     </AuthenticationCard>
 </template>
+
+<style scoped>
+.font-headline {
+    font-family: 'Noto Serif', serif;
+}
+</style>

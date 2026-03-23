@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sustainability | Bean Origin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#2f312e",
+              "surface-bright": "#faf9f5",
+              "tertiary": "#001d03",
+              "error": "#ba1a1a",
+              "outline": "#827472",
+              "secondary-fixed": "#ece0dc",
+              "surface-tint": "#745853",
+              "on-tertiary-fixed": "#002204",
+              "primary-container": "#3e2723",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-primary-fixed": "#2b1613",
+              "on-surface": "#1a1c1a",
+              "secondary-container": "#ece0dc",
+              "primary": "#271310",
+              "tertiary-fixed-dim": "#88d982",
+              "secondary-fixed-dim": "#cfc4c0",
+              "on-secondary-fixed": "#201a18",
+              "surface-dim": "#dadad6",
+              "surface-variant": "#e2e3df",
+              "surface-container-highest": "#e2e3df",
+              "surface": "#faf9f5",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#5b403c",
+              "inverse-primary": "#e3beb8",
+              "surface-container": "#eeeeea",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#56a554",
+              "on-surface-variant": "#504442",
+              "surface-container-low": "#f4f4f0",
+              "primary-fixed-dim": "#e3beb8",
+              "inverse-on-surface": "#f1f1ed",
+              "primary-fixed": "#ffdad4",
+              "on-primary-container": "#ae8d87",
+              "on-secondary-container": "#6b6360",
+              "outline-variant": "#d3c3c0",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#a3f69c",
+              "background": "#faf9f5",
+              "surface-container-high": "#e8e8e4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1a1c1a",
+              "on-secondary-fixed-variant": "#4c4542",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#003508",
+              "secondary": "#655d5a"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .font-serif { font-family: 'Noto Serif', serif; }
+      .font-sans { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-sans selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-[#faf9f5] dark:bg-[#271310]">
+<div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+<div class="text-2xl font-serif font-bold text-[#271310] dark:text-[#faf9f5]">Bean Origin</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-sans uppercase tracking-wider text-[12px] text-[#271310]/60 dark:text-[#faf9f5]/60 font-medium pb-1 hover:text-[#271310] dark:hover:text-[#faf9f5] transition-colors duration-300" href="#">Home</a>
+<a class="font-sans uppercase tracking-wider text-[12px] text-[#271310] dark:text-[#faf9f5] font-bold border-b-2 border-[#271310] dark:border-[#faf9f5] pb-1 hover:text-[#271310] dark:hover:text-[#faf9f5] transition-colors duration-300" href="#">About</a>
+<a class="font-sans uppercase tracking-wider text-[12px] text-[#271310]/60 dark:text-[#faf9f5]/60 font-medium pb-1 hover:text-[#271310] dark:hover:text-[#faf9f5] transition-colors duration-300" href="#">Contact</a>
+<span class="material-symbols-outlined text-[#271310] dark:text-[#faf9f5] cursor-pointer">language</span>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-sans text-[12px] uppercase tracking-wider scale-102 active:scale-98 transition-transform">Get Started</button>
+</div>
+<div class="bg-[#eeeeea] dark:bg-[#3e2723] h-[1px] w-full opacity-20"></div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative bg-surface overflow-hidden py-24 md:py-32">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7 z-10">
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[10px] uppercase tracking-[0.2em] font-bold mb-6">Our Commitment</span>
+<h1 class="text-5xl md:text-7xl font-headline text-primary leading-tight mb-8">Cultivating a Sustainable Future from the Soil Up</h1>
+<p class="text-lg md:text-xl text-on-surface-variant font-light max-w-xl mb-10 leading-relaxed">
+                        Redefining the Uganda coffee trade through radical transparency, regenerative agriculture, and direct-to-farm equity.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded font-sans text-sm uppercase tracking-widest font-bold hover:scale-105 transition-transform">View Impact Report</button>
+<button class="bg-surface-container-high text-primary px-8 py-4 rounded font-sans text-sm uppercase tracking-widest font-bold hover:bg-surface-variant transition-colors">Our Origin Map</button>
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] bg-surface-container-low overflow-hidden rounded-xl grayscale hover:grayscale-0 transition-all duration-700">
+<img alt="Uganda Coffee Farm Landscape" class="w-full h-full object-cover" data-alt="Lush green Ugandan coffee farm hills during sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsBMBIv6076cE1FDNHvg3tL-W8WQs77d29tquOmw04t8s8nMiMs1OR6lre4kLBFuTPBwh6A4KUKzDyAXqpcj1z1pyOTcc3teKZYI_fRIP6f3Zcy7WXETFrM2MCxpK0Y8g5uvtyBVhAD8_KleMW3eKTJ9_DDdO7yCubQlylUykUwPAnW5SZLXOtoderK1nh7dP1MdJHL7YPLV-BfKZxTDoyFXRq2Po4SctYtcb_LB6p35jLR3jaktZieg3F0aIr9Nn2Lws4xeus6CI"/>
+</div>
+<div class="absolute -bottom-8 -left-8 p-8 bg-surface-container-lowest border-l-4 border-tertiary-container max-w-[240px] hidden md:block">
+<p class="font-headline italic text-primary text-lg">"Quality is found in the respect we show the earth."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Metrics -->
+<section class="bg-primary py-20">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="text-center md:text-left border-l border-outline-variant/20 pl-6">
+<h3 class="text-4xl font-headline text-on-primary mb-2">15,000+</h3>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-primary-container font-bold">Farmers Empowered</p>
+</div>
+<div class="text-center md:text-left border-l border-outline-variant/20 pl-6">
+<h3 class="text-4xl font-headline text-on-primary mb-2">1.2M</h3>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-primary-container font-bold">Trees Planted</p>
+</div>
+<div class="text-center md:text-left border-l border-outline-variant/20 pl-6">
+<h3 class="text-4xl font-headline text-on-primary mb-2">40%</h3>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-primary-container font-bold">Higher Direct Margins</p>
+</div>
+<div class="text-center md:text-left border-l border-outline-variant/20 pl-6">
+<h3 class="text-4xl font-headline text-on-primary mb-2">100%</h3>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-primary-container font-bold">Traceability Rate</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Carbon Credit Integration -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="order-2 md:order-1">
+<div class="relative group">
+<div class="absolute inset-0 bg-tertiary opacity-10 group-hover:opacity-0 transition-opacity duration-500 rounded-xl"></div>
+<img alt="Blockchain Integration" class="w-full h-[500px] object-cover rounded-xl" data-alt="Modern coffee processing facility with digital displays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_MO4siwLa_SJYfCaRQ-_lEld76DjDzc5ZDQ_SQsmZtvDvreZwRySp3J7IHhM9oH-RJvqBzTgGUnu3jUF_dBMiJNyzrE4NE22sv9DsTuaSgYbSzJA-op8dVJhDsD7eOMpkaoNrjS3N840xptNgPlznVATxsFpJKuiyoJdgT0fTioHT8jYKOR6olEgky9LwWL8ibGcM8m3g23qAGaGi3Ve161aqDvyyE_uygaI36BPjAe8YHHe-l5o9nbGq0VcJu_sKsQ7VtbmL-34"/>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<span class="text-on-tertiary-container font-bold text-[10px] uppercase tracking-[0.2em] mb-4 block">Tech-Enabled Ecology</span>
+<h2 class="text-4xl font-headline text-primary mb-6">Blockchain Carbon Verification</h2>
+<p class="text-on-surface-variant font-light text-lg leading-relaxed mb-8">
+                            We utilize decentralized ledger technology to track carbon sequestration efforts across Uganda's Mt. Elgon region. Every regenerative practice—from mulching to shade-tree planting—is verified and tokenized, providing farmers with secondary income streams directly through carbon credits.
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-primary font-medium">
+<span class="material-symbols-outlined text-on-tertiary-container">token</span>
+<span>Real-time sequestration auditing</span>
+</li>
+<li class="flex items-center gap-4 text-primary font-medium">
+<span class="material-symbols-outlined text-on-tertiary-container">verified_user</span>
+<span>Immutable farmer payout logs</span>
+</li>
+<li class="flex items-center gap-4 text-primary font-medium">
+<span class="material-symbols-outlined text-on-tertiary-container">public</span>
+<span>Global compliance standards</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Ethical Sourcing: The Human Element -->
+<section class="bg-surface py-24">
+<div class="max-w-7xl mx-auto px-8 text-center mb-16">
+<h2 class="text-4xl font-headline text-primary mb-4">The Ethical Nexus</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto font-light">Eliminating the middlemen to ensure the soul of the coffee trade—the smallholder—is the primary beneficiary of every cup.</p>
+</div>
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-transform hover:-translate-y-2">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">handshake</span>
+<h3 class="text-xl font-headline text-primary mb-4">Direct Partnerships</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">We bypass traditional auction houses to sign long-term, fixed-price contracts directly with Ugandan cooperatives.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-transform hover:-translate-y-2">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">payments</span>
+<h3 class="text-xl font-headline text-primary mb-4">Living Wages</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Our pricing model is based on the Cost of Sustainable Production (CoSP), ensuring a 40% margin above market rates.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-transform hover:-translate-y-2">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">diversity_3</span>
+<h3 class="text-xl font-headline text-primary mb-4">Equity Programs</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Investment in local infrastructure, including washing stations and education centers, owned by the farmers themselves.</p>
+</div>
+</div>
+</section>
+<!-- Sustainable Farming Practices -->
+<section class="bg-surface-container-high py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="text-4xl font-headline text-primary mb-8">Regenerative Stewardship</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="w-12 h-12 flex-shrink-0 bg-tertiary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed">park</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-2">Agroforestry Systems</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Intercropping coffee with shade trees and fruit species to enhance biodiversity and soil nitrogen levels naturally.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 flex-shrink-0 bg-tertiary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed">water_drop</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-2">Closed-Loop Water Management</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Recycling 85% of water used in wet-mill processing and implementing gravity-fed irrigation to minimize energy consumption.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 flex-shrink-0 bg-tertiary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed">compost</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-2">Organic Fertilizer Production</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Converting coffee pulp and parchment husks into nutrient-rich compost, reducing reliance on chemical inputs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<img alt="Organic Farming" class="rounded-lg h-64 w-full object-cover" data-alt="Coffee farmer tending to young plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJDLqDTGHO04NS_gs-iwiN4wv3p3pMfmkSoDSRSN8r6CkUOt3Cxw3911ZksR41x7k4z5TpUDpoWLZCfrfcfniMtchZTcdsxUp9A1aG11w-y3keI5drF1Zs_nS19bko7usurY0zN8xqYhPhUI_SO7Y4ixcfiWj6NvmGI2OJ5YFpkgQKUwZpGIVFTQrthKInuxwhxSMAZavFr9dpEsWmrwj3k2f05xZyAv7l8Mxp3hDUZm3ZFRiB3WjMuFgCsDmAP_O95GWGupfuMeU"/>
+<img alt="Soil Health" class="rounded-lg h-80 w-full object-cover mt-8" data-alt="Close up of organic compost and soil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZcE5pHLpMI1mEWRFlkvYs5uyxtWWa5hHAVzMTST-FPZq51fBXg_lcw4FvMUNhflepGVVvioeO76VMls1vIxfcIap_ZxESWyXaqg9qaaR_3qS9ghsQmhSnISnzIcJAqYZGTtGvHelFtfSBmDwV0SF8UP2qZF0PKo-pZXzzrnN2LxLYQtH69Y5kBaq1RLc3IXPoRwwk6ZenyJ_ww8a5qDOHhE4pEJ-nx1ZuvHWyOJBknusHETKXGuwGVJWBasz2cCd9ccyngLzTOz4"/>
+<img alt="Agroforestry" class="rounded-lg h-64 w-full object-cover -mt-16" data-alt="Shade grown coffee plants under a canopy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHDj4di_JWoc02xHvw12v68xds0ePoFa0SIyiHNnOLr2Ri93P08rba3S78rCE7llVCjvhnywWO9ExHRN-BHenz8Oyo3Vp37bcwXTYYvqO_jE0NkpZHUDNS2RpGHTN-kTOe_cEpTCXWCP53Lt2CkSuEDbOR57J9R7E8nxk-xNtsW2z2OPwKVSN9LD_DvMkHzUGBpauuHtU9P_ZHiETqiKZheAD5vApNd66uCg5V-f4i2c3s6O69tEzIY8MxmOR3hDMjnyc7y1EYeKw"/>
+<img alt="Water Management" class="rounded-lg h-64 w-full object-cover" data-alt="Water filtration system in coffee processing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXot0GBsz1tRO26XMhRBCrwpI32kUOaMrOE-QfR_4YPQ53hlxg5dMn0-ApCfU8o9X7n-ZuFA8D8ycW5AU2Vy_fNMyXnC4YtRLoLnPxDsFxzkMxEsxtzWPYkYhFNidgOhbQr0W8TFIVhJYT_FnZuB1L5Af1d0Oku4zjd9hoP9HJIBO6Q1R0zqtg7W2XTf1ov6BLqBfxMRnN1wGseFa6kFpfx6VBYk-KBcvDv3mQEZPoXGBjZIxu96xAdJfmCznzWdunVckr3q2R8wQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-4xl mx-auto px-8 text-center bg-primary p-16 rounded-2xl relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/coffee-beans.png')] opacity-5"></div>
+<h2 class="text-4xl font-headline text-on-primary mb-6 relative z-10">Sustain the Legacy</h2>
+<p class="text-on-primary-container text-lg mb-10 relative z-10">Partner with us in securing the future of Ugandan coffee through a sustainable, transparent trade agreement.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+<button class="bg-tertiary-fixed text-on-tertiary-fixed px-10 py-4 rounded font-sans text-sm uppercase tracking-widest font-bold hover:scale-102 transition-transform">Inquire for Bulk Trade</button>
+<button class="bg-transparent border border-outline-variant/50 text-on-primary px-10 py-4 rounded font-sans text-sm uppercase tracking-widest font-bold hover:bg-on-primary/10 transition-colors">Download Roadmap</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#eeeeea] dark:bg-[#1a0d0b] w-full py-12 px-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 w-full">
+<div class="text-lg font-serif font-bold text-[#271310]">Bean Origin</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-sans text-sm tracking-tight text-[#271310]/70 hover:text-[#003508] transition-colors" href="#">Privacy Policy</a>
+<a class="font-sans text-sm tracking-tight text-[#271310]/70 hover:text-[#003508] transition-colors" href="#">Terms of Trade</a>
+<a class="font-sans text-sm tracking-tight text-[#271310] underline hover:text-[#003508] transition-colors" href="#">Impact Report</a>
+<a class="font-sans text-sm tracking-tight text-[#271310]/70 hover:text-[#003508] transition-colors" href="#">Origin Map</a>
+</div>
+<div class="font-sans text-sm tracking-tight text-[#271310]/70 opacity-80 hover:opacity-100 transition-opacity">
+                © 2024 Bean Origin. Sustainability through Heritage.
+            </div>
+</div>
+</footer>
+</body></html>

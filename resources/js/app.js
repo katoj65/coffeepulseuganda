@@ -1,8 +1,10 @@
 import './bootstrap';
 import '../css/app.css';
+import 'element-plus/dist/index.css';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
+import ElementPlus from 'element-plus/es';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 
@@ -14,6 +16,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(ElementPlus)
             .use(ZiggyVue)
             .mount(el);
     },
