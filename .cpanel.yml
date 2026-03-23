@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export APPPATH=/home/joshkato24/coffeepulseuganda
+    - export PUBLICPATH=/home/joshkato24/public_html
+    - /bin/mkdir -p "$APPPATH"
+    - /usr/bin/rsync -a --delete --exclude=".git/" --exclude="node_modules/" --exclude=".env" ./ "$APPPATH"/
+    - /usr/bin/rsync -a --delete "$APPPATH"/public/ "$PUBLICPATH"/
+    - cd "$APPPATH" && composer install --no-dev --optimize-autoloader --no-interaction
+    - cd "$APPPATH" && php artisan migrate --force
+    - cd "$APPPATH" && php artisan storage:link
+    - cd "$APPPATH" && php artisan config:cache
+    - cd "$APPPATH" && php artisan route:cache
+    - cd "$APPPATH" && php artisan view:cache
