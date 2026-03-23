@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export REPOPATH=$(pwd)
-    - export APPPATH=/home/joshkato24/coffeepulseuganda
+    - export APPPATH=/home/joshkato24/apps/coffeepulseuganda
     - export PUBLICPATH=/home/joshkato24/public_html
     - /bin/mkdir -p "$APPPATH"
     - /usr/bin/rsync -a --delete --exclude=".git/" --exclude=".cpanel.yml" --exclude=".env" --exclude="node_modules/" --exclude="vendor/" --exclude="storage/" "$REPOPATH"/ "$APPPATH"/
