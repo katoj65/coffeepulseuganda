@@ -79,7 +79,6 @@ const phases = [
     <div class="bg-[#faf9f5] font-body text-[#1a1c1a] antialiased">
         <PublicHeader>
             <template #nav>
-                <Link :href="route('home')" class="nav-link text-sm font-bold uppercase tracking-wide text-[#3e2723]/70">Home</Link>
                 <span class="border-b-2 border-[#271310] pb-1 text-sm font-bold uppercase tracking-wide text-[#271310]">Roadmap</span>
                 <Link :href="route('about')" class="nav-link text-sm font-bold uppercase tracking-wide text-[#3e2723]/70">About</Link>
                 <Link :href="route('contact')" class="nav-link text-sm font-bold uppercase tracking-wide text-[#3e2723]/70">Contact</Link>

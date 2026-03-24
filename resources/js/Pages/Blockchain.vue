@@ -98,7 +98,6 @@ const ecosystemBenefits = [
     <div class="bg-white font-body text-[#212529]">
         <PublicHeader>
             <template #nav>
-                <Link :href="route('home')" class="nav-link text-sm">Home</Link>
                 <Link :href="route('about')" class="nav-link text-sm">About</Link>
                 <Link :href="route('contact')" class="nav-link text-sm">Contact</Link>
             </template>

@@ -106,7 +106,6 @@ const complianceTags = [
     <div class="bg-[#fdfbf7] font-body text-[#1a1c1a] selection:bg-[#a3f69c] selection:text-[#002204]">
         <PublicHeader>
             <template #nav>
-                <Link :href="route('home')" class="nav-link text-xs font-semibold uppercase tracking-[0.1em] text-[#271310]/60">Home</Link>
                 <Link :href="route('origins')" class="nav-link text-xs font-semibold uppercase tracking-[0.1em] text-[#271310]/60">Origins</Link>
                 <Link :href="route('contact')" class="nav-link text-xs font-semibold uppercase tracking-[0.1em] text-[#271310]/60">Contact</Link>
             </template>

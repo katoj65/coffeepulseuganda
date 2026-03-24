@@ -4,53 +4,47 @@ import { ElNotification } from 'element-plus';
 import PublicFooter from '../Components/PublicFooter.vue';
 import PublicHeader from '../Components/PublicHeader.vue';
 
-defineProps({
-    canLogin: {
-        type: Boolean,
-        default: false,
-    },
-    canRegister: {
-        type: Boolean,
-        default: false,
-    },
-});
-
 const contactCards = [
     {
         icon: 'payments',
         title: 'Global Trading',
         description: 'Expertise in B2B procurement, bulk green bean sourcing, and futures contracting for artisanal and commercial scales.',
-        action: 'Inquire Trade',
-        href: 'mailto:trade@coffeepulseuganda.com',
     },
     {
         icon: 'local_shipping',
         title: 'Logistics & Export',
         description: 'Navigating international shipping, phytosanitary documentation, and origin-to-port supply chain transparency.',
-        action: 'Logistics Support',
-        href: 'mailto:logistics@coffeepulseuganda.com',
     },
     {
         icon: 'handshake',
         title: 'Partnerships',
         description: 'Dedicated to co-op development and sustainability initiatives. Join our network of ethical heritage producers.',
-        action: 'Collaborate',
-        href: 'mailto:partners@coffeepulseuganda.com',
     },
 ];
 
-const regionalHubs = [
+const officeAddress = 'Munyonyo, Ggaba road Kampala Uganda';
+
+const phoneContacts = [
     {
-        title: 'Kampala HQ',
-        lines: ['Plot 12, Industrial Area', 'Central Estate Hub', 'Kampala, Uganda'],
+        label: 'First Line',
+        note: 'For general trade and sourcing conversations',
+        value: '+256 788693298',
+        href: 'tel:+256788693298',
     },
     {
-        title: 'West Nile Hub',
-        lines: ['Arua Trading District', 'Highland Collection Point', 'Northern Region'],
+        label: 'Second Line',
+        note: 'For quick coordination and urgent follow-up',
+        value: '+256 743618873',
+        href: 'tel:+256743618873',
     },
+];
+
+const emailContacts = [
     {
-        title: 'Rwenzori Station',
-        lines: ['Kasese Processing Unit', 'Glacial Runoff Estates', 'Western Uganda'],
+        label: 'Email Address',
+        note: 'For inquiries, logistics coordination, and general communication',
+        value: 'info@coffeepulseuganda.com',
+        href: 'mailto:info@coffeepulseuganda.com',
     },
 ];
 
@@ -127,7 +121,89 @@ const submitContact = () => {
                 </div>
             </section>
 
-            <section class="border-y border-[#d3c3c0]/10 bg-white py-24 mt-5">
+            <section class="pb-24">
+                <div class="mx-auto max-w-6xl">
+                    <div class="mb-10 max-w-2xl">
+                        <p class="font-label text-xs font-bold uppercase tracking-[0.22em] text-[#655d5a]">Contact Details</p>
+                        <h2 class="mt-3 font-headline text-3xl font-bold leading-tight text-[#271310] md:text-[2.2rem]">Get in touch with our team.</h2>
+                        <p class="mt-3 text-sm leading-7 text-[#655d5a] md:text-base">
+                            Reach our team for trade inquiries, logistics coordination, and office visits through the contact details below.
+                        </p>
+                    </div>
+
+                    <div class="grid gap-5 md:grid-cols-3">
+                        <div class="rounded-3xl bg-white px-6 py-7 shadow-sm shadow-[#271310]/[0.05]">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f4f1ec] text-[#271310]">
+                                    <span class="material-symbols-outlined text-[22px]">call</span>
+                                </div>
+                                <div>
+                                    <p class="text-lg font-bold text-[#271310]">Phone</p>
+                                    <p class="text-sm text-[#655d5a]">Call or message our team directly.</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 space-y-4">
+                                <a
+                                    v-for="phone in phoneContacts"
+                                    :key="phone.label"
+                                    :href="phone.href"
+                                    class="block rounded-2xl bg-[#faf9f5] px-4 py-4 transition-colors hover:bg-[#f4f1ec]"
+                                >
+                                    <p class="text-sm font-bold text-[#655d5a]">{{ phone.label }}</p>
+                                    <p class="mt-2 text-lg font-semibold leading-7 text-[#271310]">{{ phone.value }}</p>
+                                    <p class="mt-2 text-sm leading-6 text-[#655d5a]">{{ phone.note }}</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl bg-white px-6 py-7 shadow-sm shadow-[#271310]/[0.05]">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f4f1ec] text-[#271310]">
+                                    <span class="material-symbols-outlined text-[22px]">mail</span>
+                                </div>
+                                <div>
+                                    <p class="text-lg font-bold text-[#271310]">Email</p>
+                                    <p class="text-sm text-[#655d5a]">Send detailed requests and documents.</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 space-y-4">
+                                <a
+                                    v-for="emailContact in emailContacts"
+                                    :key="emailContact.label"
+                                    :href="emailContact.href"
+                                    class="block rounded-2xl bg-[#faf9f5] px-4 py-4 transition-colors hover:bg-[#f4f1ec]"
+                                >
+                                    <p class="text-sm font-bold text-[#655d5a]">{{ emailContact.label }}</p>
+                                    <p class="mt-2 break-all text-base font-semibold leading-7 text-[#271310]">{{ emailContact.value }}</p>
+                                    <p class="mt-2 text-sm leading-6 text-[#655d5a]">{{ emailContact.note }}</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl bg-[#f4f1ec] px-6 py-7 shadow-sm shadow-[#271310]/[0.04]">
+                            <div class="flex items-center gap-3">
+                                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#271310]">
+                                    <span class="material-symbols-outlined text-[22px]">location_on</span>
+                                </div>
+                                <div>
+                                    <p class="text-lg font-bold text-[#271310]">Address</p>
+                                    <p class="text-sm text-[#655d5a]">Visit our Kampala office.</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 rounded-2xl bg-white/75 px-4 py-4">
+                                <p class="text-lg font-bold leading-7 text-[#271310]">Coffee Pulse Uganda</p>
+                                <p class="mt-3 text-base leading-7 text-[#271310]">{{ officeAddress }}</p>
+                            </div>
+                            <div class="mt-4 rounded-2xl bg-white/55 px-4 py-4">
+                                <p class="text-sm font-bold text-[#655d5a]">Office Hours</p>
+                                <p class="mt-2 text-sm leading-6 text-[#271310]">Monday to Friday, 8:00 AM to 6:00 PM EAT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-5 mb-16 border-y border-[#d3c3c0]/10 bg-white py-24">
                 <div class="mx-auto max-w-3xl">
                     <div class="mb-16 text-center">
                         <h2 class="mb-4 font-headline text-3xl text-[#271310]">Direct Inquiry</h2>
@@ -185,6 +261,12 @@ const submitContact = () => {
                             <p v-if="form.errors.primary_interest" class="text-sm text-[#93000a]">{{ form.errors.primary_interest }}</p>
                         </div>
 
+
+
+
+
+
+
                         <div class="space-y-2">
                             <label class="font-label text-xs uppercase tracking-widest text-[#504442]">Your Message</label>
                             <textarea
@@ -209,25 +291,6 @@ const submitContact = () => {
                 </div>
             </section>
 
-            <section class="py-24">
-                <div class="flex flex-col items-start justify-between gap-16 md:flex-row">
-                    <div class="max-w-sm">
-                        <h2 class="mb-6 font-headline text-3xl text-[#271310]">Institutional <br /><span class="italic">Trust</span></h2>
-                        <p class="leading-relaxed text-[#655d5a]">
-                            Coffee Pulse Uganda is exclusively rooted in Uganda. By maintaining our presence solely at the source, we ensure unparalleled quality control and direct impact within our local communities.
-                        </p>
-                    </div>
-
-                    <div class="grid w-full flex-1 grid-cols-1 gap-12 sm:grid-cols-3">
-                        <div v-for="hub in regionalHubs" :key="hub.title" class="space-y-4">
-                            <h4 class="font-label text-xs font-bold uppercase tracking-[0.2em] text-[#005312]">{{ hub.title }}</h4>
-                            <p class="text-sm leading-relaxed text-[#655d5a]">{{ hub.lines.join('\n') }}</p>
-                        </div>
-                    </div>
-                </div>
-
-
-            </section>
         </main>
 
         <PublicFooter />

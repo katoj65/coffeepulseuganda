@@ -32,13 +32,13 @@
               "secondary-fixed-dim": "#cfc4c0",
               "on-primary-fixed-variant": "#5b403c",
               "on-primary-container": "#ae8d87",
-              "tertiary": "#001d03",
+              "tertiary": "#425c40", 
               "inverse-surface": "#2f312e",
               "inverse-primary": "#e3beb8",
               "surface-dim": "#dadad6",
               "on-tertiary-fixed-variant": "#005312",
               "outline": "#827472",
-              "background": "#faf9f5",
+              "background": "#faf9f5", 
               "primary-fixed-dim": "#e3beb8",
               "on-secondary-container": "#6b6360",
               "surface-variant": "#e2e3df",
@@ -47,13 +47,13 @@
               "primary-fixed": "#ffdad4",
               "on-primary": "#ffffff",
               "on-tertiary-fixed": "#002204",
-              "tertiary-container": "#003508",
+              "tertiary-container": "#f1f5f0", 
               "surface-tint": "#745853",
               "inverse-on-surface": "#f1f1ed",
               "tertiary-fixed": "#a3f69c",
-              "primary": "#271310",
+              "primary": "#271310", 
               "secondary-container": "#ece0dc",
-              "on-tertiary-container": "#56a554",
+              "on-tertiary-container": "#425c40",
               "on-surface": "#1a1c1a",
               "on-error": "#ffffff",
               "primary-container": "#3e2723",
@@ -61,9 +61,9 @@
               "error-container": "#ffdad6"
             },
             fontFamily: {
-              "headline": ["Noto Serif"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
+              "headline": ["Noto Serif", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
             },
             borderRadius: {"DEFAULT": "0", "lg": "0", "xl": "0", "full": "9999px"},
           },
@@ -74,226 +74,316 @@
         body { font-family: 'Manrope', sans-serif; background-color: #faf9f5; color: #1a1c1a; -webkit-font-smoothing: antialiased; }
         .font-serif { font-family: 'Noto Serif', serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-        /* Bootstrap-like container */
-        .container { max-width: 1140px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
-        .no-shadow { box-shadow: none !important; }
+        /* Bootstrap 5 Inspired Container (max-width: 1320px for xxl) */
+        .container-bs { max-width: 1320px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+        @media (min-width: 576px) { .container-bs { max-width: 540px; } }
+        @media (min-width: 768px) { .container-bs { max-width: 720px; } }
+        @media (min-width: 992px) { .container-bs { max-width: 960px; } }
+        @media (min-width: 1200px) { .container-bs { max-width: 1140px; } }
+        @media (min-width: 1400px) { .container-bs { max-width: 1320px; } }
+        
         section { padding-top: 5rem; padding-bottom: 5rem; }
+        .lead { font-size: 1.25rem; font-weight: 300; }
+        .no-shadow { box-shadow: none !important; }
+        .border-subtle { border-color: rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="bg-surface text-on-background">
-<!-- Bootstrap 5 Header / Navbar -->
-<nav class="border-b border-outline-variant/30 bg-surface">
-<div class="container flex justify-between items-center py-4">
-<div class="text-2xl font-serif font-bold tracking-tight text-primary">Bean Origin</div>
-<div class="hidden md:flex space-x-8 items-center">
-<a class="text-secondary hover:text-primary text-sm font-semibold transition-colors" href="#">Home</a>
-<a class="text-primary border-b-2 border-primary text-sm font-bold" href="#">About</a>
-<a class="text-secondary hover:text-primary text-sm font-semibold transition-colors" href="#">Contact</a>
+<!-- Modern Navigation -->
+<nav class="bg-surface border-b border-subtle py-6">
+<div class="container-bs flex justify-between items-center">
+<div class="text-xl font-headline font-bold tracking-[0.2em] text-primary uppercase">Bean Origin</div>
+<div class="hidden md:flex gap-8">
+<a class="text-[11px] font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Our Story</a>
+<a class="text-[11px] font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Trade</a>
+<a class="text-[11px] font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#">Sustainability</a>
+<a class="text-[11px] font-bold uppercase tracking-widest text-primary border-b border-primary pb-1" href="#">About Us</a>
 </div>
-<button class="btn border-2 border-primary text-primary px-5 py-2 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-on-primary transition-all no-shadow">Secure Lot</button>
 </div>
 </nav>
 <main>
-<!-- Section 1: Hero - Our Story -->
-<section class="bg-surface">
-<div class="container">
-<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-<div class="lg:w-1/2">
-<p class="text-primary/60 text-xs font-bold uppercase tracking-[0.2em] mb-4">Established Heritage</p>
-<h1 class="font-headline text-5xl md:text-6xl font-bold text-primary mb-8 leading-tight">Empowering the <span class="italic font-normal">Source</span>.</h1>
-<div class="w-16 h-1 bg-primary mb-8"></div>
-<p class="text-secondary text-lg leading-relaxed mb-6">
-                        At Bean Origin, we bridge the gap between tradition and technology. Our mission is to digitize the Ugandan coffee supply chain, ensuring every smallholder farmer finds a place in the global market through ethical, transparent trade.
-                    </p>
-<p class="text-secondary text-lg leading-relaxed">
-                        We believe that by preserving the integrity of the bean—from soil to the digital exchange—we can uplift entire communities and redefine the value of Ugandan coffee for the modern world.
-                    </p>
-</div>
-<div class="lg:w-1/2">
+<!-- Section 0: Redesigned Company Profile Hero (Asymmetrical Grid) -->
+<section class="bg-surface relative overflow-hidden">
+<div class="container-bs">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+<!-- Left Column (Asymmetrical Logo Container) -->
+<div class="lg:col-span-5 order-2 lg:order-1">
 <div class="relative">
-<img alt="Ugandan coffee farmer drying beans" class="w-full aspect-[4/5] object-cover no-shadow grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4SubS2RmxdPnaFgyFmSQnHTJOmEkE2sYctu7Qjc9nW_-qZ9aICGgA-lRVajW4et5EsXiJC75IDhwqbyYjOoq5U1K8gEBnLFFhgW27S2gBegSjjTiT7_mX9f5BYH99374_aOgyKWwGD5pwx1NSw503bEQooz4xuA1aMvMFsdEMcVP_y7gVBSdUVtO5LrP3Bhnoz5no2l1Ei5D-xd3wB0sizzlqhdGc9tyWmHphKEuBkWIoMmVbK8ThoxU31FnWVzdqSa4cOzCA0jI"/>
-<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 border border-outline-variant/30 hidden md:block max-w-xs">
-<p class="font-serif italic text-primary text-base leading-snug">"Honoring the hands that harvest, ensuring the value returns to the roots."</p>
+<!-- Modern Geometric Shape Backdrop -->
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 p-12 lg:p-16 border border-subtle bg-white/50 backdrop-blur-sm rounded-[2rem] lg:rounded-[4rem] flex flex-col items-center lg:items-start transition-all duration-500 hover:border-tertiary/20">
+<div class="w-24 h-24 bg-surface-container flex items-center justify-center rounded-2xl mb-8 transform -rotate-6">
+<span class="material-symbols-outlined text-5xl text-primary">coffee_bean</span>
+</div>
+<h2 class="text-primary font-headline font-bold tracking-[0.2em] uppercase text-2xl mb-2">Bean Origin</h2>
+<div class="h-0.5 w-16 bg-tertiary mb-6"></div>
+<div class="flex items-center gap-3">
+<span class="text-tertiary text-[9px] font-bold uppercase tracking-[0.4em]">Authenticated Source</span>
+<span class="w-1 h-1 bg-tertiary/30 rounded-full"></span>
+<span class="text-tertiary text-[9px] font-bold uppercase tracking-[0.4em]">Uganda</span>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-6 -right-6 w-32 h-32 border-r border-b border-tertiary/10 rounded-br-[3rem] hidden lg:block"></div>
+</div>
+</div>
+<!-- Right Column (Modern Typographic Hierarchy) -->
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="max-w-2xl">
+<div class="flex items-center gap-4 mb-8">
+<div class="h-[1px] w-8 bg-tertiary"></div>
+<span class="text-tertiary text-[11px] font-bold uppercase tracking-[0.4em]">Company Profile</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold text-primary mb-10 leading-[1.1] tracking-tight">
+                            Bridging Tradition <br/>
+<span class="flex items-center gap-6">
+<span class="italic font-normal text-tertiary">&amp;</span>
+<span>Technology</span>
+</span>
+</h1>
+<div class="space-y-8">
+<p class="text-primary text-2xl leading-snug font-medium tracking-tight">
+                                Bean Origin is a dedicated Coffee Trading Company focused on Ethical Sourcing, committed to digitizing the Ugandan coffee supply chain.
+                            </p>
+<p class="text-secondary text-lg leading-relaxed font-light border-l-2 border-surface-container-highest pl-8">
+                                We preserve the ancestral heritage of East African growers while ensuring they receive fair, transparent value through a direct, blockchain-verified global network. Our mission is to transform the industry from the roots up, ensuring every cup tells a story of integrity and innovation.
+                            </p>
+</div>
+<div class="mt-12 flex flex-wrap items-center gap-8 py-6 border-y border-subtle">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 bg-tertiary/40 rounded-full"></span>
+<span class="text-primary/60 text-[10px] font-bold uppercase tracking-[0.2em]">Established Heritage</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 bg-tertiary/40 rounded-full"></span>
+<span class="text-primary/60 text-[10px] font-bold uppercase tracking-[0.2em]">East African Corridor</span>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Section 2: Stats Grid -->
-<section class="bg-surface-container-low border-y border-outline-variant/20">
-<div class="container">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-<div class="border-l-0 md:border-l border-outline-variant/50 md:pl-8">
-<h3 class="font-headline text-4xl font-bold text-primary mb-3">1.7 Million</h3>
-<p class="text-secondary text-sm font-medium uppercase tracking-wide">Smallholder Farmers</p>
-<p class="text-secondary/70 mt-4 text-sm leading-relaxed">Connecting local heritage to global demand through a unified platform.</p>
+<!-- Section 1: 3-Column Mission, Vision, Objectives -->
+<section class="bg-surface-container-low">
+<div class="container-bs">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+<!-- Mission -->
+<div class="p-8 bg-surface border border-subtle transition-all duration-300 hover:border-tertiary/30">
+<div class="mb-6 text-tertiary">
+<span class="material-symbols-outlined text-4xl">flag</span>
 </div>
-<div class="border-l-0 md:border-l border-outline-variant/50 md:pl-8">
-<h3 class="font-headline text-4xl font-bold text-primary mb-3">Direct Access</h3>
-<p class="text-secondary text-sm font-medium uppercase tracking-wide">Fair Value Exchange</p>
-<p class="text-secondary/70 mt-4 text-sm leading-relaxed">Removing unnecessary intermediaries to ensure value flows back to the growers.</p>
+<h3 class="font-headline text-lg font-bold text-primary mb-4 uppercase tracking-widest">Mission</h3>
+<p class="text-secondary text-sm leading-relaxed">
+                        To empower Ugandan coffee farmers by providing a transparent and ethical global marketplace for their premium harvests.
+                    </p>
 </div>
-<div class="border-l-0 md:border-l border-outline-variant/50 md:pl-8">
-<h3 class="font-headline text-4xl font-bold text-primary mb-3">Ethical Standard</h3>
-<p class="text-secondary text-sm font-medium uppercase tracking-wide">Quality Benchmark</p>
-<p class="text-secondary/70 mt-4 text-sm leading-relaxed">Setting the highest bar for quality and transparency in the East African corridor.</p>
+<!-- Vision -->
+<div class="p-8 bg-surface border border-subtle transition-all duration-300 hover:border-tertiary/30">
+<div class="mb-6 text-tertiary">
+<span class="material-symbols-outlined text-4xl">visibility</span>
+</div>
+<h3 class="font-headline text-lg font-bold text-primary mb-4 uppercase tracking-widest">Vision</h3>
+<p class="text-secondary text-sm leading-relaxed">
+                        To be the world's most trusted partner for sustainably sourced, fully traceable Ugandan coffee.
+                    </p>
+</div>
+<!-- Objectives -->
+<div class="p-8 bg-surface border border-subtle transition-all duration-300 hover:border-tertiary/30">
+<div class="mb-6 text-tertiary">
+<span class="material-symbols-outlined text-4xl">task_alt</span>
+</div>
+<h3 class="font-headline text-lg font-bold text-primary mb-4 uppercase tracking-widest">Objectives</h3>
+<p class="text-secondary text-sm leading-relaxed">
+                        Ensure fair pricing, promote climate-smart agriculture, and provide 100% transparency from farm to export.
+                    </p>
 </div>
 </div>
 </div>
 </section>
-<!-- Section 3: Trade Lifecycle -->
+<!-- Section 2: Our Story (Refined Corporate Layout) -->
 <section class="bg-surface">
-<div class="container">
-<div class="text-center mb-20">
-<p class="text-primary/60 text-xs font-bold uppercase tracking-[0.2em] mb-4">Process Architecture</p>
-<h2 class="font-headline text-4xl font-bold text-primary">The Trade Lifecycle</h2>
-<div class="w-24 h-0.5 bg-outline-variant/50 mx-auto mt-6"></div>
+<div class="container-bs">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<p class="text-tertiary text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Our Origin Story</p>
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">Empowering the <span class="italic font-normal">Source</span>.</h2>
+<div class="space-y-6">
+<p class="text-secondary text-lg leading-relaxed font-light">
+                            At Bean Origin, we bridge the gap between tradition and technology. Our mission is to digitize the Ugandan coffee supply chain, ensuring every smallholder farmer finds a place in the global market through ethical, transparent trade.
+                        </p>
+<p class="text-secondary text-base leading-relaxed font-light italic border-l-2 border-tertiary/20 pl-6">
+                            "We believe that by preserving the integrity of the bean—from soil to the digital marketplace—we can uplift entire communities and redefine the value of Ugandan coffee for the modern world."
+                        </p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<!-- Sourcing -->
-<div class="p-8 border border-outline-variant/30 bg-surface-container-lowest transition-colors hover:border-primary">
-<div class="text-primary mb-6">
-<span class="material-symbols-outlined text-4xl">eco</span>
 </div>
-<h4 class="font-bold text-sm tracking-widest text-primary mb-3">01. SOURCING</h4>
-<p class="text-secondary text-sm leading-relaxed">Direct collection from verified smallholder cooperatives across Uganda's prime growing regions.</p>
+<div class="lg:w-1/2">
+<div class="relative bg-surface-container p-4">
+<img alt="Ugandan coffee farmer drying beans" class="w-full aspect-[4/3] object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4SubS2RmxdPnaFgyFmSQnHTJOmEkE2sYctu7Qjc9nW_-qZ9aICGgA-lRVajW4et5EsXiJC75IDhwqbyYjOoq5U1K8gEBnLFFhgW27S2gBegSjjTiT7_mX9f5BYH99374_aOgyKWwGD5pwx1NSw503bEQooz4xuA1aMvMFsdEMcVP_y7gVBSdUVtO5LrP3Bhnoz5no2l1Ei5D-xd3wB0sizzlqhdGc9tyWmHphKEuBkWIoMmVbK8ThoxU31FnWVzdqSa4cOzCA0jI"/>
+<div class="absolute -bottom-4 -left-4 bg-primary text-on-primary p-6 max-w-xs hidden md:block">
+<p class="text-sm font-light italic leading-relaxed">"Honoring the hands that harvest, ensuring the value returns to the roots."</p>
 </div>
-<!-- Verification -->
-<div class="p-8 border border-outline-variant/30 bg-surface-container-lowest transition-colors hover:border-primary">
-<div class="text-primary mb-6">
-<span class="material-symbols-outlined text-4xl">verified</span>
 </div>
-<h4 class="font-bold text-sm tracking-widest text-primary mb-3">02. VERIFICATION</h4>
-<p class="text-secondary text-sm leading-relaxed">Rigorous grading and cupping protocols to ensure international export standards are consistently met.</p>
-</div>
-<!-- Tokenization -->
-<div class="p-8 border border-outline-variant/30 bg-surface-container-lowest transition-colors hover:border-primary">
-<div class="text-primary mb-6">
-<span class="material-symbols-outlined text-4xl">toll</span>
-</div>
-<h4 class="font-bold text-sm tracking-widest text-primary mb-3">03. TOKENIZATION</h4>
-<p class="text-secondary text-sm leading-relaxed">Assigning every lot a digital identity on our ledger for absolute ownership and origin tracking.</p>
-</div>
-<!-- Export -->
-<div class="p-8 border border-outline-variant/30 bg-surface-container-lowest transition-colors hover:border-primary">
-<div class="text-primary mb-6">
-<span class="material-symbols-outlined text-4xl">public</span>
-</div>
-<h4 class="font-bold text-sm tracking-widest text-primary mb-3">04. GLOBAL EXPORT</h4>
-<p class="text-secondary text-sm leading-relaxed">Seamless logistics and financial settlement for roasters and traders worldwide.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- Section 4: Blockchain Trust -->
-<section class="bg-primary text-on-primary border-y border-primary no-shadow">
-<div class="container">
-<div class="flex flex-col lg:flex-row items-center gap-16">
-<div class="lg:w-2/3">
-<span class="material-symbols-outlined text-5xl mb-8 text-on-tertiary-container">security</span>
-<h2 class="font-headline text-4xl md:text-5xl mb-8 italic">Blockchain-Backed Integrity</h2>
-<p class="text-lg text-on-primary-container leading-relaxed mb-10 max-w-2xl">
-                        Technology should be invisible but indestructible. Our platform uses distributed ledger technology to record every transaction, cupping score, and movement of coffee. This ensures that when you buy Bean Origin coffee, you aren't just buying beans—you're buying proof of origin.
+<!-- Section 3: Professional Stats Grid -->
+<section class="bg-surface-container-low border-y border-subtle">
+<div class="container-bs">
+<div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-subtle">
+<div class="py-8 md:px-8 text-center">
+<h3 class="font-headline text-4xl font-bold text-primary mb-2">1.7 Million</h3>
+<p class="text-tertiary text-[11px] font-bold uppercase tracking-widest mb-4">Smallholder Farmers</p>
+<p class="text-secondary text-sm leading-relaxed max-w-xs mx-auto">Connecting local heritage to global demand through Ethical Sourcing.</p>
+</div>
+<div class="py-8 md:px-8 text-center">
+<h3 class="font-headline text-4xl font-bold text-primary mb-2">Direct Access</h3>
+<p class="text-tertiary text-[11px] font-bold uppercase tracking-widest mb-4">Fair Value Exchange</p>
+<p class="text-secondary text-sm leading-relaxed max-w-xs mx-auto">Removing unnecessary intermediaries to ensure value flows back to the growers.</p>
+</div>
+<div class="py-8 md:px-8 text-center">
+<h3 class="font-headline text-4xl font-bold text-primary mb-2">Ethical Standard</h3>
+<p class="text-tertiary text-[11px] font-bold uppercase tracking-widest mb-4">Quality Benchmark</p>
+<p class="text-secondary text-sm leading-relaxed max-w-xs mx-auto">Setting the highest bar for quality and transparency in the East African corridor.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Leadership (Classy & Organized) -->
+<section class="bg-surface">
+<div class="container-bs">
+<div class="text-center mb-16">
+<p class="text-tertiary text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Our Visionaries</p>
+<h2 class="font-headline text-4xl font-bold text-primary">Our Leadership</h2>
+<div class="w-12 h-0.5 bg-tertiary/30 mx-auto mt-6"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+<!-- David Ssebunya Profile -->
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<div class="w-full md:w-48 shrink-0">
+<img alt="David Ssebunya" class="w-full aspect-[4/5] object-cover grayscale border border-subtle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnhbD1GC3NhpBUI_vCbCK_BFARA4BgtJ8GCLP7Zjpu6qysyDPftJoARm0VdYMcUZ-iAcEsjR7uglb0UdVKWlcq-jb08RDzGBWw5xeAM7IdN6zOSg_Td3h3dOHehiHHD_X_7QOPMnaaBAQMGseYZOR9YWgqw_xvTEN1WiAUwLFtwfywy70hvAmLHyhWjexmabGLx1FEv3o26tW3S8w0LtYG-10OARIUKPoDSFbaagpRY1MyiYShB6AsAn_iaeOBSxNZYxo7yR69v8Q"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-xl font-bold text-primary mb-1">David Ssebunya</h3>
+<p class="text-tertiary text-[10px] font-bold uppercase tracking-widest mb-4">Chief Executive Officer</p>
+<p class="text-secondary text-sm leading-relaxed mb-6 font-light">
+                            With over fifteen years in fintech and global supply chain management, David oversees the strategic integration of blockchain solutions within our network.
+                        </p>
+<div class="space-y-3 pt-4 border-t border-subtle">
+<a class="flex items-center gap-3 text-xs text-secondary hover:text-primary transition-colors" href="mailto:david.s@beanorigin.co.ug">
+<span class="material-symbols-outlined text-sm">mail</span> david.s@beanorigin.co.ug
+                            </a>
+<a class="flex items-center gap-3 text-xs text-secondary hover:text-primary transition-colors" href="tel:+256700000001">
+<span class="material-symbols-outlined text-sm">call</span> +256 700 000 001
+                            </a>
+</div>
+<div class="flex gap-4 mt-6">
+<a class="text-primary/60 hover:text-primary transition-colors" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="text-primary/60 hover:text-primary transition-colors" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Grace Namatovu Profile -->
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<div class="w-full md:w-48 shrink-0">
+<img alt="Grace Namatovu" class="w-full aspect-[4/5] object-cover grayscale border border-subtle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzg7pHdEd-OLO1lhIsqwjcBgZdRAxm6c2o9IYIw3I6p1PHT5IoX4MUwk9ZWQePcAYjWWsmcmcKTiUPgu2Gc_5KkWVBB8CJwmeu3SIAdHtAxL6NAkOuCnufPiQWtUOZgzs7OCfjf7apTCtss4pVJDaEk9vGuncygWVVZ60VSPBXSfzCgaoOvy-_aZTj6uoDjYsD31d3T6SLh2D5Cu36CdfG59vliFEEUGc19vKunkbh1JmN0FrKqnJeQUbB0HLlP2wRg1DO2RjnNdY"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-xl font-bold text-primary mb-1">Grace Namatovu</h3>
+<p class="text-tertiary text-[10px] font-bold uppercase tracking-widest mb-4">Chief Operations Officer</p>
+<p class="text-secondary text-sm leading-relaxed mb-6 font-light">
+                            A second-generation coffee agronomist, Grace leads our sustainable trade initiatives and ensures advancements never lose sight of artisanal heritage.
+                        </p>
+<div class="space-y-3 pt-4 border-t border-subtle">
+<a class="flex items-center gap-3 text-xs text-secondary hover:text-primary transition-colors" href="mailto:grace.n@beanorigin.co.ug">
+<span class="material-symbols-outlined text-sm">mail</span> grace.n@beanorigin.co.ug
+                            </a>
+<a class="flex items-center gap-3 text-xs text-secondary hover:text-primary transition-colors" href="tel:+256700000002">
+<span class="material-symbols-outlined text-sm">call</span> +256 700 000 002
+                            </a>
+</div>
+<div class="flex gap-4 mt-6">
+<a class="text-primary/60 hover:text-primary transition-colors" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="text-primary/60 hover:text-primary transition-colors" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Tech Trust (Subtle Design) -->
+<section class="bg-surface-container border-y border-subtle">
+<div class="container-bs">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="material-symbols-outlined text-4xl mb-6 text-tertiary">security</span>
+<h2 class="font-headline text-3xl font-bold text-primary mb-6">Blockchain-Backed Integrity</h2>
+<p class="text-secondary text-base leading-relaxed font-light mb-8">
+                        Our platform uses distributed ledger technology to record every transaction, cupping score, and movement of coffee. This ensures that when you buy Bean Origin coffee, you aren't just buying beans—you're buying proof of origin.
                     </p>
 <div class="flex flex-wrap gap-3">
-<div class="border border-on-primary-container/30 px-5 py-2 text-xs font-bold tracking-widest uppercase">Immutable Ledger</div>
-<div class="border border-on-primary-container/30 px-5 py-2 text-xs font-bold tracking-widest uppercase">Real-time Tracking</div>
-<div class="border border-on-primary-container/30 px-5 py-2 text-xs font-bold tracking-widest uppercase">Smart Contracts</div>
+<span class="bg-surface px-4 py-2 text-[10px] font-bold tracking-widest uppercase border border-subtle">Immutable Ledger</span>
+<span class="bg-surface px-4 py-2 text-[10px] font-bold tracking-widest uppercase border border-subtle">Real-time Tracking</span>
+<span class="bg-surface px-4 py-2 text-[10px] font-bold tracking-widest uppercase border border-subtle">Smart Contracts</span>
 </div>
 </div>
-<div class="lg:w-1/3 flex justify-center">
-<div class="w-full aspect-square border-2 border-on-primary-container/20 p-8 flex items-center justify-center opacity-40">
-<span class="material-symbols-outlined text-[120px]">hub</span>
+<div class="flex justify-center">
+<div class="w-64 h-64 bg-surface border border-subtle flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-8xl text-primary">hub</span>
 </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Section 5: Impact & Community -->
-<section class="bg-surface">
-<div class="container">
-<div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-<div class="lg:w-1/2 order-2 lg:order-1">
-<div class="grid grid-cols-2 gap-4">
-<img alt="Coffee cupping" class="w-full h-64 object-cover grayscale no-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAw83hqqGec7nsZU_PVNiOd5PMdzTgK5ojEo3XeMVNvqBWOn7P6FwzadkaROR-19FWdikBwT-ypFGUTfD0pbLEhMJ9lYI3FCr7HOtWepsfeqxUoJuX0tLdvs1aM-EQBHQq9bFZyw-IIz5K-DOTm0N06l96SRcZAuWbioJFtwfh_LwLKtuX3Rzo0xTW89byAaYRvqBxmr9xTAUBlq4a_a0un2o4L2mnjuAa0-o6mOm6zGL7o8DQ_bvacivcEfcRa8EEIjTmtde1Iq8"/>
-<img alt="Coffee harvest" class="w-full h-64 object-cover grayscale no-shadow mt-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAExGo0qchHLJhQ1Y6pwER8pFU9VtBx17o58XYBhUkI42fvfO_2vMaVyEy_36DriDoc7qHFWfGya3kN1IhFBQIOimE3v18QOeIqjWvrSYziR2AHdrTbgqsvDYV_ZInvu2355KhkX8OcWoFib3SWbETlRlZewi_hh7iR-quPmlG7mbumYeWXEFL1INeIVFBhR2VElIuN0ufWOrhmkEbXa0LqCKt8L-6E-i1C4rNwy-x9PM-rRdx-HlS_CVXKED0CTU50jRZ7an7VJOA"/>
-</div>
-</div>
-<div class="lg:w-1/2 order-1 lg:order-2">
-<p class="text-primary/60 text-xs font-bold uppercase tracking-[0.2em] mb-4">Beyond the Bean</p>
-<h2 class="font-headline text-4xl font-bold text-primary mb-8 leading-tight">Economic &amp; Social Empowerment</h2>
-<p class="text-secondary leading-relaxed mb-8 text-lg">
-                        We believe direct trade is the only sustainable future. By bypassing complex middleman networks, Bean Origin increases the average farmer's take-home pay by up to 40%.
-                    </p>
-<ul class="space-y-6">
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary font-bold">check</span>
-<div>
-<h5 class="font-bold text-sm text-primary mb-1 uppercase tracking-wide">Digital Payments</h5>
-<p class="text-sm text-secondary">Zero-fee digital wallets for instant payments to farmers.</p>
-</div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary font-bold">check</span>
-<div>
-<h5 class="font-bold text-sm text-primary mb-1 uppercase tracking-wide">Farmer Training</h5>
-<p class="text-sm text-secondary">Agricultural training programs for over 400 cooperatives.</p>
-</div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary font-bold">check</span>
-<div>
-<h5 class="font-bold text-sm text-primary mb-1 uppercase tracking-wide">Global Transparency</h5>
-<p class="text-sm text-secondary">100% transparency in the global price-to-farmgate ratio.</p>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>
 </section>
 </main>
-<!-- Bootstrap 5 Footer -->
-<footer class="bg-surface-container-low border-t border-outline-variant/30 py-16">
-<div class="container">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-<div class="col-span-1 md:col-span-1">
-<div class="text-xl font-serif font-bold text-primary mb-6 uppercase tracking-wider">Bean Origin</div>
-<p class="text-secondary/70 text-sm leading-relaxed mb-6">Digitizing the source of the world's finest beans while preserving ancestral heritage and ensuring global quality standards.</p>
-<div class="flex space-x-6">
-<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">public</span>
-<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">hub</span>
-<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">share</span>
+<!-- Footer -->
+<footer class="bg-surface pt-20 pb-10 border-t border-subtle">
+<div class="container-bs">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
+<div class="col-span-1">
+<div class="text-xl font-headline font-bold text-primary mb-6 uppercase tracking-[0.2em]">Bean Origin</div>
+<p class="text-secondary/70 text-sm leading-relaxed mb-6 font-light">Digitizing the source of the world's finest beans while preserving ancestral heritage.</p>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-primary/40 hover:text-primary transition-colors cursor-pointer">public</span>
+<span class="material-symbols-outlined text-primary/40 hover:text-primary transition-colors cursor-pointer">hub</span>
+<span class="material-symbols-outlined text-primary/40 hover:text-primary transition-colors cursor-pointer">share</span>
 </div>
 </div>
 <div>
-<h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-6">Explore</h4>
-<ul class="space-y-4">
-<li><a class="text-secondary/70 hover:text-primary text-sm transition-colors" href="#">Origin Map</a></li>
-<li><a class="text-secondary/70 hover:text-primary text-sm transition-colors" href="#">Sustainability Report</a></li>
-<li><a class="text-secondary/70 hover:text-primary text-sm transition-colors" href="#">Wholesale Inquiries</a></li>
+<h4 class="font-bold text-[10px] uppercase tracking-[0.3em] text-primary mb-6">Explore</h4>
+<ul class="space-y-3">
+<li><a class="text-secondary/60 hover:text-primary text-[11px] transition-colors uppercase tracking-widest" href="#">Origin Map</a></li>
+<li><a class="text-secondary/60 hover:text-primary text-[11px] transition-colors uppercase tracking-widest" href="#">Sustainability</a></li>
+<li><a class="text-secondary/60 hover:text-primary text-[11px] transition-colors uppercase tracking-widest" href="#">Wholesale</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-6">Legal</h4>
-<ul class="space-y-4">
-<li><a class="text-secondary/70 hover:text-primary text-sm transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="text-secondary/70 hover:text-primary text-sm transition-colors" href="#">Terms of Service</a></li>
-<li><a class="text-secondary/70 hover:text-primary text-sm transition-colors" href="#">Compliance</a></li>
+<h4 class="font-bold text-[10px] uppercase tracking-[0.3em] text-primary mb-6">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-secondary/60 hover:text-primary text-[11px] transition-colors uppercase tracking-widest" href="#">Privacy Policy</a></li>
+<li><a class="text-secondary/60 hover:text-primary text-[11px] transition-colors uppercase tracking-widest" href="#">Terms</a></li>
+<li><a class="text-secondary/60 hover:text-primary text-[11px] transition-colors uppercase tracking-widest" href="#">Compliance</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-6">Newsletter</h4>
-<p class="text-secondary/70 text-sm mb-4">Stay updated on our harvest and trade cycles.</p>
-<div class="flex flex-col space-y-2">
-<input class="bg-surface border border-outline-variant/50 p-3 text-sm focus:outline-none focus:border-primary no-shadow" placeholder="Email address" type="email"/>
-<button class="bg-primary text-on-primary font-bold text-xs uppercase tracking-widest py-3 hover:bg-primary/90 transition-all no-shadow">Subscribe</button>
+<h4 class="font-bold text-[10px] uppercase tracking-[0.3em] text-primary mb-6">Newsletter</h4>
+<div class="space-y-4">
+<input class="w-full bg-surface-container-low border border-subtle p-3 text-[11px] focus:outline-none focus:border-primary placeholder:text-secondary/40" placeholder="Email address" type="email"/>
+<button class="w-full bg-primary text-on-primary font-bold text-[10px] uppercase tracking-[0.3em] py-3 hover:bg-primary/90 transition-all">Subscribe</button>
 </div>
 </div>
 </div>
-<div class="mt-16 pt-8 border-t border-outline-variant/30 text-center">
-<p class="text-secondary/50 text-xs font-medium uppercase tracking-widest">© 2024 Bean Origin Coffee Exchange. Preserving Heritage, Ensuring Quality.</p>
+<div class="mt-20 pt-8 border-t border-subtle text-center">
+<p class="text-secondary/40 text-[9px] font-bold uppercase tracking-[0.3em]">© 2024 Bean Origin Coffee Trading. All rights reserved.</p>
 </div>
 </div>
 </footer>

@@ -236,9 +236,9 @@ const submitInquiry = () => {
             <div class="container mx-auto px-6 md:px-12">
                 <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-12">
                     <div class="lg:col-span-6">
-                        <div class="relative rounded-sm border border-espresso/10 bg-white p-6 md:p-8">
+                        <div class="relative rounded-sm bg-white p-6 shadow-[0_18px_40px_-24px_rgba(62,39,35,0.28)] md:p-8">
                             <img :src="regionalMap" alt="Map of Uganda coffee-growing regions" class="mx-auto h-auto w-full max-w-none scale-[1.08]" />
-                            <div class="absolute left-12 top-12 rounded-sm border border-espresso bg-espresso px-6 py-4 text-cream">
+                            <div class="absolute left-12 top-12 rounded-sm bg-espresso px-6 py-4 text-cream shadow-[0_16px_30px_-22px_rgba(62,39,35,0.6)]">
                                 <span class="mb-1 block text-xs font-black uppercase tracking-tighter text-white/50">Annual Export</span>
                                 <span class="text-3xl font-bold">6.2M Bags</span>
                             </div>
@@ -506,7 +506,7 @@ const submitInquiry = () => {
                     </div>
                     <Link
                         :href="route('inventory.index')"
-                        class="inline-flex items-center gap-3 border-b border-espresso/20 pb-2 text-xs font-black uppercase tracking-widest text-espresso transition-colors hover:text-sage"
+                        class="inline-flex items-center gap-3 border-none text-xs font-black uppercase tracking-widest text-espresso transition-colors hover:text-sage"
                     >
                         View All Inventory
                         <span class="material-symbols-outlined text-base">arrow_forward</span>
@@ -517,22 +517,22 @@ const submitInquiry = () => {
                     <div
                         v-for="lot in displayedFeaturedLots"
                         :key="lot.id"
-                        class="flex flex-col overflow-hidden rounded-sm border border-espresso/10 bg-white transition-colors hover:border-espresso"
+                        class="flex flex-col overflow-hidden rounded-sm bg-white shadow-[0_16px_32px_-18px_rgba(62,39,35,0.2)] transition-transform hover:-translate-y-1" style="box-shadow: 2px 2px 2px silver"
                     >
-                        <div class="h-72 overflow-hidden border-b border-espresso/5">
+                        <div class="h-72 overflow-hidden">
                             <img :src="lot.image" :alt="lot.title" class="h-full w-full object-cover" />
                         </div>
                         <div class="flex-grow p-10">
                             <h3 class="serif mb-5 text-3xl font-bold text-espresso">{{ lot.title }}</h3>
                             <p class="mb-10 line-clamp-3 text-base text-on-surface-variant">{{ lot.description }}</p>
-                            <div class="flex items-center justify-between border-t border-espresso/5 pt-8">
+                            <div class="flex items-center justify-between pt-8">
                                 <div>
                                     <span class="mb-1 block text-[10px] font-black uppercase tracking-widest text-espresso/40">Available</span>
                                     <span class="text-lg font-bold text-espresso">{{ lot.amount }}</span>
                                 </div>
                                 <Link
                                     :href="typeof lot.id === 'number' ? route('sample.show', lot.id) : route('sample.index')"
-                                    class="rounded-sm border border-espresso bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-transparent hover:text-espresso"
+                                    class="rounded-sm bg-espresso px-8 py-3 text-xs font-black uppercase tracking-widest text-cream transition-all hover:bg-[#2a1916]"
                                 >
                                     Sample
                                 </Link>

@@ -12,6 +12,7 @@ import headerLogo from '../../images/logo.png';
             </Link>
 
             <div class="hidden items-center space-x-8 md:flex">
+                <Link :href="route('home')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Home</Link>
                 <slot name="nav" />
             </div>
 

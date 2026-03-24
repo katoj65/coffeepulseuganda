@@ -8,17 +8,6 @@ import coffee3 from '../../images/coffee3.jpg';
 import coffee4 from '../../images/coffee4.jpg';
 import mapImage from '../../images/map.png';
 import harvestImage from '../../images/community.jpg';
-
-defineProps({
-    canLogin: {
-        type: Boolean,
-        default: false,
-    },
-    canRegister: {
-        type: Boolean,
-        default: false,
-    },
-});
 </script>
 
 <template>
@@ -34,36 +23,10 @@ defineProps({
     <div class="origins-page bg-[#faf9f5] text-[#1a1c1a] selection:bg-[#3e2723] selection:text-white">
         <PublicHeader>
             <template #nav>
-                <Link :href="route('home')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Home</Link>
-                <a class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]" href="#regional-overview">Our Coffee</a>
-                <Link :href="route('blockchain')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Traceability</Link>
-                <a class="text-sm font-semibold tracking-wider text-[#3e2723]" href="#origins-grid">Origins</a>
-            </template>
-            <template #actions>
-                    <template v-if="$page.props.auth.user">
-                        <Link
-                            :href="route('dashboard')"
-                            class="rounded-sm bg-[#3e2723] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-black"
-                        >
-                            Source Coffee
-                        </Link>
-                    </template>
-                    <template v-else-if="canRegister">
-                        <Link
-                            :href="route('register')"
-                            class="rounded-sm bg-[#3e2723] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-black"
-                        >
-                            Source Coffee
-                        </Link>
-                    </template>
-                    <template v-else-if="canLogin">
-                        <Link
-                            :href="route('login')"
-                            class="rounded-sm bg-[#3e2723] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-black"
-                        >
-                            Source Coffee
-                        </Link>
-                    </template>
+                <Link :href="route('about')" class="text-sm font-semibold uppercase tracking-wider text-[#3e2723]">About</Link>
+                <Link :href="route('contact')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Contact</Link>
+                <a :href="`${route('home')}#global-scale`" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</a>
+                <Link :href="route('sustainability')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Sustainability</Link>
             </template>
         </PublicHeader>
 
@@ -83,11 +46,11 @@ defineProps({
                 </div>
             </section>
 
-            <section id="regional-overview" class="border-y border-[#eeeeea] bg-[#f4f4f0] py-20">
+            <section id="regional-overview" class="bg-[#f4f4f0] py-20">
                 <div class="container-custom">
                     <div class="flex flex-col items-center gap-12 lg:flex-row lg:gap-24">
                         <div class="w-full lg:w-7/12">
-                            <div class="relative aspect-[16/10] overflow-hidden border border-[#d3c3c0] bg-white">
+                            <div class="relative aspect-[16/10] overflow-hidden bg-white shadow-[0_14px_30px_-20px_rgba(39,19,16,0.18)]">
                                 <img :src="mapImage" alt="Map of Uganda highlighting coffee-growing regions" class="h-full w-full object-cover opacity-95" />
 
                                 <div class="absolute right-[15%] top-[35%]">
@@ -114,7 +77,7 @@ defineProps({
 
                             <div class="space-y-8">
                                 <div class="group flex items-start gap-6">
-                                    <div class="border border-[#d3c3c0] bg-white p-3 text-[#271310] transition-colors group-hover:bg-[#271310] group-hover:text-white">
+                                    <div class="bg-white p-3 text-[#271310] shadow-[0_10px_24px_-18px_rgba(39,19,16,0.28)] transition-colors group-hover:bg-[#271310] group-hover:text-white">
                                         <span class="material-symbols-outlined text-2xl">mountain_flag</span>
                                     </div>
                                     <div>
@@ -124,7 +87,7 @@ defineProps({
                                 </div>
 
                                 <div class="group flex items-start gap-6">
-                                    <div class="border border-[#d3c3c0] bg-white p-3 text-[#271310] transition-colors group-hover:bg-[#271310] group-hover:text-white">
+                                    <div class="bg-white p-3 text-[#271310] shadow-[0_10px_24px_-18px_rgba(39,19,16,0.28)] transition-colors group-hover:bg-[#271310] group-hover:text-white">
                                         <span class="material-symbols-outlined text-2xl">water_drop</span>
                                     </div>
                                     <div>
@@ -145,8 +108,8 @@ defineProps({
                     </div>
 
                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                        <article class="flex flex-col border border-[#d3c3c0] bg-white transition-colors duration-300 hover:border-[#271310]">
-                            <div class="aspect-square overflow-hidden border-b border-[#d3c3c0]">
+                        <article class="flex flex-col bg-white shadow-[0_12px_30px_-18px_rgba(39,19,16,0.18)] transition-transform duration-300 hover:-translate-y-1">
+                            <div class="aspect-square overflow-hidden">
                                 <img :src="coffee1" alt="Coffee plantations on the slopes of Mount Elgon" class="h-full w-full object-cover" />
                             </div>
                             <div class="flex flex-grow flex-col p-6">
@@ -177,8 +140,8 @@ defineProps({
                             </div>
                         </article>
 
-                        <article class="flex flex-col border border-[#d3c3c0] bg-white transition-colors duration-300 hover:border-[#271310]">
-                            <div class="aspect-square overflow-hidden border-b border-[#d3c3c0]">
+                        <article class="flex flex-col bg-white shadow-[0_12px_30px_-18px_rgba(39,19,16,0.18)] transition-transform duration-300 hover:-translate-y-1">
+                            <div class="aspect-square overflow-hidden">
                                 <img :src="coffee2" alt="Coffee farms in the Rwenzori ranges" class="h-full w-full object-cover" />
                             </div>
                             <div class="flex flex-grow flex-col p-6">
@@ -209,8 +172,8 @@ defineProps({
                             </div>
                         </article>
 
-                        <article class="flex flex-col border border-[#d3c3c0] bg-white transition-colors duration-300 hover:border-[#271310]">
-                            <div class="aspect-square overflow-hidden border-b border-[#d3c3c0]">
+                        <article class="flex flex-col bg-white shadow-[0_12px_30px_-18px_rgba(39,19,16,0.18)] transition-transform duration-300 hover:-translate-y-1">
+                            <div class="aspect-square overflow-hidden">
                                 <img :src="coffee3" alt="Coffee drying and handling around Lake Victoria" class="h-full w-full object-cover" />
                             </div>
                             <div class="flex flex-grow flex-col p-6">
@@ -241,8 +204,8 @@ defineProps({
                             </div>
                         </article>
 
-                        <article class="flex flex-col border border-[#d3c3c0] bg-white transition-colors duration-300 hover:border-[#271310]">
-                            <div class="aspect-square overflow-hidden border-b border-[#d3c3c0]">
+                        <article class="flex flex-col bg-white shadow-[0_12px_30px_-18px_rgba(39,19,16,0.18)] transition-transform duration-300 hover:-translate-y-1">
+                            <div class="aspect-square overflow-hidden">
                                 <img :src="coffee4" alt="Coffee gardens in the central lowlands of Uganda" class="h-full w-full object-cover" />
                             </div>
                             <div class="flex flex-grow flex-col p-6">

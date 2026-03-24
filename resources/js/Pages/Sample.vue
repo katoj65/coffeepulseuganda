@@ -52,22 +52,10 @@ const submitSampleRequest = () => {
     <div class="sample-page bg-[#faf9f5] text-[#271310]">
         <PublicHeader>
             <template #nav>
-                <Link :href="route('origins')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Heritage</Link>
-                <Link :href="route('origins')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Terroir</Link>
-                <Link :href="route('blockchain')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Transparency</Link>
-                <a class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]" href="#sample-request">Logistics</a>
-            </template>
-            <template #actions>
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined cursor-pointer text-[#271310] transition-transform hover:scale-[1.02]">language</span>
-                    <span class="material-symbols-outlined cursor-pointer text-[#271310] transition-transform hover:scale-[1.02]">account_circle</span>
-                </div>
-                <Link
-                    :href="route('home')"
-                    class="rounded-sm bg-[#3e2723] px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-black"
-                >
-                    Source Ugandan Coffee
-                </Link>
+                <Link :href="route('about')" class="text-sm font-semibold uppercase tracking-wider text-[#3e2723]">About</Link>
+                <Link :href="route('contact')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Contact</Link>
+                <a :href="`${route('home')}#global-scale`" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</a>
+                <Link :href="route('sustainability')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Sustainability</Link>
             </template>
         </PublicHeader>
 

@@ -3,17 +3,6 @@ import { Head, Link } from '@inertiajs/vue3';
 import PublicFooter from '../Components/PublicFooter.vue';
 import PublicHeader from '../Components/PublicHeader.vue';
 
-defineProps({
-    canLogin: {
-        type: Boolean,
-        default: false,
-    },
-    canRegister: {
-        type: Boolean,
-        default: false,
-    },
-});
-
 const metrics = [
     { value: '15,000+', label: 'Farmers Empowered' },
     { value: '1.2M', label: 'Trees Planted' },
@@ -100,29 +89,10 @@ const galleryImages = [
     <div class="bg-[#faf9f5] text-[#1a1c1a] antialiased selection:bg-[#a3f69c] selection:text-[#002204]">
         <PublicHeader>
             <template #nav>
-                <Link :href="route('home')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Home</Link>
-                <Link :href="route('about')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">About</Link>
+                <Link :href="route('about')" class="text-sm font-semibold uppercase tracking-wider text-[#3e2723]">About</Link>
                 <Link :href="route('contact')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Contact</Link>
-            </template>
-            <template #actions>
-                <template v-if="$page.props.auth.user">
-                    <Link :href="route('dashboard')" class="rounded-lg bg-[#271310] px-6 py-2 text-[12px] font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]">
-                        Get Started
-                    </Link>
-                </template>
-                <template v-else-if="canRegister">
-                    <Link :href="route('register')" class="rounded-lg bg-[#271310] px-6 py-2 text-[12px] font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]">
-                        Get Started
-                    </Link>
-                </template>
-                <template v-else-if="canLogin">
-                    <Link :href="route('login')" class="rounded-lg bg-[#271310] px-6 py-2 text-[12px] font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]">
-                        Get Started
-                    </Link>
-                </template>
-                <Link v-else :href="route('inventory.index')" class="rounded-lg bg-[#271310] px-6 py-2 text-[12px] font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]">
-                    Get Started
-                </Link>
+                <a :href="`${route('home')}#global-scale`" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</a>
+                <Link :href="route('sustainability')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Sustainability</Link>
             </template>
         </PublicHeader>
 
