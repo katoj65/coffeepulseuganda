@@ -22,7 +22,7 @@ import headerLogo from '../../images/logo.png';
                     <div class="space-y-6 text-base text-cream/95">
                         <div class="flex gap-4">
                             <span class="material-symbols-outlined text-xl text-white">location_on</span>
-                            <p>Kampala, Uganda<br />Serving global buyers with traceable origin coffee</p>
+                            <p>Munyonyo, Ggaba road Kampala Uganda</p>
                         </div>
                         <div class="flex gap-4">
                             <span class="material-symbols-outlined text-xl text-white">travel_explore</span>

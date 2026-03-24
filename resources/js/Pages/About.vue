@@ -57,7 +57,7 @@ import joshuaImage from '../../images/joshua.png';
                                 Coffee Pulse Uganda is a dedicated Coffee Trading Company focused on Ethical Sourcing, committed to digitizing the Ugandan coffee supply chain.
                             </p>
 <p class="text-secondary text-lg leading-relaxed font-light border-l-2 border-surface-container-highest pl-8">
-                                We preserve the ancestral heritage of East African growers while ensuring they receive fair, transparent value through a direct, blockchain-verified global network. Our mission is to transform the industry from the roots up, ensuring every cup tells a story of integrity and innovation.
+                                We preserve the ancestral heritage of East African growers while ensuring they receive fair, transparent value through a direct, blockchain-verified global network. We aim to transform the industry from the roots up, ensuring every cup tells a story of integrity and innovation.
                             </p>
 </div>
 <div class="mt-12 flex flex-wrap items-center gap-8 py-6 border-y border-subtle">
@@ -179,7 +179,7 @@ import joshuaImage from '../../images/joshua.png';
 <h3 class="font-headline text-xl font-bold text-primary mb-1">Evarist Asiimwe</h3>
 <p class="text-tertiary text-[10px] font-bold uppercase tracking-widest mb-4">Chief Executive Officer</p>
 <p class="text-secondary text-sm leading-relaxed mb-6 font-light">
-                            Evarist is a businessman with over 15 years of experience and a strategic leader in coffee trade. He is known for driving growth, leading high-performing teams, and building trusted partnerships. With strong market insight and a forward-thinking approach, he consistently creates long-term value through innovation, resilience, and integrity.
+                           A businessman with over 20 years of experience, Everist specializes in coffee trade and agriculture. He holds a Diploma in Business Administration from St. Lawrence University, a BBA from Avance International University, and a background in Industrial Art and Design from Kyambogo University, driving growth through strategy, innovation, and trusted partnerships.
                         </p>
 <div class="space-y-3 pt-4 border-t border-subtle">
 <a class="flex items-center gap-3 text-xs text-secondary hover:text-primary transition-colors" href="mailto:david.s@beanorigin.co.ug">
@@ -239,7 +239,7 @@ import joshuaImage from '../../images/joshua.png';
 <span class="material-symbols-outlined text-4xl mb-6 text-tertiary">security</span>
 <h2 class="font-headline text-3xl font-bold text-primary mb-6">Blockchain-Backed Integrity</h2>
 <p class="text-secondary text-base leading-relaxed font-light mb-8">
-                        Our platform uses distributed ledger technology to record every transaction, cupping score, and movement of coffee. This ensures that when you buy Coffee Pulse Uganda coffee, you aren't just buying beans—you're buying proof of origin.
+                        Our platform uses distributed ledger technology to record every transaction, cupping score, and movement of coffee. This ensures that when you buy Coffee Pulse Uganda coffee, you aren't just buying beans, you're buying proof of origin.
                     </p>
 <div class="flex flex-wrap gap-3">
 <span class="bg-surface px-4 py-2 text-[10px] font-bold tracking-widest uppercase border border-subtle">Immutable Ledger</span>
