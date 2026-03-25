@@ -208,7 +208,7 @@ import joshuaImage from '../../images/joshua.png';
 <h3 class="font-headline text-xl font-bold text-primary mb-1">Joshua Kato</h3>
 <p class="text-tertiary text-[10px] font-bold uppercase tracking-widest mb-4">Chief Technology Officer</p>
 <p class="text-secondary text-sm leading-relaxed mb-6 font-light">
-                            A software engineer and entrepreneur, founder of Afrodjango Initiative and Bean Origin, a blockchain trading platform, and ambassador of the Python Software Foundation. Works at the intersection of AI, blockchain, and digital trade to advance ethical sourcing and commodity exchange, focused on empowering farmers and building transparent, scalable systems.
+                            A software engineer and entrepreneur, co-founder of Afrodjango Initiative and Bean Origin, a blockchain trading platform, and ambassador of the Python Software Foundation. Works at the intersection of AI, blockchain, and digital trade to advance ethical sourcing and commodity exchange, focused on empowering farmers and building transparent, scalable systems.
                         </p>
 <div class="space-y-3 pt-4 border-t border-subtle">
 <a class="flex items-center gap-3 text-xs text-secondary hover:text-primary transition-colors" href="mailto:joshua@coffeepulseuganda.com">
