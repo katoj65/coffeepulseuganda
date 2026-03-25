@@ -16,6 +16,11 @@ const isFabOpen = ref(false);
 
 const fabActions = [
     {
+        label: 'Traceability Form',
+        icon: 'fact_check',
+        href: route('traceability.create'),
+    },
+    {
         label: 'Add Sample',
         icon: 'package_2',
         href: route('samples.create'),
@@ -88,6 +93,15 @@ const fabActions = [
                     >
                         <span class="material-symbols-outlined">notifications</span>
                         <span class="text-sm">Notifications</span>
+                    </Link>
+
+                    <Link
+                        :href="route('traceability.index')"
+                        :class="route().current('traceability.index') ? 'bg-white font-semibold text-[#271310] shadow-sm' : 'text-[#3e2723]/80 hover:bg-[#eeeeea] hover:text-[#271310]'"
+                        class="flex items-center gap-3 rounded-lg px-4 py-3 transition-colors"
+                    >
+                        <span class="material-symbols-outlined">fact_check</span>
+                        <span class="text-sm">Traceability</span>
                     </Link>
 
                     <Link

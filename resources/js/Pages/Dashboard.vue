@@ -10,15 +10,21 @@ const quickActions = [
         primary: true,
     },
     {
-        label: 'Issue Traceability Certificate',
+        label: 'Create Traceability',
         icon: 'verified_user',
-        href: route('blockchain'),
+        href: route('traceability.create'),
         primary: false,
     },
     {
         label: 'Review Export Inquiry',
         icon: 'mail',
         href: `${route('home')}#inquiry`,
+        primary: false,
+    },
+    {
+        label: 'Create Sample',
+        icon: 'science',
+        href: route('samples.create'),
         primary: false,
     },
 ];

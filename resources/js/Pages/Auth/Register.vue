@@ -119,9 +119,9 @@ const submit = () => {
 
                             <div class="text-sm leading-6 text-[#655d5a]">
                                 I agree to the
-                                <a target="_blank" :href="route('terms.show')" class="font-semibold text-[#271310] underline decoration-[#d8c6ba] underline-offset-4">Terms of Service</a>
+                                <Link target="_blank" :href="route('terms.show')" class="font-semibold text-[#271310] underline decoration-[#d8c6ba] underline-offset-4">Terms of Service</Link>
                                 and
-                                <a target="_blank" :href="route('policy.show')" class="font-semibold text-[#271310] underline decoration-[#d8c6ba] underline-offset-4">Privacy Policy</a>.
+                                <Link target="_blank" :href="route('policy.show')" class="font-semibold text-[#271310] underline decoration-[#d8c6ba] underline-offset-4">Privacy Policy</Link>.
                             </div>
                         </div>
                         <InputError class="mt-3 text-sm font-medium text-red-700" :message="form.errors.terms" />

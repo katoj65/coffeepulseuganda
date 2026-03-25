@@ -66,10 +66,6 @@ const inventoryLots = [
                 <Link :href="route('blockchain')" class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]">Traceability</Link>
                 <a class="nav-link text-sm font-semibold tracking-wider text-[#6b6360]" href="#sustainability">Sustainability</a>
             </template>
-            <template #actions>
-                    <span class="material-symbols-outlined cursor-pointer rounded-md p-2 text-2xl transition-all hover:bg-[#eeeeea]">search</span>
-                    <span class="material-symbols-outlined cursor-pointer rounded-md p-2 text-2xl transition-all hover:bg-[#eeeeea]">account_circle</span>
-            </template>
         </PublicHeader>
 
         <main>

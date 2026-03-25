@@ -11,7 +11,6 @@ import featuredLotFour from '../../images/image4.jpg';
 import robustaImage from '../../images/coffee2.jpg';
 import headerLogo from '../../images/logo.png';
 import regionalMap from '../../images/map.png';
-import qrImage from '../../images/qr.jpg';
 import PublicFooter from '@/Components/PublicFooter.vue';
 
 const props = defineProps({
@@ -406,7 +405,7 @@ const submitInquiry = () => {
                     </div>
                 </div>
 
-                <div class="rounded-sm border border-espresso/10 bg-white p-10 md:p-16">
+                <div class="rounded-sm border-espresso/10 bg-white p-10 md:p-16">
                     <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
                         <div>
                             <div class="mb-6 inline-flex items-center gap-2 border border-sage/20 bg-sage/10 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-sage">
@@ -427,13 +426,13 @@ const submitInquiry = () => {
                                         <p class="mb-2 text-[10px] font-black uppercase text-white/70">Blockchain Hash</p>
                                         <p class="font-mono text-xs tracking-tight text-sage">0x88...D982_UG_24</p>
                                     </div>
-                                    <div class="rounded-sm bg-white p-3">
+                                    <Link :href="route('traceability.show', { batch: 'UG-ARA-8842' })" class="rounded-sm bg-white p-3 transition-transform hover:scale-105">
                                         <img
                                             alt="Verification QR Code"
                                             class="h-16 w-16"
-                                            :src="qrImage"
+                                            :src="route('qr.traceability', { batch: 'UG-ARA-8842', size: 192 })"
                                         />
-                                    </div>
+                                    </Link>
                                 </div>
 
                                 <div class="space-y-6">
@@ -552,7 +551,7 @@ const submitInquiry = () => {
                     <p class="text-xl text-on-surface-variant">Tell us your requirements and we'll connect you with the right origins.</p>
                 </div>
 
-                <div class="rounded-sm border border-espresso/10 bg-white p-10 md:p-16">
+                <div class="rounded-sm bg-white p-10 md:p-16">
                     <form class="space-y-10" @submit.prevent="submitInquiry">
                         <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
                             <div class="space-y-3">

@@ -99,6 +99,10 @@ import headerLogo from '../../images/logo.png';
             </div>
 
             <div class="flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-12 md:flex-row">
+                <div class="flex flex-wrap items-center justify-center gap-5 text-xs font-bold uppercase tracking-[0.25em] text-cream/75 md:justify-start">
+                    <Link :href="route('policy.show')" class="transition-colors hover:text-white">Privacy Policy</Link>
+                    <Link :href="route('contact')" class="transition-colors hover:text-white">Contact</Link>
+                </div>
                 <p class="text-sm font-bold uppercase tracking-wider text-cream/80">© 2026 Coffee Pulse Uganda. All rights reserved.</p>
             </div>
         </div>

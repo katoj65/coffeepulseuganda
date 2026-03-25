@@ -5,7 +5,9 @@ use App\Http\Controllers\BlockchainController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\SampleController;
+use App\Http\Controllers\TraceabilityController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -41,6 +43,12 @@ Route::get('/protocol', function () {
     return Inertia::render('Protocol');
 })->name('protocol');
 
+Route::get('/privacy-policy', function () {
+    return Inertia::render('PrivacyPolicy');
+})->name('policy.show');
+
+Route::get('/qr-code/traceability/{batch}', [QrCodeController::class, 'traceability'])->name('qr.traceability');
+
 Route::get('/origins', function () {
     return Inertia::render('Origins', [
         'canLogin' => Route::has('login'),
@@ -73,4 +81,9 @@ Route::middleware([
     Route::post('/inventories', [InventoryController::class, 'store'])->name('inventory.records.store');
     Route::get('/samples/create', [SampleController::class, 'create'])->name('samples.create');
     Route::post('/samples', [SampleController::class, 'store'])->name('samples.records.store');
+    Route::get('/traceability/records', [TraceabilityController::class, 'index'])->name('traceability.index');
+    Route::get('/traceability/create', [TraceabilityController::class, 'create'])->name('traceability.create');
+    Route::post('/traceability', [TraceabilityController::class, 'store'])->name('traceability.store');
 });
+
+Route::get('/traceability/{batch?}', [TraceabilityController::class, 'show'])->name('traceability.show');
