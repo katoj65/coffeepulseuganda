@@ -39,7 +39,7 @@ import headerLogo from '../../images/logo.png';
                         <a
                             aria-label="Instagram"
                             class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
-                            href="#"
+                            href="https://www.instagram.com/coffeepulse2026/" target="new"
                         >
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
                                 <path
@@ -50,7 +50,7 @@ import headerLogo from '../../images/logo.png';
                         <a
                             aria-label="LinkedIn"
                             class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
-                            href="#"
+                            href="https://www.linkedin.com/in/coffee-pulse-uganda-5656853b8/" target="new"
                         >
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
                                 <path
@@ -61,7 +61,8 @@ import headerLogo from '../../images/logo.png';
                         <a
                             aria-label="Twitter/X"
                             class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
-                            href="#"
+                            href="https://x.com/CoffePulse97290"
+                            target="new"
                         >
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
                                 <path
@@ -72,7 +73,8 @@ import headerLogo from '../../images/logo.png';
                         <a
                             aria-label="Facebook"
                             class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
-                            href="#"
+                            href="https://www.facebook.com/profile.php?id=61576400781946"
+                            target="new"
                         >
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
                                 <path
@@ -83,7 +85,8 @@ import headerLogo from '../../images/logo.png';
                         <a
                             aria-label="TikTok"
                             class="flex h-14 w-14 items-center justify-center rounded-md border border-white text-cream transition-all hover:text-white"
-                            href="#"
+                            href="https://www.tiktok.com/@coffeepulseuganda"
+                            target="new"
                         >
                             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-7 w-7 fill-current">
                                 <path
