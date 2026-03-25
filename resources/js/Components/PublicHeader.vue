@@ -4,7 +4,7 @@ import headerLogo from '../../images/logo.png';
 </script>
 
 <template>
-    <nav class="sticky top-0 z-50 border-b border-gray-100 bg-white py-4">
+    <nav class="sticky top-0 z-50 border-gray-100 bg-white py-4">
         <div class="bs-container flex items-center justify-between gap-6">
             <Link :href="route('home')" class="flex items-center gap-3 font-headline text-2xl font-bold tracking-tight text-[#3e2723]">
                 <img :src="headerLogo" alt="Coffee Pulse Uganda logo" class="h-10 w-10 rounded-full object-contain" />

@@ -189,7 +189,7 @@ const submitInquiry = () => {
             </div>
         </section>
 
-        <section id="global-scale" class="border-y border-espresso/10 bg-white py-24">
+        <section id="global-scale" class="border-espresso/10 bg-white py-24">
             <div class="container mx-auto px-6 md:px-12">
                 <div class="mb-16 max-w-3xl">
                     <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Infrastructure</span>
@@ -286,7 +286,7 @@ const submitInquiry = () => {
             </div>
         </section>
 
-        <section id="marketplace" class="border-y border-espresso/10 bg-white py-24">
+        <section id="marketplace" class="border-espresso/10 bg-white py-24">
             <div class="container mx-auto px-6 md:px-12">
                 <div class="mx-auto mb-20 max-w-2xl text-center">
                     <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Varietal Excellence</span>
@@ -544,7 +544,7 @@ const submitInquiry = () => {
             </div>
         </section>
 
-        <section id="inquiry" class="border-t border-espresso/10 bg-cream py-24">
+        <section id="inquiry" class=" border-espresso/10 bg-cream py-24">
             <div class="container mx-auto max-w-4xl px-6 md:px-12">
                 <div class="mb-20 text-center">
                     <span class="mb-4 block text-xs font-black uppercase tracking-[0.3em] text-sage">Get Started</span>
