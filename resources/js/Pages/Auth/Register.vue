@@ -114,7 +114,7 @@ const submit = () => {
                                 v-model:checked="form.terms"
                                 name="terms"
                                 required
-                                class="mt-1 rounded border-[#827472] text-[#271310] shadow-none focus:ring-0"
+                                class="mt-1 rounded border-[#b9aeac] text-[#271310] shadow-none focus:ring-0"
                             />
 
                             <div class="text-sm leading-6 text-[#655d5a]">

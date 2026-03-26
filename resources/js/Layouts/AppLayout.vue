@@ -16,6 +16,11 @@ const isFabOpen = ref(false);
 
 const fabActions = [
     {
+        label: 'Add Market Place',
+        icon: 'storefront',
+        href: route('marketplace.create'),
+    },
+    {
         label: 'Traceability Form',
         icon: 'fact_check',
         href: route('traceability.create'),
@@ -66,6 +71,15 @@ const fabActions = [
                     >
                         <span class="material-symbols-outlined">inventory_2</span>
                         <span class="text-sm">Inventory</span>
+                    </Link>
+
+                    <Link
+                        :href="route('marketplace')"
+                        :class="route().current('marketplace') ? 'bg-white font-semibold text-[#271310] shadow-sm' : 'text-[#3e2723]/80 hover:bg-[#eeeeea] hover:text-[#271310]'"
+                        class="flex items-center gap-3 rounded-lg px-4 py-3 transition-colors"
+                    >
+                        <span class="material-symbols-outlined">storefront</span>
+                        <span class="text-sm">Market Place</span>
                     </Link>
 
                     <Link

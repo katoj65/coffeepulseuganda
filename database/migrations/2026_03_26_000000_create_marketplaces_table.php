@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('marketplaces', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('region');
+            $table->string('variety');
+            $table->decimal('score', 4, 1);
+            $table->string('altitude');
+            $table->string('status');
+            $table->string('process');
+            $table->decimal('price', 8, 2);
+            $table->string('image', 2048)->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->boolean('is_featured')->default(false);
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('marketplaces');
+    }
+};

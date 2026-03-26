@@ -99,7 +99,7 @@ class TraceabilityController extends Controller
             'badges' => ['required', 'array', 'min:1'],
             'badges.*.icon' => ['required', 'string', 'max:255'],
             'badges.*.label' => ['required', 'string', 'max:255'],
-            'badges.*.classes' => ['required', 'string', 'max:255'],
+            'badges.*.classes' => ['nullable', 'string', 'max:255'],
             'impact_cards' => ['required', 'array', 'min:1'],
             'impact_cards.*.icon' => ['required', 'string', 'max:255'],
             'impact_cards.*.title' => ['required', 'string', 'max:255'],
@@ -131,6 +131,14 @@ class TraceabilityController extends Controller
             'blockchain_description' => ['required', 'string'],
         ]);
 
+        $validated['badges'] = collect($validated['badges'])
+            ->map(fn (array $badge) => [
+                'icon' => $badge['icon'],
+                'label' => $badge['label'],
+                'classes' => $badge['classes'] ?? 'border border-[#d3c3c0]/30 bg-[#e8e8e4] text-[#271310]/70',
+            ])
+            ->all();
+
         $traceability = Traceability::create($validated);
 
         $traceability->qrCodes()->create([
@@ -141,9 +149,7 @@ class TraceabilityController extends Controller
             'is_primary' => true,
         ]);
 
-        return redirect()
-            ->route('traceability.index')
-            ->with('flash.banner', 'Traceability record created successfully.');
+        return redirect()->route('traceability.index');
     }
 
     /**

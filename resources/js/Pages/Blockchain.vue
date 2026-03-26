@@ -292,7 +292,7 @@ const ecosystemBenefits = [
                     <p class="mx-auto mb-10 max-w-2xl text-lg opacity-75">
                         Join the future of transparent, efficient, and ethical coffee trading with the world's first immutable coffee ledger.
                     </p>
-                    <Link :href="route('inventory.index')" class="inline-block rounded bg-white px-10 py-4 text-sm font-bold uppercase tracking-widest text-[#271310] transition-transform hover:scale-105">
+                    <Link :href="route('marketplace')" class="inline-block rounded bg-white px-10 py-4 text-sm font-bold uppercase tracking-widest text-[#271310] transition-transform hover:scale-105">
                         Explore the Marketplace
                     </Link>
                 </div>

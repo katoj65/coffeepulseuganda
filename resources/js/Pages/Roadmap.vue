@@ -160,7 +160,7 @@ const phases = [
                         <Link :href="route('contact')" class="bg-[#271310] px-10 py-4 text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-black">
                             Partner With Us
                         </Link>
-                        <Link :href="route('inventory.index')" class="bg-[#003508] px-10 py-4 text-sm font-bold uppercase tracking-widest text-[#a3f69c] transition-all hover:opacity-90">
+                        <Link :href="route('marketplace')" class="bg-[#003508] px-10 py-4 text-sm font-bold uppercase tracking-widest text-[#a3f69c] transition-all hover:opacity-90">
                             View Marketplace
                         </Link>
                     </div>

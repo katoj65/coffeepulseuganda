@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
                             v-model="form.item"
                             type="text"
                             placeholder="Mount Elgon AA Micro Lot"
-                            class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                            class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                         />
                         <p v-if="form.errors.item" class="text-sm font-medium text-red-700">{{ form.errors.item }}</p>
                     </div>
@@ -108,7 +108,7 @@ onBeforeUnmount(() => {
                             v-model="form.description"
                             type="text"
                             placeholder="Washed Arabica from Kapchorwa, 86.5 SCA"
-                            class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                            class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                         />
                         <p v-if="form.errors.description" class="text-sm font-medium text-red-700">{{ form.errors.description }}</p>
                     </div>
@@ -119,14 +119,14 @@ onBeforeUnmount(() => {
                                 v-model="form.amount"
                                 type="text"
                                 placeholder="24 bags / 200g kits"
-                                class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                                class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                             />
                             <p v-if="form.errors.amount" class="text-sm font-medium text-red-700">{{ form.errors.amount }}</p>
                     </div>
 
                     <div class="space-y-2">
                         <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Image</label>
-                        <div class="rounded-2xl border border-dashed border-[#827472] bg-white p-4">
+                        <div class="rounded-2xl border border-dashed border-[#b9aeac] bg-white p-4">
                             <div class="flex flex-wrap items-center justify-between gap-4">
                                 <div>
                                     <p class="text-sm font-semibold text-[#271310]">
@@ -147,7 +147,7 @@ onBeforeUnmount(() => {
                                 </label>
                             </div>
 
-                            <div v-if="imagePreviewUrl" class="mt-4 overflow-hidden rounded-2xl border border-[#827472] bg-white">
+                            <div v-if="imagePreviewUrl" class="mt-4 overflow-hidden rounded-2xl border border-[#b9aeac] bg-white">
                                 <img :src="imagePreviewUrl" alt="Selected sample preview" class="h-48 w-full object-cover" />
                             </div>
                         </div>
@@ -160,7 +160,7 @@ onBeforeUnmount(() => {
                             v-model="form.notes"
                             rows="5"
                             placeholder="Required internal notes for storage, dispatch, or buyer matching..."
-                            class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                            class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                         ></textarea>
                         <p v-if="form.errors.notes" class="text-sm font-medium text-red-700">{{ form.errors.notes }}</p>
                     </div>

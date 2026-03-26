@@ -91,7 +91,7 @@ const submit = () => {
                         <Checkbox
                             v-model:checked="form.remember"
                             name="remember"
-                            class="rounded border-[#827472] text-[#271310] shadow-none focus:ring-0"
+                            class="rounded border-[#b9aeac] text-[#271310] shadow-none focus:ring-0"
                         />
                         <span class="text-sm text-[#655d5a]">Keep me signed in on this device</span>
                     </label>

@@ -5,6 +5,7 @@ use App\Http\Controllers\BlockchainController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\SampleController;
 use App\Http\Controllers\TraceabilityController;
@@ -24,6 +25,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/blockchain', [BlockchainController::class, 'index'])->name('blockchain');
+
+Route::get('/marketplace', [MarketplaceController::class, 'index'])->name('marketplace');
 
 Route::get('/sustainability', function () {
     return Inertia::render('Sustainability', [
@@ -79,6 +82,8 @@ Route::middleware([
 
     Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
     Route::post('/inventories', [InventoryController::class, 'store'])->name('inventory.records.store');
+    Route::get('/marketplace/create', [MarketplaceController::class, 'create'])->name('marketplace.create');
+    Route::post('/marketplaces', [MarketplaceController::class, 'store'])->name('marketplace.store');
     Route::get('/samples/create', [SampleController::class, 'create'])->name('samples.create');
     Route::post('/samples', [SampleController::class, 'store'])->name('samples.records.store');
     Route::get('/traceability/records', [TraceabilityController::class, 'index'])->name('traceability.index');

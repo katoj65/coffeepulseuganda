@@ -88,7 +88,7 @@ const submitContact = () => {
             <template #nav>
                 <Link :href="route('about')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">About</Link>
                 <Link :href="route('contact')" class="text-sm font-semibold uppercase tracking-wider text-[#3e2723]">Contact</Link>
-                <Link :href="`${route('home')}#global-scale`" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</Link>
+                <Link :href="route('marketplace')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</Link>
                 <Link :href="route('sustainability')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Sustainability</Link>
             </template>
         </PublicHeader>

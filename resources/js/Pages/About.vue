@@ -13,7 +13,7 @@ import joshuaImage from '../../images/joshua.png';
 <template #nav>
 <Link :href="route('about')" class="text-sm font-semibold uppercase tracking-wider text-[#3e2723]">About</Link>
 <Link :href="route('contact')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Contact</Link>
-<Link :href="`${route('home')}#global-scale`" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</Link>
+<Link :href="route('marketplace')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</Link>
 <Link :href="route('sustainability')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Sustainability</Link>
 </template>
 </PublicHeader>
@@ -86,7 +86,7 @@ import joshuaImage from '../../images/joshua.png';
 </div>
 <h3 class="font-headline text-lg font-bold text-primary mb-4 uppercase tracking-widest">Mission</h3>
 <p class="text-secondary text-sm leading-relaxed">
-                        To empower Ugandan coffee farmers by providing a transparent and ethical global marketplace for their premium harvests.
+                        To unlock the full value of Ugandan coffee through dignified trade, verified quality, and direct farmer-to-buyer connections.
                     </p>
 </div>
 <!-- Vision -->
@@ -121,7 +121,7 @@ import joshuaImage from '../../images/joshua.png';
 <h2 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">Empowering the <span class="italic font-normal">Source</span>.</h2>
 <div class="space-y-6">
 <p class="text-secondary text-lg leading-relaxed font-light">
-                            At Coffee Pulse Uganda, we bridge the gap between tradition and technology. Our mission is to digitize the Ugandan coffee supply chain, ensuring every smallholder farmer finds a place in the global market through ethical, transparent trade.
+                            At Coffee Pulse Uganda, we bridge the gap between tradition and technology. We aim to digitize the Ugandan coffee supply chain, ensuring every smallholder farmer finds a place in the global market through ethical, transparent trade.
                         </p>
 <p class="text-secondary text-base leading-relaxed font-light italic border-l-2 border-tertiary/20 pl-6">
                             "We believe that by preserving the integrity of the bean—from soil to the digital marketplace—we can uplift entire communities and redefine the value of Ugandan coffee for the modern world."

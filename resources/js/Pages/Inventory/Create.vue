@@ -67,7 +67,7 @@ const submit = () => {
                             v-model="form.lot_name"
                             type="text"
                             placeholder="Mount Elgon Sipi Falls"
-                            class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                            class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                         />
                         <p v-if="form.errors.lot_name" class="text-sm font-medium text-red-700">{{ form.errors.lot_name }}</p>
                     </div>
@@ -78,7 +78,7 @@ const submit = () => {
                             v-model="form.origin"
                             type="text"
                             placeholder="Kapchorwa Region"
-                            class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                            class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                         />
                         <p v-if="form.errors.origin" class="text-sm font-medium text-red-700">{{ form.errors.origin }}</p>
                     </div>
@@ -90,7 +90,7 @@ const submit = () => {
                                 v-model="form.quality"
                                 type="text"
                                 placeholder="86.5 SCA"
-                                class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                                class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                             />
                             <p v-if="form.errors.quality" class="text-sm font-medium text-red-700">{{ form.errors.quality }}</p>
                         </div>
@@ -101,7 +101,7 @@ const submit = () => {
                                 v-model="form.process"
                                 type="text"
                                 placeholder="Fully Washed"
-                                class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                                class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                             />
                             <p v-if="form.errors.process" class="text-sm font-medium text-red-700">{{ form.errors.process }}</p>
                         </div>
@@ -113,7 +113,7 @@ const submit = () => {
                             v-model="form.quantity"
                             type="text"
                             placeholder="12.5 Metric Tons"
-                            class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                            class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                         />
                         <p v-if="form.errors.quantity" class="text-sm font-medium text-red-700">{{ form.errors.quantity }}</p>
                     </div>
@@ -124,7 +124,7 @@ const submit = () => {
                             v-model="form.notes"
                             rows="5"
                             placeholder="Internal notes for export readiness, cupping profile, or buyer matching..."
-                            class="w-full rounded-2xl border border-[#827472] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
+                            class="w-full rounded-2xl border border-[#b9aeac] bg-white px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:bg-white focus:ring-0"
                         ></textarea>
                         <p v-if="form.errors.notes" class="text-sm font-medium text-red-700">{{ form.errors.notes }}</p>
                     </div>

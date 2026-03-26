@@ -133,18 +133,7 @@ const blockchainLedger = [
         </template>
 
         <div class="space-y-12">
-            <section class="flex flex-wrap gap-4">
-                <Link
-                    v-for="action in quickActions"
-                    :key="action.label"
-                    :href="action.href"
-                    class="flex items-center gap-3 rounded-xl px-6 py-4 font-bold shadow-sm transition-all hover:scale-[1.02]"
-                    :class="action.primary ? 'bg-[#003508] text-[#a3f69c]' : 'bg-white text-[#271310]'"
-                >
-                    <span class="material-symbols-outlined">{{ action.icon }}</span>
-                    {{ action.label }}
-                </Link>
-            </section>
+         
 
             <section class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
                 <article
@@ -202,7 +191,7 @@ const blockchainLedger = [
                         </Link>
                     </div>
 
-                    <div class="overflow-hidden rounded-xl bg-white shadow-sm">
+                    <div class="overflow-hidden rounded-xl bg-white shadow-[0_1px_2px_rgba(39,19,16,0.05)]">
                         <table class="w-full border-collapse text-left">
                             <thead>
                                 <tr class="bg-[#f4f4f0]">

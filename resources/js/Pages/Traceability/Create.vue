@@ -1,5 +1,4 @@
 <script setup>
-import { ElNotification } from 'element-plus';
 import { useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 
@@ -26,7 +25,7 @@ const removeItem = (field, index) => {
     }
 };
 
-const newBadge = () => ({ icon: '', label: '', classes: '' });
+const newBadge = () => ({ icon: '', label: '' });
 const newImpactCard = () => ({ icon: '', title: '', value: '' });
 const newJourneyStep = () => ({ icon: '', title: '', value: '' });
 const newEstateDetail = () => ({ label: '', value: '' });
@@ -36,14 +35,6 @@ const newSensoryProfile = () => ({ icon: '', label: '', filled: 3 });
 const submit = () => {
     form.post(route('traceability.store'), {
         preserveScroll: true,
-        onSuccess: () => {
-            ElNotification({
-                title: 'Traceability created',
-                message: 'The traceability record was created successfully.',
-                type: 'success',
-                position: 'top-right',
-            });
-        },
     });
 };
 </script>
@@ -73,37 +64,37 @@ const submit = () => {
                     <div class="mt-6 grid gap-6 md:grid-cols-2">
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Batch Code</label>
-                            <input v-model="form.batch" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm uppercase tracking-[0.12em] text-[#271310] focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.batch" type="text" placeholder="UG-ARA-8842" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm uppercase tracking-[0.12em] text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('batch')" class="text-sm font-medium text-red-700">{{ getError('batch') }}</p>
                         </div>
 
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Issuer</label>
-                            <input v-model="form.issuer" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm text-[#271310] focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.issuer" type="text" placeholder="Coffee Pulse Uganda" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('issuer')" class="text-sm font-medium text-red-700">{{ getError('issuer') }}</p>
                         </div>
 
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Variety</label>
-                            <input v-model="form.variety" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm text-[#271310] focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.variety" type="text" placeholder="Bourbon, SL28" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('variety')" class="text-sm font-medium text-red-700">{{ getError('variety') }}</p>
                         </div>
 
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Origin</label>
-                            <input v-model="form.origin" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm text-[#271310] focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.origin" type="text" placeholder="Mount Elgon, Uganda" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('origin')" class="text-sm font-medium text-red-700">{{ getError('origin') }}</p>
                         </div>
 
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">SCA Score</label>
-                            <input v-model="form.score" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm text-[#271310] focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.score" type="text" placeholder="86.75" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('score')" class="text-sm font-medium text-red-700">{{ getError('score') }}</p>
                         </div>
 
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Grade</label>
-                            <input v-model="form.grade" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm text-[#271310] focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.grade" type="text" placeholder="Specialty Grade 1" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm text-[#271310] placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('grade')" class="text-sm font-medium text-red-700">{{ getError('grade') }}</p>
                         </div>
                     </div>
@@ -120,21 +111,16 @@ const submit = () => {
                                 <p class="text-sm font-bold text-[#271310]">Badge {{ index + 1 }}</p>
                                 <button type="button" class="text-xs font-bold text-[#93000a]" @click="removeItem('badges', index)">Remove</button>
                             </div>
-                            <div class="grid gap-4 md:grid-cols-3">
+                            <div class="grid gap-4 md:grid-cols-2">
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Icon</label>
-                                    <input v-model="badge.icon" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="badge.icon" type="text" placeholder="verified" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`badges.${index}.icon`)" class="text-sm font-medium text-red-700">{{ getError(`badges.${index}.icon`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Label</label>
-                                    <input v-model="badge.label" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="badge.label" type="text" placeholder="Verified lot" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`badges.${index}.label`)" class="text-sm font-medium text-red-700">{{ getError(`badges.${index}.label`) }}</p>
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">CSS Classes</label>
-                                    <input v-model="badge.classes" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
-                                    <p v-if="getError(`badges.${index}.classes`)" class="text-sm font-medium text-red-700">{{ getError(`badges.${index}.classes`) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -155,17 +141,17 @@ const submit = () => {
                             <div class="grid gap-4 md:grid-cols-3">
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Icon</label>
-                                    <input v-model="card.icon" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="card.icon" type="text" placeholder="eco" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`impact_cards.${index}.icon`)" class="text-sm font-medium text-red-700">{{ getError(`impact_cards.${index}.icon`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Title</label>
-                                    <input v-model="card.title" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="card.title" type="text" placeholder="Tree cover preserved" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`impact_cards.${index}.title`)" class="text-sm font-medium text-red-700">{{ getError(`impact_cards.${index}.title`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Value</label>
-                                    <input v-model="card.value" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="card.value" type="text" placeholder="42 hectares" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`impact_cards.${index}.value`)" class="text-sm font-medium text-red-700">{{ getError(`impact_cards.${index}.value`) }}</p>
                                 </div>
                             </div>
@@ -187,17 +173,17 @@ const submit = () => {
                             <div class="grid gap-4 md:grid-cols-3">
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Icon</label>
-                                    <input v-model="step.icon" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="step.icon" type="text" placeholder="local_shipping" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`journey_steps.${index}.icon`)" class="text-sm font-medium text-red-700">{{ getError(`journey_steps.${index}.icon`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Title</label>
-                                    <input v-model="step.title" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="step.title" type="text" placeholder="Export readiness" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`journey_steps.${index}.title`)" class="text-sm font-medium text-red-700">{{ getError(`journey_steps.${index}.title`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Value</label>
-                                    <input v-model="step.value" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="step.value" type="text" placeholder="Cleared at Kampala hub" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`journey_steps.${index}.value`)" class="text-sm font-medium text-red-700">{{ getError(`journey_steps.${index}.value`) }}</p>
                                 </div>
                             </div>
@@ -210,32 +196,32 @@ const submit = () => {
                     <div class="mt-6 grid gap-6 md:grid-cols-2">
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Eyebrow</label>
-                            <input v-model="form.estate_eyebrow" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.estate_eyebrow" type="text" placeholder="Producer profile" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('estate_eyebrow')" class="text-sm font-medium text-red-700">{{ getError('estate_eyebrow') }}</p>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Estate Title</label>
-                            <input v-model="form.estate_title" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.estate_title" type="text" placeholder="Bukalasi Women Producers Group" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('estate_title')" class="text-sm font-medium text-red-700">{{ getError('estate_title') }}</p>
                         </div>
                         <div class="space-y-2 md:col-span-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Estate Description</label>
-                            <textarea v-model="form.estate_description" rows="5" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0"></textarea>
+                            <textarea v-model="form.estate_description" rows="5" placeholder="Describe the estate, producer community, elevation, and what makes this batch distinct." class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0"></textarea>
                             <p v-if="getError('estate_description')" class="text-sm font-medium text-red-700">{{ getError('estate_description') }}</p>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Farmer Image URL</label>
-                            <input v-model="form.farmer_image" type="url" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.farmer_image" type="url" placeholder="https://example.com/farmer.jpg" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('farmer_image')" class="text-sm font-medium text-red-700">{{ getError('farmer_image') }}</p>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Farmer Name</label>
-                            <input v-model="form.farmer_name" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.farmer_name" type="text" placeholder="Sarah Namatovu" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('farmer_name')" class="text-sm font-medium text-red-700">{{ getError('farmer_name') }}</p>
                         </div>
                         <div class="space-y-2 md:col-span-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Farmer Role</label>
-                            <input v-model="form.farmer_role" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.farmer_role" type="text" placeholder="Lead farmer and coop coordinator" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('farmer_role')" class="text-sm font-medium text-red-700">{{ getError('farmer_role') }}</p>
                         </div>
                     </div>
@@ -253,12 +239,12 @@ const submit = () => {
                             <div class="grid gap-4 md:grid-cols-2">
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Label</label>
-                                    <input v-model="detail.label" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="detail.label" type="text" placeholder="Altitude" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`estate_details.${index}.label`)" class="text-sm font-medium text-red-700">{{ getError(`estate_details.${index}.label`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Value</label>
-                                    <input v-model="detail.value" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="detail.value" type="text" placeholder="1,950 masl" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`estate_details.${index}.value`)" class="text-sm font-medium text-red-700">{{ getError(`estate_details.${index}.value`) }}</p>
                                 </div>
                             </div>
@@ -271,12 +257,12 @@ const submit = () => {
                     <div class="mt-6 grid gap-6 md:grid-cols-2">
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Eyebrow</label>
-                            <input v-model="form.process_eyebrow" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.process_eyebrow" type="text" placeholder="Processing method" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('process_eyebrow')" class="text-sm font-medium text-red-700">{{ getError('process_eyebrow') }}</p>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Process Title</label>
-                            <input v-model="form.process_title" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.process_title" type="text" placeholder="Washed and sun-dried" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('process_title')" class="text-sm font-medium text-red-700">{{ getError('process_title') }}</p>
                         </div>
                     </div>
@@ -294,12 +280,12 @@ const submit = () => {
                             <div class="grid gap-4 md:grid-cols-2">
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Label</label>
-                                    <input v-model="detail.label" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="detail.label" type="text" placeholder="Fermentation" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`process_details.${index}.label`)" class="text-sm font-medium text-red-700">{{ getError(`process_details.${index}.label`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Value</label>
-                                    <input v-model="detail.value" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="detail.value" type="text" placeholder="18 hours in clean tanks" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`process_details.${index}.value`)" class="text-sm font-medium text-red-700">{{ getError(`process_details.${index}.value`) }}</p>
                                 </div>
                             </div>
@@ -319,17 +305,17 @@ const submit = () => {
                             <div class="grid gap-4 md:grid-cols-3">
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Icon</label>
-                                    <input v-model="item.icon" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="item.icon" type="text" placeholder="coffee" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`sensory_profile.${index}.icon`)" class="text-sm font-medium text-red-700">{{ getError(`sensory_profile.${index}.icon`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Label</label>
-                                    <input v-model="item.label" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model="item.label" type="text" placeholder="Acidity" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`sensory_profile.${index}.label`)" class="text-sm font-medium text-red-700">{{ getError(`sensory_profile.${index}.label`) }}</p>
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-bold uppercase tracking-widest text-[#271310]">Filled Level</label>
-                                    <input v-model.number="item.filled" type="number" min="1" max="5" class="w-full rounded-2xl border border-[#827472] px-4 py-3 text-sm focus:border-[#271310] focus:ring-0" />
+                                    <input v-model.number="item.filled" type="number" min="1" max="5" placeholder="4" class="w-full rounded-2xl border border-[#b9aeac] px-4 py-3 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                                     <p v-if="getError(`sensory_profile.${index}.filled`)" class="text-sm font-medium text-red-700">{{ getError(`sensory_profile.${index}.filled`) }}</p>
                                 </div>
                             </div>
@@ -338,7 +324,7 @@ const submit = () => {
 
                     <div class="mt-6 space-y-2">
                         <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Process Note</label>
-                        <textarea v-model="form.process_note" rows="4" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0"></textarea>
+                        <textarea v-model="form.process_note" rows="4" placeholder="Add any handling notes, drying conditions, or mill observations for this batch." class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0"></textarea>
                         <p v-if="getError('process_note')" class="text-sm font-medium text-red-700">{{ getError('process_note') }}</p>
                     </div>
                 </section>
@@ -348,12 +334,12 @@ const submit = () => {
                     <div class="mt-6 grid gap-6">
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Hash</label>
-                            <input v-model="form.blockchain_hash" type="text" class="w-full rounded-2xl border border-[#827472] px-4 py-4 font-mono text-sm focus:border-[#271310] focus:ring-0" />
+                            <input v-model="form.blockchain_hash" type="text" placeholder="0x8f2c4d91ab73..." class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 font-mono text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0" />
                             <p v-if="getError('blockchain_hash')" class="text-sm font-medium text-red-700">{{ getError('blockchain_hash') }}</p>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#271310]">Description</label>
-                            <textarea v-model="form.blockchain_description" rows="5" class="w-full rounded-2xl border border-[#827472] px-4 py-4 text-sm focus:border-[#271310] focus:ring-0"></textarea>
+                            <textarea v-model="form.blockchain_description" rows="5" placeholder="Summarize what was anchored on-chain for this batch and why it matters." class="w-full rounded-2xl border border-[#b9aeac] px-4 py-4 text-sm placeholder:text-[#655d5a]/45 focus:border-[#271310] focus:ring-0"></textarea>
                             <p v-if="getError('blockchain_description')" class="text-sm font-medium text-red-700">{{ getError('blockchain_description') }}</p>
                         </div>
                     </div>

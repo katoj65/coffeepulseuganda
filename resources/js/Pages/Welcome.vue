@@ -101,7 +101,7 @@ const submitInquiry = () => {
             <template #nav>
                 <Link :href="route('about')" class="text-sm font-semibold uppercase tracking-wider text-[#3e2723]">About</Link>
                 <Link :href="route('contact')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Contact</Link>
-                <a class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]" href="#global-scale">Marketplace</a>
+                <Link :href="route('marketplace')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Marketplace</Link>
                 <Link :href="route('sustainability')" class="nav-link text-sm font-semibold uppercase tracking-wider text-[#6b6360]">Sustainability</Link>
             </template>
         </PublicHeader>
@@ -176,7 +176,7 @@ const submitInquiry = () => {
             </div>
 
             <div class="absolute bottom-12 right-12 hidden xl:block">
-                <div class="max-w-sm rounded-sm border border-espresso/10 bg-white p-8">
+                <div class="max-w-sm rounded-sm border border-espresso/5 bg-white p-8">
                     <div class="mb-4 flex items-center gap-4">
                         <span class="material-symbols-outlined text-4xl text-sage">qr_code_scanner</span>
                         <span class="text-xs font-black uppercase tracking-widest text-espresso">Batch Verification</span>
@@ -293,7 +293,7 @@ const submitInquiry = () => {
                     <p class="text-xl text-on-surface-variant">Defined by altitude and meticulously graded to meet international specialty standards.</p>
                 </div>
 
-                <div class="overflow-hidden rounded-sm border border-espresso/10">
+                <div class="overflow-hidden rounded-sm border border-espresso/5">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="flex flex-col border-b border-espresso/10 md:border-b-0 md:border-r lg:flex-row">
                             <div class="h-80 lg:h-auto lg:w-1/2">
@@ -368,7 +368,7 @@ const submitInquiry = () => {
 
                     <div class="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
                         <div class="flex flex-col items-center bg-cream px-4 text-center">
-                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/10 bg-white transition-all hover:border-sage">
+                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/5 bg-white transition-all hover:border-sage">
                                 <span class="material-symbols-outlined text-3xl text-sage">agriculture</span>
                             </div>
                             <span class="mb-2 text-[11px] font-black uppercase tracking-widest text-espresso/40">01. Farming</span>
@@ -377,7 +377,7 @@ const submitInquiry = () => {
                         </div>
 
                         <div class="flex flex-col items-center bg-cream px-4 text-center">
-                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/10 bg-white">
+                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/5 bg-white">
                                 <span class="material-symbols-outlined text-3xl text-sage">precision_manufacturing</span>
                             </div>
                             <span class="mb-2 text-[11px] font-black uppercase tracking-widest text-espresso/40">02. Harvesting</span>
@@ -386,7 +386,7 @@ const submitInquiry = () => {
                         </div>
 
                         <div class="flex flex-col items-center bg-cream px-4 text-center">
-                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/10 bg-white">
+                            <div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-espresso/5 bg-white">
                                 <span class="material-symbols-outlined text-3xl text-sage">lab_research</span>
                             </div>
                             <span class="mb-2 text-[11px] font-black uppercase tracking-widest text-espresso/40">03. Processing</span>
@@ -485,7 +485,7 @@ const submitInquiry = () => {
                                 class="aspect-[4/3] w-full rounded-sm object-cover"
                                 :src="communityImage"
                             />
-                            <div class="absolute -bottom-8 -left-8 hidden max-w-[320px] rounded-sm border border-espresso/10 bg-cream p-10 md:block">
+                            <div class="absolute -bottom-8 -left-8 hidden max-w-[320px] rounded-sm border border-espresso/5 bg-cream p-10 md:block">
                                 <h5 class="mb-3 text-lg font-bold text-espresso">Impact Certified</h5>
                                 <p class="text-[13px] uppercase tracking-wider text-on-surface-variant">
                                     Social impact metrics tracked across all cooperatives with annual transparency reports.
@@ -561,7 +561,7 @@ const submitInquiry = () => {
                                     type="text"
                                     v-model="inquiryForm.names"
                                     placeholder="E.g. Alexander Walker"
-                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                    class="w-full rounded-sm border border-espresso/5 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                                 />
                                 <p v-if="inquiryForm.errors.names" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.names }}</p>
                             </div>
@@ -573,7 +573,7 @@ const submitInquiry = () => {
                                     type="text"
                                     v-model="inquiryForm.company"
                                     placeholder="E.g. Nordic Roasters"
-                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                    class="w-full rounded-sm border border-espresso/5 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                                 />
                                 <p v-if="inquiryForm.errors.company" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.company }}</p>
                             </div>
@@ -585,7 +585,7 @@ const submitInquiry = () => {
                                     type="email"
                                     v-model="inquiryForm.email"
                                     placeholder="E.g. sourcing@roastery.com"
-                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                    class="w-full rounded-sm border border-espresso/5 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                                 />
                                 <p v-if="inquiryForm.errors.email" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.email }}</p>
                             </div>
@@ -597,7 +597,7 @@ const submitInquiry = () => {
                                     type="tel"
                                     v-model="inquiryForm.phone"
                                     placeholder="E.g. +256 700 123456"
-                                    class="w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                    class="w-full rounded-sm border border-espresso/5 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                                 />
                                 <p v-if="inquiryForm.errors.phone" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.phone }}</p>
                             </div>
@@ -609,7 +609,7 @@ const submitInquiry = () => {
                                 id="message"
                                 v-model="inquiryForm.description"
                                 placeholder="Describe variety, volume, and destination port..."
-                                class="h-40 w-full rounded-sm border border-espresso/10 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
+                                class="h-40 w-full rounded-sm border border-espresso/5 bg-surface-container-low px-6 py-5 text-base font-medium text-espresso outline-none transition-all placeholder:text-espresso/30 focus:border-sage focus:ring-1 focus:ring-sage"
                             ></textarea>
                             <p v-if="inquiryForm.errors.description" class="text-sm font-medium text-red-700">{{ inquiryForm.errors.description }}</p>
                         </div>
